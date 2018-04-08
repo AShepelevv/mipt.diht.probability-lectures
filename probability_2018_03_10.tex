@@ -64,3 +64,18 @@
  		\end{enumerate}
  	\end{proof}
 \end{statement}
+\begin{lemma}[о свертке]
+	Пусть случайные величины $\xi$ и $\eta$ независимы c функциями распределения $F_\xi$ и $F_\eta$. Тогда
+	$$ F_{\xi + \eta} (z) = \int\limits_\R F_\xi (z - x) \, dF_\eta (x) = \int\limits_\R F_\eta(z - x) \, d F_\xi(x).$$
+	Если $\xi$ и $\eta$ имеют плотности распределения $f_\xi$ и $f_\eta$ соответственно, то $\xi + \eta$ имеет плотность распределения 
+	$$f_{\xi + \eta} (z) = \int\limits_\R f_\xi (z - x) f_\eta (x) \, dx = \int\limits_\R f_\eta (z - x) f_\xi(x) \, dx$$.
+	\begin{proof}
+		Заметим, $F_{\xi + \eta} (z) = \P ( \xi + \eta \leqslant z)$, а по теореме о замене переменных в интеграле Лебега это равно $\int\limits_{\R^2} I(x + y \leqslant z) \P_\xi(dx) \P_\eta(dy)$, полученный двойной интеграл по Фубини можно записать как повторный:
+		$$ \int\limits_\R \left( \int\limits_\R I(x + y \leqslant z) \P_\xi(dx) \right) \P_\eta(dy) = \int\limits_\R \left( \int\limits_{-\infty}^{z-y} \P_\xi(dx) \right) \P_\eta(dy) = \int\limits_\R F_\xi(z - y) \, dF_\eta(y).$$
+		Перейдем ко второму пункту доказательства:
+		\begin{multline*}
+			F_{\xi + \eta} (z) = \int\limits_{\R^2} I(x + y \leqslant z) \P_\xi(dx) \P_\eta(dy) = \int\limits_{\R^2} I(x + y \leqslant z) f_\xi(x) f_\eta(y) \, dx\,dy \overset{t = x+y}{=} \\ \overset{t = x+y}{=} \int\limits_{\R^2} I(t \leqslant z) f_\xi(x) f_\eta(t - x) \, dx\,dt = \int\limits_{-\infty}^z \left( \int\limits_\R f_\xi(x) f_\eta(t-x) \, dx \right) \, dt.
+		\end{multline*}
+		Следовательно, по определению плотности, $f_{\xi+\eta} = \int\limits_\R f_\xi(x) f_\eta(t-x) \, dx$.
+	\end{proof}
+\end{lemma}
