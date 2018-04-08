@@ -1,0 +1,86 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{fancybox}
+	\cornersize{1}
+\usepackage{tikz}
+	\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+\usepackage{cancel}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=1pt, label={\arabic*.}, leftmargin=1.3pc}
+
+\usepackage[left = 3cm, right = 3cm, top = 3cm, bottom = 4cm, a4paper]{geometry}
+\usepackage{geometry}
+
+\newtheorem*{exersize}{Упражнение}
+\newtheorem*{lemma}{Лемма}
+\newtheorem*{theorem}{Теорема}
+\newtheorem*{consequence}{Следствие}
+\newtheorem*{statement}{Утверждение}
+\newtheorem{property}{Свойство}
+\newtheorem*{fact}{Факт}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+\newtheorem*{problem}{Задача}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Замечание}
+
+\renewcommand{\qedsymbol}{{\footnotesize$\blacksquare$}}
+
+\makeatletter
+  \renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item\relax
+          {$\blacktriangle$}\hspace\labelsep\ignorespaces
+  }{%
+    \popQED\endtrivlist\@endpefalse
+  }
+  \makeatother
+
+\renewcommand{\thesection}{\arabic{section}\hskip-10pt}
+
+
+\title{Конспект лекций по курсу\\ <<Теория вероятностей>>}
+\author{Лектор: канд. физ.-мат. наук Родионов Игорь Владимирович}
+\date{Набор: Алексей Шепелев}
+
+\renewcommand{\P}{\mathsf{P}}
+\newcommand{\E}{\mathsf{E}}
+\newcommand{\D}{\mathsf{D}}
+\newcommand{\B}{\mathscr{B}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\G}{\mathcal{G}}
+\DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator{\var}{Var}
+\newcommand{\indep}{\!\perp\!\!\!\!\perp\!}
+\newcommand{\limn}{\xrightarrow[n \rightarrow + \infty]{}}
+
+
+
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\input{probability_2018_02_10.tex}
+	\input{probability_2018_02_17.tex}
+	\input{probability_2018_03_03.tex}
+	\input{probability_2018_03_10.tex}
+	\input{probability_2018_03_17.tex}
+	\input{probability_2018_03_24.tex}
+	\input{probability_2018_03_31.tex}
+	\input{probability_2018_04_07.tex}
+\end{document}

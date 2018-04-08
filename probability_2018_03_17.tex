@@ -1,0 +1,130 @@
+\section{Лекция от 17.03.2018}
+\subsection*{Дисперсия и ковариация}
+\begin{definition}
+	Дисперсией случайной величины $\xi$ называется $\D \xi = \E (\xi - \E \xi)^2 $, если $\E{\xi} < + \infty$. Очевидно, $\D{\xi} \geqslant 0$.
+\end{definition}
+\begin{definition}
+	Ковариация двух случайных величин называется $\cov (\xi, \eta) = \E \big( ( \xi - \E \xi)(\eta - \E \eta ) \big)$. Легко заметить, что $\cov (\xi, \xi ) = \D \xi$. Если $\cov ( \xi, \eta) = 0$, то случайные величины $\xi$ и $\eta$ называются некоррелированными.
+\end{definition}
+\begin{definition}
+	Величина $\rho ( \xi, \eta ) = \dfrac{\cov ( \xi, \eta )}{\sqrt{\D \xi \cdot \D \eta}}$ называется коэффициентом корреляции случайных величин $\xi$ и $\eta$ при условии, что $\D \xi$ и $\D \eta$ не равны нулю и конечны.
+\end{definition}
+\subsection*{Свойства ковариации и дисперсии}
+\setcounter{property}{0}
+\begin{property}[Билинейность ковариации]
+	$\cov( a \xi + b \zeta, \eta ) = a \cov (\xi, \eta) + b \cov (\zeta, \eta)$
+\end{property}
+\begin{property}
+	$\cov( \xi,  \eta ) = \E \xi \eta - \E \xi \cdot \E \eta ~\Rightarrow ~ \D \xi = \E \xi^2 - ( \E \xi )^2$
+	\begin{proof}
+		$\cov (\xi, \eta ) = \E (\xi - \E \xi)( \eta - \E \eta) = \E \xi \eta - \E \big( ( \E \xi ) \cdot \eta \big) - \E \big( (\E \eta ) \cdot \xi \big) + \E \xi \cdot \E \eta = \E \xi \eta - \E \xi \cdot \E \eta $
+	\end{proof}
+\end{property}
+\begin{property}
+	Пусть $c \in \R$, тогда $\D (c \xi ) = c^2 \D \xi$, $\D (\xi + c ) =  \D \xi$, $\D c = 0$.
+	\begin{proof}
+		\vspace{-2pc}
+		\begin{align*}
+			\D (c \xi ) &= \E c^2 \xi^2 - \left( \E c \xi \right)^2 = c^2 \E \xi^2 - c^2 \left( \E \xi \right)^2 = c^2 \D \xi;\\
+			\D ( c + \xi ) &= \E \big( c + \xi - \E ( c + \xi ) \big)^2 = \E \left( c + \xi - c - \E \xi  \right)^2 = \D \xi; \\
+			\D c &= \E (c - \E c )^2 = \E (c - c)^2 = 0. \qedhere
+		\end{align*} 
+	\end{proof}
+\end{property}
+\begin{property}[Неравенство Коши-Буняковского]
+	$\left| \E \xi \eta \right|^2 \leqslant \E \xi^2 \cdot \E \eta^2$
+	\begin{proof}
+		Рассмотрим для $\lambda \in \R$ функцию $f( \lambda ) = \E (\xi - \lambda \eta)^2 \geqslant 0$. Имеем $f( \lambda ) = \E \xi^2 + 2 \lambda \E \xi \eta + \lambda^2 \E \eta^2 \geqslant 0$. Для выполнения неравенства дискриминант  полученного многочлена должен быть меньше нуля: $D = 4 \E \xi \eta - 4 \E \xi^2 \eta^2 \leqslant 0$, откуда следует неравенство.
+	\end{proof}
+\end{property}
+\begin{property}
+	$| \rho (\xi , \eta ) | \leqslant 1$, причем $\rho ( \xi , \eta ) = \pm 1 ~\Leftrightarrow~ \xi = a \eta + b$ почти наверное.
+	\begin{proof}
+		Рассмотрим случайные величины $\xi_1 = \xi - \E \xi$ и $\eta_1 = \eta - \E \eta$, следовательно $\rho ( \xi , \eta ) = \dfrac{\E \xi_1 \eta_1}{\sqrt{\E \xi_1^2 \cdot \E \eta_1^2}} \leqslant 1$ по неравенству Коши-Буняковского. Пусть $| \rho (\xi, \eta)| = 1$, тогда дискриминант $D = 0$, следовательно, $\exists !\lambda_0: f(\lambda_0) = 0$,  то есть $\E ( \xi_1 + \lambda_0 \eta_1 )^2 = 0$, отсюда $(\xi_1 + \lambda_0 \eta )^2 = 0$ почти наверное, а, значит, и $\xi_1 + \lambda_0 \eta  = 0$ почти наверное. Теперь можно заключить, что $\xi = \E \xi - \lambda_0 (\eta - \E \eta )$.
+	\end{proof}
+\end{property}
+\begin{property} 
+	Если $\xi \indep \eta$, то $\cov (\xi, \eta) = 0$, обратное неверное.
+	\begin{proof}
+			$\cov( \xi, \eta) = \E \xi \eta - \E \xi \cdot \E \eta$, но так как $\xi \indep \eta$, то $\E \xi \eta = \E \xi \cdot \E \eta$, следовательно, $\cov( \xi, \eta ) = 0$.
+	\end{proof}
+\end{property}
+\begin{lemma}
+	Пусть $\xi_1, \ldots, \xi_n$~--- попарно некоррелированные случайные величины (например, независимые в совокупности), $\D x_1, \ldots, \D \xi_n < +\infty$, тогда $\D ( \xi_1, \ldots, \xi_n ) = \D \xi_1 + \ldots + \D \xi_n$.
+	\begin{proof}
+		$$\D \left( \sum_{i=1}^n \xi_i \right) = \cov \left( \sum_{i=1}^n \xi_i, \sum_{j=1}^n \xi_j \right) = \sum_{i, j = 1}^n \cov (\xi_i, \xi_j).$$
+		По условию, если $i \neq j$, то $\cov (\xi_i, \xi_j) = 0$, следовательно 
+		$$\D \left( \sum_{i=1}^n \xi_i \right) = \sum_{i=1}^n \cov (\xi_i, \xi_i) = \sum_{i=1}^n \D \xi_i.$$
+	\end{proof}
+\end{lemma}
+\subsection*{Многомерный случай}
+\begin{definition}
+	Пусть $\vec \xi  = (\xi_1, \ldots, \xi_n )$~--- случайный вектор, тогда его математическим ожиданием называется вектор из математических ожиданий его компонент, то есть $\E \vec \xi = (\E \xi_1, \ldots, \E \xi_n)$.
+\end{definition}
+\begin{definition}
+	Матрицей ковариаций случайного вектора $\vec \xi$ называется 
+	$$ \var \vec \xi = \begin{pmatrix}
+		\cov ( \xi_1, \eta_1) & \cdots & \cov (\xi_1, \eta_n)\\
+		\vdots  & \ddots & \vdots\\
+		\cov ( \xi_n, \eta_1) & \cdots & \cov (\xi_n, \eta_n)
+	\end{pmatrix} = \left\| \cov (\xi_i, \eta_j ) \right\|_{i, j = 1}^n.$$
+\end{definition}
+\begin{lemma}
+	Матрица ковариаций случайного вектора~--- симметрическая и неотрицательно определенная\footnote{Матрица $A$ неотрицательно определена, если $\forall \vec x \in \R^n: {\vec x}^T A \vec x \geqslant 0$}.
+	\begin{proof}
+		Матрица $\var \vec \xi = \left\| \cov (\xi_i, \eta_j ) \right\|_{i, j = 1}^n$~--- симметрическая, так как $r_{ij} \equiv \cov ( \xi_i, \xi_j ) = \cov (\xi_j, \xi_i) \equiv r_{ji}$. Пусть $\vec x \in \R^n$, тогда 
+		\begin{multline*}
+			{\vec x}^T \var \vec \xi \vec x = ( \vec x, \var \vec \xi \vec x ) = \sum_{i,j=1}^n \cov (\xi_i, \xi_j ) x_i x_j = \sum_{i,j=1}^n \cov (x_i \xi_i, x_j \xi_j) =\\ = \cov \left( \sum_{i=1}^n  x_i \xi_i, \sum_{j=1}^n x_j \xi_j \right) = \cov \left( \sum_{i=1}^n  x_i \xi_i, \sum_{i=1}^n x_i \xi_i \right) =\D \left( \sum_{i=1}^n x_i \xi_i \right) \geqslant 0.
+		\end{multline*}
+	\end{proof}
+\end{lemma}
+\subsection*{Неравенства}
+\begin{lemma}[Неравенство Маркова]
+	Пусть $\xi \geqslant 0$~--- случайная величина, $\E \xi < +\infty$ (существует). Тогда $\forall \varepsilon > 0: \P (\xi \geqslant \varepsilon ) \leqslant \dfrac{\E \xi}{\varepsilon}$.
+	\begin{proof}
+		$\P (\xi \geqslant \varepsilon ) = \E I(\xi \geqslant \varepsilon)$. На множестве ${ \xi \geqslant \varepsilon}$ случайная величина $\dfrac{\xi}{\varepsilon} \geqslant 1$, следовательно $\E I(\xi \geqslant \varepsilon) \leqslant \E \left( \dfrac{\xi}{\varepsilon} \cdot I (\xi \geqslant \varepsilon) \right) \leqslant \dfrac{1}{\varepsilon} \cdot  \E \xi$.
+	\end{proof}
+\end{lemma}
+\begin{lemma}[Неравенство Чебышёва]
+	Пусть $\xi$~--- случайная величина такая, что $\D \xi < + \infty$, тогда $\forall \varepsilon > 0: \P \big(|\xi - \E \xi | \geqslant \varepsilon \big) \leqslant \dfrac{\D \xi}{\varepsilon^2}$.
+	\begin{proof}
+		$\P \big(|\xi - \E \xi | \geqslant \varepsilon\big) = \P \big( | \xi - \E \xi |^2 \geqslant \varepsilon^2 \big)$. Из неравенства Маркова имеем, что $\P \big( | \xi - \E \xi |^2 \geqslant \varepsilon^2 \big) \leqslant \dfrac{\E (\xi - \E \xi )^2}{\varepsilon^2} = \dfrac{\D \xi}{\varepsilon^2}$.
+	\end{proof} 
+\end{lemma}
+\begin{lemma}[Неравенство Йенсена]
+	Пусть $g(x)$~--- борелевская выпуклая вниз (вверх) функция и $\E \xi < +\infty$. Тогда $\E g(\xi) \geqslant g(\E \xi )$ (~$\E g(\xi) \leqslant g(\E \xi )$\,).
+	\begin{proof}
+		Так как $g(x)$ выпукла вниз, то $\forall x_0 \in \R : g(x) \geqslant g(x_0) + \lambda(x_0)(x - x_0)$. Положим $x = \xi$ и $x_0 = \E \xi$, тогда $g(\xi) \geqslant g(\E \xi) + \lambda(\E \xi)(\xi - \E \xi)$, считая математическое ожидание от обоих частей неравенства, получаем $\E g(\xi) \geqslant g( \E \xi ) + 0$.
+	\end{proof}
+\end{lemma}
+\begin{definition}
+	Пусть $\xi$ и $\{\xi_i\}_{i=1}^{+\infty}$~--- случайные величины, тогда $\xi_n \overset{\P}{\rightarrow} \xi$ сходится по вероятность, если $\forall \varepsilon > 0 : \P \big(\omega : | \xi_n (\omega) - \xi ( \omega ) | > \varepsilon \big) \rightarrow 0$ при $n \rightarrow +\infty$.
+\end{definition}
+\begin{theorem}[Закон больших чисел в форме Чебышёва]
+	Пусть $\{\xi_1, \ldots, \xi_n\}_{i=1}^{+\infty}$~--- последовательность  попарно некоррелированных случайных величин таких, что $\forall n \in \N : \D \xi_n \leqslant C$. Обозначим $S_n = \sum\limits_{i=1}^n \xi_i$, тогда $\dfrac{S_n - \E S_n}{n} \overset{\P}{\rightarrow} 0$ при $n \rightarrow +\infty$.
+	\begin{proof}
+		По неравенству Чебышёва $\P \left| \dfrac{S_n - \E S_n}{n} \right| > \varepsilon \geqslant \dfrac{\D (S_n - \E S_n)}{n^2 \varepsilon^2}$, по свойству дисперсии о сдвиге это равно $\dfrac{\D S_n}{n^2 \varepsilon^2}$. Применяя лемму о дисперсии суммы, получаем $\dfrac{\sum_{i=1}^n \D \xi_i}{n^2 \varepsilon^2} \rightarrow 0$.
+	\end{proof}
+\end{theorem}
+\begin{consequence}
+	Пусть $\{ \xi_n \}_{i=1}^{+\infty}$~--- независимые случайные величины такие, что $\forall n \in \N: \D \xi_n \leqslant C \wedge \E \xi_n = a$. Тогда $\dfrac{S_n}{n} \xrightarrow{\P} a$ при $n \rightarrow + \infty$.	
+\end{consequence}
+\subsection*{Условные математические ожидания (УМО)}
+Пусть $(\Omega, \F, \P)$~--- вероятностное пространство; $\xi: \Omega \rightarrow \R$~--- случайная величина; $\F_\xi = \{ \xi^{-1}(B), B \in \B(\R) \}$~--- $\sigma$-алгебра, порожденная $\xi$. Если $\G$~--- под $\sigma$-алгебра $\sigma$-алгебры $\F$, то  $\xi$ называется $\G$-измеримой, если $\F_\xi \subset \G$.
+\begin{definition}
+	Пусть $\xi$~--- случайная случайная величина на $(\Omega, \F, \P)$, $\G$~--- под$\sigma$-алгебра $\F$. Условным математическим ожиданием случайной величины $\xi$ относительно $\G$ называется случайная величина $\E (\xi | \G$, обладающая следующими свойствами:
+	\begin{enumerate}
+		\item $\E(\xi | \G )$ является $\sigma$-измеримой случайной величиной;
+		\item $\forall A \in \G: \E ( \xi \cdot I_A) = \E \big( \E (\xi | \G )\cdot I_A \big)$ или, что тоже самое, $\int\limits_A \xi \, d \P = \int\limits_A \E (\xi | \G )\,d \P$.
+	\end{enumerate}
+	Обозначаем $\E (\xi | \eta ) \equiv \E (\xi | \F_\eta )$, если такая $\eta$ существует.
+\end{definition}
+\begin{definition}
+	Пусть $(\Omega, \F, \P)$~--- вероятностное пространство. Функция множеств $\nu: \F \rightarrow \R$~--- заряд (мера со знаком), если $\nu$~--- $\sigma$-аддитивна на $\F$, то есть $\nu \left( \bigsqcup\limits_{i=1}^{+\infty} A_i \right) = \sum\limits_{i=1}^{+\infty} \nu (A_i)$ для $\{ A_i \}_{i=1}^{+\infty} \in \F$, ряд в правой части сходится абсолютно и  $\sup\limits_{A \in \F} | \nu(A) | < + \infty$.
+\end{definition}
+\begin{definition}
+	Заряд $\nu$ называется абсолютно непрерывным относительно меры $\P$, если $\forall A \in \F: (\P (A) = 0~\Rightarrow~\nu (A) = 0)$.
+\end{definition}
+\begin{theorem}[Радона-Никодима][б/д]
+	Пусть $(\Omega, \F, \P)$~--- вероятностное пространство, $\nu$~--- заряд на $\F$, абсолютно непрерывный относительно меры $\P$. Тогда существует и единственна случайная величина $\eta$ на $(\Omega, \F, \P)$ такая, что $\E \eta < +\infty$ и $\nu(A) = \int\limits_A \eta \, d \P = \E \eta \cdot I_A$.
+\end{theorem}

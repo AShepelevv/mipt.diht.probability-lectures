@@ -1,0 +1,13 @@
+\section{Лекция от 24.03.2018}
+\begin{lemma}[о существовании УМО]
+	Пусть $\xi$~--- случайная величина с $\E | \xi| < +\infty$. Тгда $\forall \G \subset \F~\text{(под}\sigma\text{-алгебра)}: \E( \xi | \G )$ существует и единственно почти наверное.
+	\begin{proof}
+		Рассмотрим вероятностное пространство $(\Omega, \G, \P)$. Положим, что $\forall A \in \G: Q(A) = \int\limits_A \xi \, d\P  = \E(\xi \cdot I_A)$, следовательно, $Q(A)$~--- заряд на $(\Omega, \G, \P)$, абсолютно непрерывный относительно меры $\P$. Тогда по теореме Радона-Никодима существует и единственна почти наверное случайная величина $\eta$ на $(\Omega, \G, \P)$ с $\E \eta < + \infty$ такая, что $Q(A) = \int\limits_A \eta  \, d\P$. Значит, $\eta$~--- УМО. Действительно, $\eta$ $\G$-измерима и $\forall A \in \G: \int\limits_A \eta  \, d\P = \int\limits_A \xi  \, d\P$.
+	\end{proof}
+\end{lemma}
+\begin{theorem}
+	Пусть $\sigma$-алгебра $\G$ порождена разбиением $\Omega$ $\{ D_n \}_{n = 1}^{+\infty}$, причем, $\P(D_n) > 0$. Тогда, если $\E \xi < +\infty$, то $\E(\xi | \G ) = \sum\limits_{n+1}^{+\infty} \frac{\E ( \xi \cdot I (D_n) )}{\P(D_n)} \cdot I(D_n)$.
+	\begin{proof}
+		Пусть 
+	\end{proof}
+\end{theorem}
