@@ -6,8 +6,122 @@
 	\end{proof}
 \end{lemma}
 \begin{theorem}
-	Пусть $\sigma$-алгебра $\G$ порождена разбиением $\Omega$ $\{ D_n \}_{n = 1}^{+\infty}$, причем, $\P(D_n) > 0$. Тогда, если $\E \xi < +\infty$, то $\E(\xi | \G ) = \sum\limits_{n+1}^{+\infty} \frac{\E ( \xi \cdot I (D_n) )}{\P(D_n)} \cdot I(D_n)$.
+	Пусть $\sigma$-алгебра $\G$ порождена разбиением $\Omega$ $\{ D_n \}_{n = 1}^{+\infty}$, причем, $\P(D_n) > 0$. Тогда, если $\E \xi < +\infty$, то $\E(\xi | \G ) = \sum\limits_{n+1}^{+\infty} \dfrac{\E ( \xi \cdot I (D_n) )}{\P(D_n)} \cdot I(D_n)$.
 	\begin{proof}
-		Пусть 
+		Пусть $\eta$ $\G$-измерима. Покажем, что $\eta = \sum\limits_{n=1}^{+\infty} c_n I_{D_n}(\omega)$. Пусть $\eta \not=\const$ на $D_n$, тогда $\exists a \not= b: \{\omega: \eta(\omega) = a \} \cap D_n \not= \varnothing$ и $\{\omega: \eta(\omega) = b \} \cap D_n \not= \varnothing$, следовательно, $\{\omega: \eta(\omega) = a \} \cap D_n = D_n$ и $\{\omega: \eta(\omega) = b \} \cap D_n \not= D_n$, иначе $\{\omega: \eta(\omega) = a \} \not\in \G$, то есть $\eta$ не $\G$-измерима. Получили противоречие.
+		
+		Найдем $c_n: \E( \xi | \G) = \sum\limits_{n=1}^{+\infty} c_n I_{D_n}$, так как $\E(\xi | \G)$ $\G$-измерима по определению. 
+		\begin{equation*}
+			\E (\xi \cdot I_{D_n} ) = \E \big( \E( \xi | \G ) \cdot I_{D_n} \big) = \E \left( \sum\limits_{m=1}^{+\infty} c_m I_{D_m} I_{D_n} \right) = \E( c_n I_{D_n} ) = c_n \P(D_n).
+		\end{equation*}
+		Следовательно, $c_n = \dfrac{\E(\xi \cdot I_{D_n} )}{\P(D_n)}$.
 	\end{proof}
 \end{theorem}
+\subsection*{Свойства УМО}
+\setcounter{property}{0}
+\noindent {\bfseries Свойство УМО:} если $\forall A \in \F: \E(\xi \cdot I_A) = \E(\eta \cdot I_A)$, то $\xi = \eta$ gочти наверное на $(\Omega, \F, \P)$.
+\begin{property}
+	Если $\xi$ $\G$-измерима, то $\E(\xi | \G) = \xi$ почти наверное. 
+	\begin{proof}
+		$\xi$ удовлетворяет свойствам УМО: первому по условия, а второму, поскольку $\int\limits_A \xi \, d\P = \int\limits_A \xi \, d\P$. Следовательно, $\E(\xi | \G) = \xi$ почти наверное.  
+	\end{proof}
+\end{property}
+\begin{property}[формула полной вероятности]
+	 $\E \big( \E( \xi | \G) \big) = \E\xi$.
+	 \begin{proof}
+	 	Так как $\Omega \in \G$, то по интегральному свойству $\E \big( \E(\xi | \G) \big) = \E \big( \E(\xi | \G ) \cdot I_\Omega \big) = \E( \xi \cdot I_\Omega) = E\xi$.
+	 \end{proof}
+\end{property}
+\begin{property}[линейность]
+	$\E (\alpha \xi + \beta \eta | \G ) = \alpha \E( \xi | \G) + \beta \E(\eta |\G)$.
+	\begin{proof}
+		$\alpha \E(\xi | \G) + \beta \E(\eta | \G)$ $\G$-измерима. Осталось проверить интегральное свойство:
+		\begin{multline*}
+			\forall A \in G: \int\limits_A \big( \alpha \E( \xi | \G) + \beta \E( \eta | \G) \big) \, d \P = \alpha \int\limits_A \E( \xi | \G) \, d \P + \beta \int\limits_A \E( \eta | \G ) \, d \P = \\ 
+			= \alpha \int\limits_A \xi \, d \P + \beta \int\limits_A \eta \, d \P = \int\limits_A (\alpha \xi + \beta \eta ) \, d\P = \int\limits_A \E( \alpha\xi + \beta\eta) \, d \P
+		\end{multline*}
+	\end{proof}
+\end{property}
+\begin{property}
+	Пусть $\xi$ не зависит от $\G$, то есть $\F_\xi \indep \G$. Тогда $\E ( \xi | \G) = \E \xi$ почти наверное.
+	\begin{proof}
+		Пусть $\xi \indep \G$, что равносильно $\forall A \in \G: \xi \indep I_A$. $\E \xi$~--- константа, следовательно, она измерима относительно $\G$, так как $\F_{\E \xi} = \{ \Omega, \varnothing \}$. Интегральное свойство УМО: $\E ( \xi \cdot I_A) = \boxed{\E \big( \E( \xi | \G) \cdot I_A \big)} = \E \xi \cdot \P(A) = \boxed{\E(\E(\xi) \cdot I_A \big)}$, следовательно, $\E \xi = \E( \xi | \G)$.
+	\end{proof}
+\end{property}
+\begin{property}
+	Пусть $\xi \leqslant \eta$ почти наверное, тогда $\E(\xi | \G) \leqslant \E( \eta | \G)$ почти наверное.
+	\begin{proof}
+		$\xi \leqslant \eta$ почти наверное, следовательно, $\forall A \in \G  \int\limits_A \xi \, d \P \leqslant \int\limits_A \eta \, d\P$, что равносильно $\int \E (\xi | \G ) \, d\P \leqslant \int\limits_A \E( \eta | \G) \, d \P$, а из свойств математического ожидания вытекает, что $\E(\xi | \G) \leqslant \E( \eta | \G)$ почти наверное.
+	\end{proof}
+\end{property}
+\begin{property}
+	$\big|\E ( \xi | \G) \big| \leqslant \E \big( |\xi| \big| \G \big)$.
+	\begin{proof}
+		$-|\xi| \leqslant \xi \leqslant |\xi|$.
+	\end{proof}
+\end{property}
+\begin{property}[телескопическое свойство]
+	Пусть $\G_1 \subset \G_2 \subset \subset \F$, тогда
+	\begin{enumerate}
+		\item $\E \big( \E( \xi | \G_1) \big| \G_2 \big) = \E( \xi | \G_1 )$ почти наверное,
+		\item $\E \big( \E( \xi | \G_2) \big| \G_1 \big) = \E( \xi | \G_1 )$ почти наверное.
+	\end{enumerate}
+	\begin{proof}
+		(1) \quad $\E ( \xi | \G_1)$ $\G_2$-измерима, следовательно, по первому свойству $\E \big( \E( \xi | \G_1) \big| \G_2 \big) = \E( \xi | \G_1)$.
+		(2) \quad Пусть $A \in \G_1$, следовательно, $A \in \G_2$.
+		\begin{equation*}
+			\E \big( \E( \xi | G_1) \cdot I_A) = \E( \xi \cdot I_A) = \E \big( \E (\xi | \G_2) \cdot I_A \big) = \E \bigg( \E \big( \E(\xi | \G_2) \big| G_1 \big) \cdot I_A \bigg).
+		\end{equation*}
+		По свойству математического ожидания $\E (\xi | \G_1 ) = \E \big( \E(\xi | \G_2)  \big| \G_1 \big)$.
+		
+		
+	\end{proof}
+\end{property}
+\begin{property}[][б/д]
+	Пусть $\forall n > 1: | \xi_n | \leqslant \eta$, $\E \eta < +\infty$ и $\xi_n \xrightarrow{\text{п.н.}} \xi$. Тогда $ \forall \G \subset \F: \E(\xi_n | \G) \xrightarrow{\text{п.н.}} \E(\xi | \G)$.
+\end{property}
+\begin{property}
+	Пусть $\eta$ $\G$-измерима, $\E |\xi \eta | < +\infty$, $\E |\xi | < +\infty$, $\E |\eta| < +\infty$. Тогда $\E(\xi \eta | \G) = \eta \E(\xi | \G)$ почти наверное.
+	\begin{proof}
+		Пусть $\eta = I_B$, где $B \in \G$. Тогда 
+		\begin{multline*}
+			\forall A \in \G: \E \big( \E( \xi \eta | \G) \cdot I_A \big) = \E( \xi \eta \cdot I_A ) = \E( \xi I_B I_A ) =\\= 
+			\E( \xi I_{A \cap B}) = \E \big( \E( \xi | \G) \cdot I_{A \cap B} \big) = \E \big( \eta \E(\xi | \G) \cdot I_A \big). 
+		\end{multline*}
+		Следовательно, $\E(\xi\eta | \G) = \eta \E(\xi |\G)$ почти наверное по свойству математического ожидания.
+		
+		Так как доказали для индикаторов, то доказали и для любой простой функции. Теперь пусть $\eta$~--- произвольная случайная величина. Возьмем последовательно простых $\F_\eta$-измеримых случайных величин $\eta_n : | \eta_n | \leqslant |\eta |$ и $\eta_n \xrightarrow{\text{п.н.}} \eta$. По свойству 8 $\cancelto{\text{п.н.}~\E(\xi\eta | \G)}{\E( \xi \eta | \G)} = \cancelto{\eta \E(\xi | \G)}{\eta_n \E(\xi | \G)}$, то есть $\E(\xi \eta | \G) = \eta \E(\xi | \G)$ почти наверное.
+	\end{proof} 
+\end{property}
+\begin{theorem}[о наилучшем квадратичном прогнозе]
+	Пусть $\xi$~--- случайная величина, $\G$~--- под$\sigma$-алгебра $\F$. Обозначим $\mathcal{A}_\G = \{ \eta | \eta~\text{---}~\G\text{-измеримая сл.\,вел.} \}$. Тогда $\inf\limits_{\eta \in \mathcal{A}_\G} \E( \xi - \eta)^2 = \E\big( \xi - \E(\xi | \G) \big)^2$.
+	\begin{proof}
+		Пусть $\eta \in \mathcal{A}_\G$, тогда
+		\begin{multline*}
+			\E ( \xi - \eta )^2 = 
+			\E \big( \xi - \E(\xi | \G) + \E( \xi | \G) - \eta \big)^2 = \\ =
+			 \E \big( \xi - \E( \xi - \E(\xi | \G) \big)^2 + \E \big( \E(\xi | \G) - \eta \big)^2 
+			+ 2 \E \bigg( \big( \xi - \E( \xi | \G) \big) \big( \E(\xi | \G ) - \eta \big) \bigg).
+		\end{multline*}
+		Пусть $\varkappa \equiv \xi - \E( \xi | \G )$, $\psi \equiv \E(\xi | \G ) - \eta$. Рассмотрим $\E( \varkappa \psi )$, по свойству 2 это равно 
+		$ \E \big( \E ( \varkappa \psi | \G ) \big)$, 
+		а по свойству 3, это можно переписать, как 
+		$\E ( \psi \E( \varkappa | \G ) \big)$. 
+		Но $\E (\varkappa | \G) = \E \big( (\xi - \E ( \xi | \G) ) \big| \G \big) = 0$, следовательно, $\E ( \varkappa \psi) = 0$. Значит $\E ( \xi - \eta )^2 =\\=
+			 \E \big( \xi - \E( \xi - \E(\xi | \G) \big)^2 + \E \big( \E(\xi | \G) - \eta \big)^2  \geqslant \E \big( \xi - \E ( \xi | \G) \big)^2$.
+	\end{proof}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

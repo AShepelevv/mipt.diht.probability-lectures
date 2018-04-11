@@ -1,81 +1,147 @@
 \section{Лекция от 31.03.2018}
  \subsection*{Условные распределения}
  \begin{definition}
- 	Величиной $\E (\xi | \eta = y)$ называется такая борелевска функция $\varphi(y)$, что $\forall B \in \B(\R): \E(\xi \cdot I(\eta \in B) = \int\limits_B \varphi(y) \P_\eta (d y)$.
+ 	Пусть $A \in \F$, тогда по определению $\P(A | \G) = \E( I_A | \G)$, $\G \subset \F$. Если $\xi, \eta$~--- случайные величины на $(\Omega, \F, \P)$, то $\E(\xi | \eta) = \E(\xi | \F_\eta)$.
+ \end{definition}
+ \begin{definition}
+ 	Величиной $\E (\xi | \eta = y)$ называется такая борелевска функция $\varphi(y)$, 
+ 	что $\forall B \in \B(\R): \E(\xi \cdot I(\eta \in B) = 
+ 	\int\limits_B \varphi(y) \P_\eta (d y)$.
  \end{definition}
  \begin{lemma}
- 	Если $\E \xi$ существует, то $\E( \xi | \eta = y)$ существует и единственно почти наверное относительно $\P_\eta$.
+ 	Если $\E \xi$ существует, то $\E( \xi | \eta = y)$ существует и единственно почти 
+ 	наверное относительно $\P_\eta$.
  	\begin{proof}
- 		Рассмотрим $\psi(B) = \E \big( \xi \cdot I (\eta \in B) \big)$~--- заряд на $\big( \R, \B(\R), \P_\eta \big)$, потому что $\psi(B)$ $\sigma$-аддитивна по свойству интеграла Лебега и конечна, так как $\E(\xi) < +\infty$. $\psi$ абсолютно непрерывна относительно $\P_\eta$, так как если $\P_\eta(B) = 0$, то $I(\eta \in B) = 0$ почти наверное, следовательно, $\E \big( \xi \cdot I (\eta \in B) \big) = 0$, а, значит, выполнены условия теоремы Радона-Никодима, то есть существует и единственна почти наверное случайная величина $\varphi$ на $\big( \R, \B(\R), P_\eta \big)$ (борелевская функция) такая, что $\psi(B) = \int\limits_B \varphi(y) \P_\eta(dy)$.
+ 		Рассмотрим $\psi(B) = \E \big( \xi \cdot I (\eta \in B) \big)$~--- заряд на 
+ 		$\big( \R, \B(\R), \P_\eta \big)$, потому что $\psi(B)$ $\sigma$-аддитивна по
+ 		 свойству интеграла Лебега и конечна, так как $\E(\xi) < +\infty$. 
+ 		 $\psi$ абсолютно непрерывна относительно $\P_\eta$, так как если 
+ 		 $\P_\eta(B) = 0$, то $I(\eta \in B) = 0$ почти наверное, следовательно, 
+ 		 $\E \big( \xi \cdot I (\eta \in B) \big) = 0$, а, значит, выполнены условия 
+ 		 теоремы Радона-Никодима, то есть существует и единственна почти наверное 
+ 		 случайная величина $\varphi$ на $\big( \R, \B(\R), P_\eta \big)$ 
+ 		 (борелевская функция) такая, что 
+ 		 $\psi(B) = \int\limits_B \varphi(y) \P_\eta(dy)$.
  	\end{proof}
  \end{lemma}
  \begin{lemma}
- 	$\E ( \xi | \eta = y) = \varphi(y)$ тогда и только только тогда, когда $\E(\xi | \eta) = \varphi(\eta)$ почти наверное.
+ 	$\E ( \xi | \eta = y) = \varphi(y)$ тогда и только только тогда, когда 
+ 	$\E(\xi | \eta) = \varphi(\eta)$ почти наверное.
  	\begin{proof}
- 		Пусть $B \in \B(\R)$, тогда $\E \big( \E(\xi | \eta) \cdot I (\eta \in B) \big) = \E \big( \xi \cdot I(\eta \in B) \big) = \int\limits_B \varphi(y) \P_\eta(d y)$. По теореме о замене переменных в интеграле Лебега это можно переписать, как $\int\limits_{\{\eta \in B \}} \varphi(\eta) \, d \P = \E \big( \varphi(\eta) \cdot I (\eta \in B) \big)$, что равносильно условию $\E(\xi | \eta) = \varphi(\eta)$ почти наверное по Свойству. Обратно аналогично, по тем же равенствам.
+ 		Пусть $B \in \B(\R)$, тогда 
+ 		$\E \big( \E(\xi | \eta) \cdot I (\eta \in B) \big) = 
+ 		\E \big( \xi \cdot I(\eta \in B) \big) = \int\limits_B \varphi(y) \P_\eta(d y)$. 
+ 		По теореме о замене переменных в интеграле Лебега это можно переписать, как 
+ 		$\int\limits_{\{\eta \in B \}} \varphi(\eta) \, d \P = 
+ 		\E \big( \varphi(\eta) \cdot I (\eta \in B) \big)$, 
+ 		что равносильно условию $\E(\xi | \eta) = \varphi(\eta)$ 
+ 		почти наверное по Свойству. Обратно аналогично, по тем же равенствам.
  	\end{proof}
  \end{lemma}
  \begin{consequence}
- 	Пусть $\xi$~--- $\F_\eta$-измеримая случайная величина, тогда существует борелевская функция $\psi(x)$ такая, что $\xi = \psi(x)$ почти наверное. 
+ 	Пусть $\xi$~--- $\F_\eta$-измеримая случайная величина, тогда существует 
+ 	борелевская функция $\psi(x)$ такая, что $\xi = \psi(x)$ почти наверное. 
  	\begin{proof}
- 		Так как $\xi$~--- $\F_\eta$-измеримая, то по свойству 1 $\xi = \E(\xi | \eta)$ почти наверное. С другой стороны, так как существует единственная $\psi(x) : \psi(x) = \E(\xi | \eta = x)$, то $\xi = \E(\xi | \eta) = \psi(\eta)$.
+ 		Так как $\xi$~--- $\F_\eta$-измеримая, то по свойству 1 
+ 		$\xi = \E(\xi | \eta)$ почти наверное. С другой стороны, так как существует
+ 		 единственная $\psi(x) : \psi(x) = \E(\xi | \eta = x)$, то 
+ 		 $\xi = \E(\xi | \eta) = \psi(\eta)$.
  	\end{proof}	
  \end{consequence}
  \begin{definition}
- 	Условным распределением случайной величины $\xi$ при условии $\eta = y$ называется вероятностная мера $\P (\xi \in B| | \eta = y) = \E  \big( I(\xi \in B) | \eta = y)$. Является мерой на $\B(R)$.
+ 	Условным распределением случайной величины $\xi$ при условии $\eta = y$ называется
+ 	 вероятностная мера $\P (\xi \in B| | \eta = y) = \E  \big( I(\xi \in B) | \eta = y)$. 
+ 	 Является мерой на $\B(R)$.
  \end{definition}
  \begin{definition}
- 	Условной плотностью случайной величины $\xi$ относительно $\eta$ называется плотность условного распределения $\P(\xi \in B | \eta = y)$, то есть функция $f_{\xi | \eta} (x | y)$ такая, что $\P (\xi \in B | \eta = y) = \int\limits_b f_{\xi | \eta} (x | y) \, dx$.
+ 	Условной плотностью случайной величины $\xi$ относительно $\eta$ называется 
+ 	плотность условного распределения $\P(\xi \in B | \eta = y)$, то есть функция 
+ 	$f_{\xi | \eta} (x | y)$ такая, что 
+ 	$\P (\xi \in B | \eta = y) = \int\limits_b f_{\xi | \eta} (x | y) \, dx$.
  \end{definition}
  \begin{theorem}[о свойстве условной плотности]
- 	Пусть существует условная плотность случайной величины $\xi$ относительно случайной величины $\eta$ $f_{\xi|\eta} (x|y)$. Тогда  для любой борелевской функции $g(x)$ такой, что $\E \big| g(x)$ существует, выполнено $\E\big( g( \xi) | \eta = y \big) = \int\limits_\R g(x) f_{\xi|\eta} (x|y) \, dx$ относительно $\P_\eta$ почти наверное.
+ 	Пусть существует условная плотность случайной величины $\xi$ относительно случайной
+ 	 величины $\eta$ $f_{\xi|\eta} (x|y)$. Тогда  для любой борелевской функции $g(x)$
+ 	  такой, что $\E \big| g(x)$ существует, выполнено $\E\big( g( \xi) | \eta = y \big) =
+ 	   \int\limits_\R g(x) f_{\xi|\eta} (x|y) \, dx$ относительно $\P_\eta$ 
+ 	   почти наверное.
  	\begin{proof}
  		Пусть $B \in \B(\R)$, пусть также $g(x) = I_A(x), A\in\B(\R)$. Тогда 
  		\begin{multline*}
- 			\int\limits_\R g(x) \cdot f_{\xi | \eta} (x | y) \, dx = \int\limits_\R I_A(x) \cdot f_{\xi | \eta} (x | y) \, dx = \int\limits_A \cdot f_{\xi | \eta} (x | y) \, dx = \\ =\P( \xi \in A | \eta = y) = \E \big( I(\xi \in A) | \eta \in y) = \E \big( g(\xi) | \eta = y).
+ 			\int\limits_\R g(x) \cdot f_{\xi | \eta} (x | y) \, dx = 
+ 			\int\limits_\R I_A(x) \cdot f_{\xi | \eta} (x | y) \, dx = 
+ 			\int\limits_A \cdot f_{\xi | \eta} (x | y) \, dx = \\ 
+ 			=\P( \xi \in A | \eta = y) = \E \big( I(\xi \in A) | \eta \in y) = 
+ 			\E \big( g(\xi) | \eta = y) \big).
  		\end{multline*}
- 		Так как доказали для индикаторов, то доказали и для всех простых функций $g(x)$. Далее с помощью теоремы Лебега для условных математических ожиданий доказываем для всех $g(x)$. ($\E(\xi_n | \eta) \xrightarrow{\text{п.н.}} \E( \xi | \eta)$, где $\xi_n \xrightarrow{\text{п.н.}}{\rightarrow} \xi$, $\xi_n$~--- простые)
+ 		Так как доказали для индикаторов, то доказали и для всех простых функций $g(x)$. 
+ 		Далее с помощью теоремы Лебега для условных математических ожиданий доказываем 
+ 		для всех $g(x)$. ($\E(\xi_n | \eta) \xrightarrow{\text{п.н.}} \E( \xi | \eta)$, 
+ 		где $\xi_n \xrightarrow{\text{п.н.}}{\rightarrow} \xi$, $\xi_n$~--- простые)
  	\end{proof}
  \end{theorem}
  \begin{theorem}[о виде условной плотности]
- 	Пусть $\xi$ и $\eta$~--- случайные величины такие, что существует их совместная плотность $f_{(\xi, \eta)} (x, y)$. Пусть $f_\eta (y)$~--- плотность случайной величины $\eta$, тогда функция $$\varphi(x, y) = \dfrac{f_{(\xi, \eta)} (x, y)}{f_\eta (y)} \cdot I \big(f_\eta(y) > 0 \big)$$ есть условная плотность $f_{\xi |\eta} (x | y)$.
+ 	Пусть $\xi$ и $\eta$~--- случайные величины такие, что существует их совместная 
+ 	плотность $f_{(\xi, \eta)} (x, y)$. Пусть $f_\eta (y)$~--- плотность случайной 
+ 	величины $\eta$, тогда функция 
+ 	$$\varphi(x, y) = 
+ 	\dfrac{f_{(\xi, \eta)} (x, y)}{f_\eta (y)} \cdot I \big(f_\eta(y) > 0 \big)$$ 
+ 	есть условная плотность $f_{\xi |\eta} (x | y)$.
  	\begin{proof}
  		Для любых $A \in \B(\R), B \in \B(\R)$ выполнено
  		\begin{multline*}
- 			\P(\xi \in B, \eta \in A) = \int\limits_{B \rtimes A} f_{(\xi, \eta)} (x, y) \, dx \, dy = \int\limits_A \left( \int\limits_B \dfrac{f_{(\xi, \eta)} (x, y)}{f_\eta(y)} \, dx \right) f_\eta(y) \, dy,
+ 			\P(\xi \in B, \eta \in A) = 
+ 			\int\limits_{B \rtimes A} f_{(\xi, \eta)} (x, y) \, dx \, dy = 
+ 			\int\limits_A \left( \int\limits_B \dfrac{f_{(\xi, \eta)} 
+ 			(x, y)}{f_\eta(y)} \, dx \right) f_\eta(y) \, dy,
  		\end{multline*}
  		с другой стороны
  		\begin{equation*}
- 			\P( \xi \in B, \eta \in A) = \E \big( I (\xi \in B, \eta \in A) \big) = \int\limits_{\{\eta \in A \}} I(\xi \in B) \, d\P.
+ 			\P( \xi \in B, \eta \in A) = \E \big( I (\xi \in B, \eta \in A) \big) = 
+ 			\int\limits_{\{\eta \in A \}} I(\xi \in B) \, d\P.
  		\end{equation*}
  		Далее по интегральному свойству получаем, что
  		\begin{equation*}
- 			\P( \xi \in B, \eta \in A) = \int\limits_{\{\eta \in A \}} \E  \big( I(\xi \in B) | \eta \big) \, d\P,
+ 			\P( \xi \in B, \eta \in A) = 
+ 			\int\limits_{\{\eta \in A \}} \E  \big( I(\xi \in B) | \eta \big) \, d\P,
  		\end{equation*}
  		заменяя переменные, окончательно имеем следующее:
  		\begin{multline*}
- 			\P( \xi \in B, \eta \in A) = \int\limits_A \E \big( I (\xi \in B | \eta = y) \P_\eta(d y) =\\= \int\limits_A \P(\xi \in B | \eta = y) \P_\eta \, dy = \int\limits_A \P( \xi \in B | \eta = y) f_\eta (y) \, dy.
+ 			\P( \xi \in B, \eta \in A) = 
+ 			\int\limits_A \E \big( I (\xi \in B | \eta = y) \P_\eta(d y) =\\ 
+ 			= \int\limits_A \P(\xi \in B | \eta = y) \P_\eta \, dy = 
+ 			\int\limits_A \P( \xi \in B | \eta = y) f_\eta (y) \, dy.
  		\end{multline*}
  	\end{proof}
  \end{theorem}
  \subsection*{Алгоритм подсчета УМО}
  \begin{enumerate}
- 	\item {Найти совместную плотность $f_{(\xi, \eta)} (x, y)$, затем $f_\eta (y) = \int\limits_\R f_{(\xi, \eta)} (x, y) \, dx$, тогда условная плотность $f_{ \xi | \eta } (x | y) = \dfrac{f_{(\xi, \eta)} (x, y)}{f_\eta (y)}$.}
- 	\item {Вычислить $\varphi(y) = \E \big( g(\xi) | \eta = y \big) = \int\limits_\R g(x) f_{ \xi | \eta } (x | y) \, dx $.}
+ 	\item {Найти совместную плотность $f_{(\xi, \eta)} (x, y)$, затем 
+ 		$f_\eta (y) = \int\limits_\R f_{(\xi, \eta)} (x, y) \, dx$, тогда условная
+ 	 	плотность $f_{ \xi | \eta } (x | y) = \dfrac{f_{(\xi, \eta)} (x, y)}{f_\eta (y)}$.}
+ 	\item {Вычислить $\varphi(y) = \E \big( g(\xi) | \eta = y \big) = 
+ 		\int\limits_\R g(x) f_{ \xi | \eta } (x | y) \, dx $.}
  	\item {Тогда $\E  \big( g(x) | \eta) = \varphi(\eta)$.}
  \end{enumerate}
  \subsection*{Виды сходимости случайных величин}
  \begin{definition}
  	Последовательность $\{\xi_n \}_{n \geqslant 1}$ сходится к случайной величине $\xi$
  	\begin{enumerate}
- 		\item {по вероятности ($\xi_n \xrightarrow{\P} \xi$), если $\forall \varepsilon > 0: \P(\omega:|\xi_n(\omega) - \xi(\omega)| \geqslant \varepsilon \limn 0$,}
- 		\item {почти наверное ($\xi_n \xrightarrow{\text{п.н.}}$), если $\P(\omega: \xi_n \rightarrow \xi) = 1$,}
+ 		\item {по вероятности ($\xi_n \xrightarrow{\P} \xi$), если 
+ 			$\forall \varepsilon > 0: \P(\omega:|\xi_n(\omega) - \xi(\omega)| 
+ 			\geqslant \varepsilon \limn 0$,}
+ 		\item {почти наверное ($\xi_n \xrightarrow{\text{п.н.}}$), если 
+ 			$\P(\omega: \xi_n \rightarrow \xi) = 1$,}
  		\item {в $L_p$ ($\xi_n \xrightarrow{L_p}$), если $\E |\xi_n |^p < + \infty$, $\E |\xi|^p < +\infty$ и $\E | \xi_n - \xi |^p \limn 0$ ($p > 0$),}
- 		\item {по распределению ($\xi_n \xrightarrow{d} \xi$), если для любого ограниченной функции $f(x)$ выполнено $\E f (\xi_n) \limn \E f(\xi)$.}
+ 		\item {по распределению ($\xi_n \xrightarrow{d} \xi$), если для любого
+ 			 ограниченной функции $f(x)$ выполнено $\E f (\xi_n) \limn \E f(\xi)$.}
  	\end{enumerate}
  \end{definition}
  \begin{theorem}[Александрова][б/д]
- 	$\xi_n \xrightarrow{d} \xi$ тогда только тогда, когда $F_{\xi_n}(x) \xrightarrow{\text{в основном}} F_\xi (x)$, то есть $F_{\xi_n}(x) \rightarrow F_\xi(x)$ во всех точках непрерывности функции распределения $F_\xi(x)$. 
+ 	$\xi_n \xrightarrow{d} \xi$ тогда только тогда, когда 
+ 	$F_{\xi_n}(x) \xrightarrow{\text{в основном}} F_\xi (x)$, то есть 
+ 	$F_{\xi_n}(x) \rightarrow F_\xi(x)$ во всех точках непрерывности 
+ 	функции распределения $F_\xi(x)$. 
  \end{theorem}
  \begin{lemma}[критерий сходимости почти наверное]
  	$\xi_n \xrightarrow{\text{п.н.}} \xi$ тогда и только тогда, когда $\forall \varepsilon > 0: \P \big(\omega: \sup\limits_{k \geqslant n} | \xi_k(\omega) - \xi(\omega) | \geqslant \varepsilon \big) \limn 0$.
@@ -121,7 +187,7 @@
 		\end{align*}
 		Оценим 
 		$$\big| \E f(\xi_n) - \E f(\xi) \big| \leqslant \E \big| f(\xi_n) - f(\xi) \big| = \E \big[ | f(\xi) - f(\xi_n)| \cdot ( I_{A_1} + I_{A_2} + I_{A_3} ) \big] \boxed{\leqslant}.$$ 
-		Пусть $\omega \in A_1$, тогда $\big| f(\xi_n) - f(\xi) \big| \leqslant \dfrac{\varepsilon}{2}$, следовательно, $\E \big[ |f(\xi_n) - f(\xi) | \cdot I_{A_1} \big] \leqslant \dfrac{\varepsilon}{2} \cdot \E I_{A_1} = \dfrac{\varepsilon}{2} \cdot \P(A_1) \leqslant \dfrac{\varepsilon}{2}$. Если же $\omega \in A_2, A_3$, то   $|f(\xi_n) - f(\xi)| \leqslant 2C$ 
+		Пусть $\omega \in A_1$, тогда $\big| f(\xi_n) - f(\xi) \big| \leqslant \dfrac{\varepsilon}{2}$, следовательно, $\E \big[ |f(\xi_n) - f(\xi) | \cdot I_{A_1} \big] \leqslant \dfrac{\varepsilon}{2} \cdot \E I_{A_1} = \dfrac{\varepsilon}{2} \cdot \P(A_1) \leqslant \dfrac{\varepsilon}{2}$. Если же $\omega \in A_2, A_3$, то   $|f(\xi_n) - f(\xi)| \leqslant 2C$.
 		
 		Значит, $\boxed{\leqslant} \dfrac{\varepsilon}{2} + 2C \cdot \P(A_2) + 2C \cdot \P(A_3) \leqslant \dfrac{\varepsilon}{2} + 2C \cdot \P \big( |\xi| > N \big) + \cancelto{0,~ \text{т.\,к.}~\xi_n \xrightarrow{\P} \xi}{2C \cdot \P \big( |\xi_n - \xi| > \delta \big)} \leqslant~C_1 \varepsilon$. Следовательно, $\E f(\xi_n) \rightarrow \E f(\xi)$, то есть $\xi_n \xrightarrow{d} \xi$. 
 	\end{proof}
