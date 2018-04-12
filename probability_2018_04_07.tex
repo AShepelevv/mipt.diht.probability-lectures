@@ -1,1 +1,28 @@
 \section{Лекция от 07.04.2018}
+\subsection*{Контрпримеры}
+\begin{example}[п.н. $\not\Rightarrow L_p$, а значит, $\P \not\Rightarrow \L_p$ и $d \not\Rightarrow L_p$]
+	Рассмотрим $\Omega = [0, 1]$, $\F = \B\big([0,1] \big)$, $\P = \lambda$. Пусть $\xi_n = e^n \cdot I_{\left[0, \frac{1}{n} \right]}$, $\xi = 0$, тогда $\xi_n \xrightarrow{\text{п.н.}} \xi$, но $\E | \xi_n - \xi |^p = e^{np} \cdot \dfrac{1}{n} \rightarrow + \infty$.
+\end{example}
+\begin{example}[$L_p \not\Rightarrow~\text{п.н.}$, $\P \not\Rightarrow~\text{п.н.}$, $d \not\Rightarrow~\text{п.н.}$]
+	Рассмотрим $\Omega = [0, 1]$, $\F = \B\big([0,1] \big)$, $\P = \lambda$. Возьмем $\xi_{2^n + i} = I \left( \omega \in \left[ \dfrac{i}{2^n}, \dfrac{i + 1}{2^n} \right) \right), ~~i = 0,\ldots, 2^n - 1;~~n \in \Z_+$. Тогда $\xi_k \xrightarrow{L_p} 0$ при $k \rightarrow + \infty$, так как $\E | \xi_k |^p = \dfrac{1}{2^n}$, где $n = \left[ \log_2 k \right]$. Но для любой точки из $[0,1]$ существует бесконечно много $\xi_i$ таких, что $\xi_i(\omega) = 1$ и $\xi_i(\omega) = 0$, следовательно, $\forall \omega: \xi_i(\omega) \xrightarrow[i \rightarrow + \infty ]{} 0$.
+\end{example}
+\begin{example}[$ d \not\Rightarrow \P$] 
+	Пусть $\Omega = \{ \omega_1, \omega_2 \}$, $\P(\omega_i) = \dfrac{1}{2}$, $\forall n \in \Z_+: \xi_n(\omega_1) = 1, \xi_n(\omega_2) = 0$. Тогда $\xi_n \sim \text{Bern} \left( \dfrac{1}{2} \right)$. $\xi(\omega_1) = 1, \xi(\omega_2) = 0$, значит, $\xi \sim \text{Bern} \left( \dfrac{1}{2} \right)$, следовательно, по теореме Александрова $\xi_n \xrightarrow{d} \xi$, но $\P \big( | \xi_n - \xi| > 0.5 \big) = 1$, значит, $\xi_n \not\xrightarrow{\P} \xi$. 
+\end{example}
+\begin{definition}
+	Последовательность чисел $\{ x_n \}$ называется фундаментальной, если $|x_n - x_m| \rightarrow 0$ при $n, m \rightarrow +\infty$.
+\end{definition}
+\begin{theorem}[критерий Коши сходимости числовой последовательности][б/д]
+	Последовательность чисел $\{ x_n \}$ сходится тогда и только тогда, когда $\{ x_n \}$ фундаментальна.
+\end{theorem}
+\begin{theorem}[критерий Коши сходимость почти наверное]
+	Последовательно случайных величин $\{ \xi_n \}$ сходится почти наверное тогда и только тогда, когда $\{ \xi_n \}$ фундаментальна почти наверное, то есть $\P  \big( \omega : | \xi_n(\omega) - \xi(\omega) | \rightarrow 0 \big) = 1$ при $n, m \rightarrow + \infty$.
+	\begin{proof}
+		($\Rightarrow$)\quad Пусть $\xi_n \xrightarrow{\text{п.н.}} \xi$, тогда, если $\omega \in \big\{ \omega: \xi_n(\omega) - \xi(\omega) \big\}$, то $\omega \in \big\{ \omega: \{\xi_n\}~\text{--- фундаментальная} \big\}$, следовательно, $\P \big( \omega: \{ \xi_n(\omega)\}~\text{--- фундаментальная} \big) \geqslant \P \big( \omega: \xi_n(\omega) \rightarrow \xi(\omega) \big) = 1$.\\
+		
+		($\Leftarrow$) \quad Обозначим $A = \{ \omega: \{\xi_n\}~\text{--- фундаментальная} \big\}$. Построим такую случайную величину $\xi$, что $\xi_n \xrightarrow{\text{п.н.}} \xi$. По критерию Коши для любого $\omega \in A$ у последовательности $\big\{ \xi_n(\omega) \big\}$ существует предел $\xi(\omega)$. Положим по определению $\xi(\omega) = \lim\limits_{n \rightarrow + \infty} \xi_n(\omega) \cdot I_A(\omega)$. Тогда $\xi_n \cdot I_A \rightarrow \xi$, то есть $\xi$~--- случайная величина, как предел случайных величин, и $\P \big( \omega: \xi_n (\omega) \rightarrow \xi(\omega) \rightarrow \xi(\omega) \big) = \P(A)=1$.
+	\end{proof}
+\end{theorem}
+\begin{lemma}[критерий фундаментальности почти наверное][б/д]
+	Последовательность случайных величин $\{ \xi_n \}$ фундаментальна почти наверное тогда и только тогда, когда $\forall \varepsilon > 0: \P\big(\omega: \sup\limits_{k \geqslant n} | \xi_k(\omega) - \xi_n(\omega) | > \varepsilon \big) \limn 0$.
+\end{lemma}
