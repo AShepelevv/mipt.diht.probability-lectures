@@ -61,7 +61,7 @@
 	\end{proof}
 \end{property}
 \begin{property}[телескопическое свойство]
-	Пусть $\G_1 \subset \G_2 \subset \subset \F$, тогда
+	Пусть $\G_1 \subset \G_2 \subset \F$, тогда
 	\begin{enumerate}
 		\item $\E \big( \E( \xi | \G_1) \big| \G_2 \big) = \E( \xi | \G_1 )$ почти наверное,
 		\item $\E \big( \E( \xi | \G_2) \big| \G_1 \big) = \E( \xi | \G_1 )$ почти наверное.
@@ -70,7 +70,7 @@
 		(1) \quad $\E ( \xi | \G_1)$ $\G_2$-измерима, следовательно, по первому свойству $\E \big( \E( \xi | \G_1) \big| \G_2 \big) = \E( \xi | \G_1)$.
 		(2) \quad Пусть $A \in \G_1$, следовательно, $A \in \G_2$.
 		\begin{equation*}
-			\E \big( \E( \xi | G_1) \cdot I_A) = \E( \xi \cdot I_A) = \E \big( \E (\xi | \G_2) \cdot I_A \big) = \E \bigg( \E \big( \E(\xi | \G_2) \big| G_1 \big) \cdot I_A \bigg).
+			\E \big( \E( \xi | G_1) \cdot I_A) = \E( \xi \cdot I_A) = \E \big( \E (\xi | \G_2) \cdot I_A \big) = \E \Big( \E \big( \E(\xi | \G_2) \big| G_1 \big) \cdot I_A \Big).
 		\end{equation*}
 		По свойству математического ожидания $\E (\xi | \G_1 ) = \E \big( \E(\xi | \G_2)  \big| \G_1 \big)$.
 		
@@ -101,7 +101,7 @@
 			\E ( \xi - \eta )^2 = 
 			\E \big( \xi - \E(\xi | \G) + \E( \xi | \G) - \eta \big)^2 = \\ =
 			 \E \big( \xi - \E( \xi - \E(\xi | \G) \big)^2 + \E \big( \E(\xi | \G) - \eta \big)^2 
-			+ 2 \E \bigg( \big( \xi - \E( \xi | \G) \big) \big( \E(\xi | \G ) - \eta \big) \bigg).
+			+ 2 \E \Big( \big( \xi - \E( \xi | \G) \big) \big( \E(\xi | \G ) - \eta \big) \Big).
 		\end{multline*}
 		Пусть $\varkappa \equiv \xi - \E( \xi | \G )$, $\psi \equiv \E(\xi | \G ) - \eta$. Рассмотрим $\E( \varkappa \psi )$, по свойству 2 это равно 
 		$ \E \big( \E ( \varkappa \psi | \G ) \big)$, 

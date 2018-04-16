@@ -123,7 +123,7 @@
 	Пусть $(\Omega, \F, \P)$~--- вероятностное пространство. Функция множеств $\nu: \F \rightarrow \R$~--- заряд (мера со знаком), если $\nu$~--- $\sigma$-аддитивна на $\F$, то есть $\nu \left( \bigsqcup\limits_{i=1}^{+\infty} A_i \right) = \sum\limits_{i=1}^{+\infty} \nu (A_i)$ для $\{ A_i \}_{i=1}^{+\infty} \in \F$, ряд в правой части сходится абсолютно и  $\sup\limits_{A \in \F} | \nu(A) | < + \infty$.
 \end{definition}
 \begin{definition}
-	Заряд $\nu$ называется абсолютно непрерывным относительно меры $\P$, если $\forall A \in \F: (\P (A) = 0~\Rightarrow~\nu (A) = 0)$.
+	Заряд $\nu$ называется абсолютно непрерывным относительно меры $\P$, если $\forall A \in \F: \big(\P (A) = 0~\Rightarrow~\nu (A) = 0\big)$.
 \end{definition}
 \begin{theorem}[Радона-Никодима][б/д]
 	Пусть $(\Omega, \F, \P)$~--- вероятностное пространство, $\nu$~--- заряд на $\F$, абсолютно непрерывный относительно меры $\P$. Тогда существует и единственна случайная величина $\eta$ на $(\Omega, \F, \P)$ такая, что $\E \eta < +\infty$ и $\nu(A) = \int\limits_A \eta \, d \P = \E \eta \cdot I_A$.

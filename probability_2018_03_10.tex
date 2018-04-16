@@ -8,7 +8,7 @@
 \begin{property}
 	Пусть $\xi \geqslant 0$ и $\E \xi \geqslant 0$, тогда $\xi = 0$ почти наверное.
 	\begin{proof}
-		Рассмотрим события $A = \{ \xi > 0 \}$ и $A_n = \{ \xi > \dfrac{1}{n} \} $, следовательно, $A_n \uparrow A$. Имеем $\P (A_n) = \E I_{A_n}$, так как $n\xi > 1$ на $A_n$, то  $\E I_{A_n} \leqslant \E (n\xi \cdot I_A) \leqslant n \E \xi = 0$, значит, $\P(A) = \lim\limits_{n \rightarrow +\infty} \P (A_n)$.
+		Рассмотрим события $A = \{ \xi > 0 \}$ и $A_n = \left\{ \xi > \frac{1}{n} \right\} $, следовательно, $A_n \uparrow A$. Имеем $\P (A_n) = \E I_{A_n}$, так как $n\xi > 1$ на $A_n$, то  $\E I_{A_n} \leqslant \E (n\xi \cdot I_A) \leqslant n \E \xi = 0$, значит, $\P(A) = \lim\limits_{n \rightarrow +\infty} \P (A_n)$.
 	\end{proof}
 \end{property}
 \begin{property}
@@ -52,7 +52,9 @@
 	\end{enumerate}
 \end{definition}
 \begin{theorem}[Фубини][б/д]
-	Пусть $(\Omega, \F, \P)$~--- прямое произведение вероятносных пространств $(\Omega_1, \F_1, \P_1)$ и $(\Omega_2, \F_2, \P_2)$. Пусть $\xi : \Omega \rightarrow \R$ такая, что $\int\limits_\Omega \big| \xi (\omega_1, \omega_2) \big| \, d \P < + \infty$. Тогда интегралы $\int\limits_{\Omega_1} \xi (\omega_1, \omega_2) \P_1 (d \omega_1)$ и $\int\limits_{\Omega_2} \xi(\omega_1, \omega_2) \P_2 (d \omega_2)$ определены почти наверное относительно $\P_2$ и $\P_1$ соответственно, являются измеримыми случайными величинами относительно $\F_2$ и $\F_1$ соответственно  и $\int\limits_\Omega \xi (\omega_1, \omega_2) \, d \P = \int\limits_{\Omega_2} \int\limits_{\Omega_1} \xi (\omega_1, \omega_2) \P_1 (d \omega_1) \P_2 (d \omega_2) + \int\limits_{\Omega_1} \int\limits_{\Omega_2} \xi(\omega_1, \omega_2) \P_2 (d \omega_2) \P_1 (d \omega_1)$. Из всего этого следует, что двойной интеграл равен повторному.
+	Пусть $(\Omega, \F, \P)$~--- прямое произведение вероятносных пространств $(\Omega_1, \F_1, \P_1)$ и $(\Omega_2, \F_2, \P_2)$. Пусть $\xi : \Omega \rightarrow \R$ такая, что $\int\limits_\Omega \big| \xi (\omega_1, \omega_2) \big| \, d \P < + \infty$. Тогда интегралы $\int\limits_{\Omega_1} \xi (\omega_1, \omega_2) \P_1 (d \omega_1)$ и $\int\limits_{\Omega_2} \xi(\omega_1, \omega_2) \P_2 (d \omega_2)$ определены почти наверное относительно $\P_2$ и $\P_1$ соответственно, являются измеримыми случайными величинами относительно $\F_2$ и $\F_1$, следовательно, 
+	$$\int\limits_\Omega \xi (\omega_1, \omega_2) \, d \P = \int\limits_{\Omega_2} \int\limits_{\Omega_1} \xi (\omega_1, \omega_2) \P_1 (d \omega_1) \P_2 (d \omega_2) + \int\limits_{\Omega_1} \int\limits_{\Omega_2} \xi(\omega_1, \omega_2) \P_2 (d \omega_2) \P_1 (d \omega_1).$$
+	 Из всего этого следует, что двойной интеграл равен повторному.
 \end{theorem}
 \begin{statement}
  	Пусть $\xi \indep \eta$~--- случайные величины, тогда $(\R^2, \B(\R^2), \P_{(\xi, \eta)}) = (\R, \B(\R), \P_\xi) \otimes (\R, \B(\R), \P_\eta)$.

@@ -7,7 +7,7 @@
 	Рассмотрим $\Omega = [0, 1]$, $\F = \B\big([0,1] \big)$, $\P = \lambda$. Возьмем $\xi_{2^n + i} = I \left( \omega \in \left[ \dfrac{i}{2^n}, \dfrac{i + 1}{2^n} \right) \right), ~~i = 0,\ldots, 2^n - 1;~~n \in \Z_+$. Тогда $\xi_k \xrightarrow{L_p} 0$ при $k \rightarrow + \infty$, так как $\E | \xi_k |^p = \dfrac{1}{2^n}$, где $n = \left[ \log_2 k \right]$. Но для любой точки из $[0,1]$ существует бесконечно много $\xi_i$ таких, что $\xi_i(\omega) = 1$ и $\xi_i(\omega) = 0$, следовательно, $\forall \omega: \xi_i(\omega) \xrightarrow[i \rightarrow + \infty ]{} 0$.
 \end{example}
 \begin{example}[$ d \not\Rightarrow \P$] 
-	Пусть $\Omega = \{ \omega_1, \omega_2 \}$, $\P(\omega_i) = \dfrac{1}{2}$, $\forall n \in \Z_+: \xi_n(\omega_1) = 1, \xi_n(\omega_2) = 0$. Тогда $\xi_n \sim \text{Bern} \left( \dfrac{1}{2} \right)$. $\xi(\omega_1) = 1, \xi(\omega_2) = 0$, значит, $\xi \sim \text{Bern} \left( \dfrac{1}{2} \right)$, следовательно, по теореме Александрова $\xi_n \xrightarrow{d} \xi$, но $\P \big( | \xi_n - \xi| > 0.5 \big) = 1$, значит, $\xi_n \not\xrightarrow{\P} \xi$. 
+	Пусть $\Omega = \{ \omega_1, \omega_2 \}$, $\P(\omega_i) = \dfrac{1}{2}$, $\forall n \in \Z_+: \xi_n(\omega_1) = 1, \xi_n(\omega_2) = 0$. Тогда $\xi_n \sim \text{Bern} \left( \frac{1}{2} \right)$. $\xi(\omega_1) = 1, \xi(\omega_2) = 0$, значит, $\xi \sim \text{Bern} \left( \frac{1}{2} \right)$, следовательно, по теореме Александрова $\xi_n \xrightarrow{d} \xi$, но $\P \big( | \xi_n - \xi| > 0.5 \big) = 1$, значит, $\xi_n \not\xrightarrow{\P} \xi$. 
 \end{example}
 \begin{definition}
 	Последовательность чисел $\{ x_n \}$ называется фундаментальной, если $|x_n - x_m| \rightarrow 0$ при $n, m \rightarrow +\infty$.
