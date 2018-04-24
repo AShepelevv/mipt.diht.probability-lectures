@@ -26,3 +26,71 @@
 \begin{lemma}[критерий фундаментальности почти наверное][б/д]
 	Последовательность случайных величин $\{ \xi_n \}$ фундаментальна почти наверное тогда и только тогда, когда $\forall \varepsilon > 0: \P\big(\omega: \sup\limits_{k \geqslant n} | \xi_k(\omega) - \xi_n(\omega) | > \varepsilon \big) \limn 0$.
 \end{lemma}
+\begin{definition}
+	Пусть $ \{A_n \}_{n \in \N}$~--- последовательность событий, тогда событием $\{ A_n~\text{бесконечно часто (б.ч.)} \}$ называется событие $\{ \omega: \forall n \exists k \geqslant n: \omega \in A_k \}$, то есть все такие $\omega$, что $\omega$ принадлежит бесконечному числу элементов из $\{ A_n \}_{n \in \N}$. $\{ A_n~\text{б.ч.} \} = \bigcap\limits_{n=1}^{\infty} \bigcup\limits_{k \geqslant n}^{\infty} A_k$.
+\end{definition}
+\begin{lemma}[Бореля-Кантелли]
+
+	\begin{enumerate}
+		\item {Если $\sum\limits_{k = 1}^{\infty} \P(A_k) < +\infty$, то $\P ( A_n~\text{б.ч.}) = 0$.}
+		\item {Если $\sum\limits_{k = 1}^{\infty} \P(A_k) = +\infty$ и $\{A_k\}$ независимы в совокупности, то $\P ( A_n~\text{б.ч.}) = 1$.}
+	\end{enumerate}
+	\begin{proof}
+		$\P(A_n~\text{б.ч.}) = \P\left(\bigcap\limits_{n=1}^{\infty} \bigcup\limits_{k \geqslant n}^{\infty} A_k \right) \boxed{=}$. Известно, что $\bigcup\limits_{k \geqslant n} A_n \downarrow \{ A_n~\text{б.ч.}\}$, следовательно, по непрерывности вероятностной меры имеем $\boxed{=} \lim\limits_{n \rightarrow \infty} \P\left( \bigcup\limits_{k \geqslant n} A_k \right) \leqslant \lim\limits_{n \rightarrow \infty} \sum\limits_{k \geqslant n} \P(A_k) = 0$.
+		
+		Заметим, что $\P ( A_n ~\text{б.ч.}) = 
+		\lim\limits_{ n \rightarrow \infty} \P \left( \bigcup\limits_{k \geqslant n} A_k \right) =  
+		\lim\limits_{ n \rightarrow \infty} \left( 1 - \P \left( \bigcup\limits_{k \geqslant n} \overline{A_k} \right) \right)$, но
+		\begin{multline*}
+			\P \left( \bigcup\limits_{k \geqslant n} \overline{A} \right) = 
+		\lim\limits_{N \rightarrow \infty} \P \left( \bigcap\limits_{k = n}^{N} \overline{A_k} \right) = 
+		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \P \left( \overline{A_k} \right) = 
+		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \left[ 1 - \P (A_k) \right] \leqslant \\ \leqslant 
+		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \P \left( \overline{A_k} \right) = 
+		\lim\limits_{N \rightarrow \infty} \exp \left( - \sum\limits_{k =n}^{N} \P \left( A_k \right) \right)= \exp \left( - \sum\limits_{k = n}^{\infty}  \P \left( A_k \right) \right).
+		\end{multline*} 
+	\end{proof}
+\end{lemma}
+\begin{theorem}[Рисса]
+	Есть последовательность случайных величин $\{ \xi_n \}$ фундаментальна (или сходится) по вероятности, то из нее можно выделить подпоследовательность $\{ \xi_{n_k} \}$ фундаментальную (сходящуюся) почти наверное.
+	\begin{proof}
+		Пусть $\{ \xi_n \}$ фундаментальна по вероятности, то есть $\forall \varepsilon: \P \big( | \xi_k - \xi_n | > \varepsilon \big) \xrightarrow[n, k \rightarrow \infty]{} 0$. Докажем, что можно выделить подпоследовательность $\{ \xi_{n_k} \}$, сходящуюся почти наверное. Пусть $n_1=1$. По индукции определим $n_k$, как наименьшее $n > n_{k-1}$ такое, что $\forall s \geqslant n, t \geqslant n: \P \big( | \xi_t - \xi_s | > 2^{-k} \big) < 2^{-k}$. Тогда $\sum\limits_{k = 1}^{\infty} \P \big( | \xi_{n_{k+1}} - \xi_{n_k} | > 2^{-k} \big) < \sum\limits_{k = 1}^{\infty} 2^{-k} < +\infty$, следовательно, по лемме Бореля-Кантелли $\P \big( | \xi_{n_{k+1}} - \xi_{n_k}| > 2^{-k}~\text{б.ч.} \big) = 0$, значит, почти наверное $\sum\limits_{k = 1}^{+\infty} | \xi_{n_{k+1}} - \xi_{n_k} | < + \infty$. Пусть $N = \left\{ \omega: \sum\limits_{n = 1}^{+\infty} \big| \xi_{n_{k+1}}(\omega) - \xi_{n_k}(\omega) \big| = +\infty \right\}$, тогда $\P(N) = 0$. Положим $\xi(\omega) =  \left( \xi_{n_1} (\omega) + \sum\limits_{k = 1}^{+\infty} \big(\xi_{n_{k+1}} (\omega) - \xi_{n_k}(\omega) \big) \right) \cdot I_{\overline{N}}(\omega)$. Получаем, $\sum\limits_{j = 1}^{k} ( \xi_{n_j + 1} - \xi_{n_j} ) + \xi_{n_1} = \xi_{n_{k+1}} \xrightarrow{\text{п.н.}} \xi$.
+		
+		Пусть теперь $\xi_n \xrightarrow{\P} \xi$, тогда 
+		$$\P \big( | \xi_m - \xi_n| \geqslant \varepsilon \big) \leqslant \P \left( |\xi_n - \xi | \geqslant \dfrac{\varepsilon}{2} \right) + \P \left( |\xi_m - \xi | \geqslant \dfrac{\varepsilon}{2} \right) \xrightarrow[n, m \rightarrow \infty ]{} 0.$$ 
+		Следовательно, из сходимости по вероятности следует фундпментальность по вероятности, а дальше все тоже самое.
+	\end{proof}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
