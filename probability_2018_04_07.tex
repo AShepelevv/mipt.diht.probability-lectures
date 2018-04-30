@@ -61,8 +61,35 @@
 		Следовательно, из сходимости по вероятности следует фундпментальность по вероятности, а дальше все тоже самое.
 	\end{proof}
 \end{theorem}
-
-
+\begin{theorem}[критерий коши сходимости по вероятности]
+	$\xi_n \xrightarrow{\P} \xi$ тогда и только тогда, когда $\{\xi_n\}$ фундаментальна по веростности.
+	\begin{proof}
+		($\Rightarrow$) \quad Следует из теоремы Рисса.
+		
+		($\Leftarrow$) \quad Если $\{ \xi_n \}$ фундаментально по вероятности, то по теореме Рисса существует подпоследовательность $\{\xi_{n_k} \}$ такая, что $\xi_{n_k} \xrightarrow{\text{п.н.}}$, то есть $\xi_{n_k} \xrightarrow{\P}$. Тогда $\P \big( | \xi_n - \xi | \geqslant \varepsilon \big) \leqslant \cancelto{0\text{, т.к. фунд.}}{\P \left( \xi_n - \xi_{n_k} | \geqslant \dfrac{\varepsilon}{2} \right)} + \cancelto{0\text{, т.к. сход.}}{\P \left( \xi_{n_k} - \xi_k | \geqslant \dfrac{\varepsilon}{2} \right)} \limn 0$.
+	\end{proof}
+\end{theorem}
+\begin{theorem}[Неравенство Колмогорова]
+	Пусть $\xi_1,  \ldots, \xi_n$~--- независимые случайные величины такие, что $\E \xi_i = 0$, $\D \xi_i < +\infty$. Обозначим $S_n = \sum\limits_{i = 1}^n \xi_i$. Тогда $\forall \varepsilon > 0: \P \left( \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \right) \geqslant \dfrac{\E S_n^2}{\varepsilon^2}$.
+	\begin{proof}
+		Обозначим $A = \{ \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \}$. Разобьем $A$ на несколько непересекающихся событий, то есть $A_k = \big\{ |S_k| \geqslant \varepsilon\big\}$ и $\forall i \leqslant k - 1: |S_k| \leqslant \varepsilon$, следовательно, $A = \bigsqcup\limits_{k=1}^{n} A_k$. Тогда
+		\begin{multline*}
+			\E(S_n^2 \cdot I_{A_k}) = \E\big( (S_k + \underbracket[0.5pt]{\xi_{k+1} + \ldots + \xi_n}_{\overline{S_k}} )^2 \cdot I_{A_k} \big) =  \\= \E( S_k^2 \cdot I_{A_k} ) + \E\left( \overline{S_k}^2 \cdot I_{A_k} \right) + 2 \E\left( S_k \overline{S_k} \cdot I_{A_k} \right) \boxed{=}.
+		\end{multline*}
+		Рассмотрим 
+		\begin{equation*}
+			\E(\underbracket[0.5pt]{S_k \cdot I_{A_k}}_{\sigma\{\xi_1, \ldots, \xi_k \}~\text{--- измер.}} \cdot \underbracket[0.5pt]{\overline{S_k}}_{\sigma\{\xi_{k+1}, \ldots, \xi_n \}~\text{--- измер.}}).
+		\end{equation*}
+		Следовательно, $S_k \cdot I_{A_k} \indep \overline{S_k}$, так как $\{xi_1, \ldots, \xi_k \} \indep \{ \xi_{k+1}, \ldots,\xi_n \}$, а, значит, $\E( S_k \cdot I_{A_k} \cdot \overline{S_k} ) = \E(S_k \cdot I_{A_k}) \cdot \cancelto{0}{\E \overline{S_k}} = 0$. Отсюда
+		\begin{equation*}
+			\E( S_k^2 \cdot I_{A_k} ) + \E \left( \overline{S_k}^2 \cdot I_{A_k}  \right) \geqslant \E(S_k^2 \cdot I_{A_k} ) \geqslant \varepsilon^2 \cdot \E I_{A_k} = \varepsilon^2 \cdot \P(A_k).
+		\end{equation*}
+		В итоге, 
+		\begin{equation*}
+			\E S_n^2 \geqslant \E( S_n^2 \cdot I_A ) = \sum\limits_{k = 1}^n \E( S_k \cdot I_{A_k} ) \geqslant \sum\limits_{k = 1}^n \P(A_k) \cdot \varepsilon^2 = \P(A) \cdot \varepsilon^2.
+		\end{equation*}
+	\end{proof}
+\end{theorem}
 
 
 
