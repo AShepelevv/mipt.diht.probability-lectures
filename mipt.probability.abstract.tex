@@ -21,6 +21,11 @@
 \usepackage[left = 3cm, right = 3cm, top = 3cm, bottom = 4cm, a4paper]{geometry}
 \usepackage{geometry}
 
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\graphicspath{{./img/}}
+
 \newtheorem*{exersize}{Упражнение}
 \newtheorem*{lemma}{Лемма}
 \newtheorem*{theorem}{Теорема}
@@ -51,11 +56,12 @@
   }
   \makeatother
 
-\renewcommand{\thesection}{\arabic{section}\hskip-10pt}
+\renewcommand{\thesection}{\arabic{section}\hskip-12pt}
+\renewcommand{\thesubsection}{}
 
 
 \title{Конспект лекций по курсу\\ <<Теория вероятностей>>}
-\author{Лектор: канд. физ.-мат. наук Родионов Игорь Владимирович}
+\author{Лектор: к. ф.-м. н. Родионов Игорь Владимирович}
 \date{Набор: Алексей Шепелев}
 
 \renewcommand{\P}{\mathsf{P}}

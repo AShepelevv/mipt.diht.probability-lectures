@@ -1,5 +1,5 @@
 \section{Лекция от 17.03.2018}
-\subsection*{Дисперсия и ковариация}
+\subsection{Дисперсия и ковариация}
 \begin{definition}
 	Дисперсией случайной величины $\xi$ называется $\D \xi = \E (\xi - \E \xi)^2 $, если $\E{\xi} < + \infty$. Очевидно, $\D{\xi} \geqslant 0$.
 \end{definition}
@@ -9,7 +9,7 @@
 \begin{definition}
 	Величина $\rho ( \xi, \eta ) = \dfrac{\cov ( \xi, \eta )}{\sqrt{\D \xi \cdot \D \eta}}$ называется коэффициентом корреляции случайных величин $\xi$ и $\eta$ при условии, что $\D \xi$ и $\D \eta$ не равны нулю и конечны.
 \end{definition}
-\subsection*{Свойства ковариации и дисперсии}
+\subsection{Свойства ковариации и дисперсии}
 \setcounter{property}{0}
 \begin{property}[Билинейность ковариации]
 	$\cov( a \xi + b \zeta, \eta ) = a \cov (\xi, \eta) + b \cov (\zeta, \eta)$
@@ -57,7 +57,7 @@
 		$$\D \left( \sum_{i=1}^n \xi_i \right) = \sum_{i=1}^n \cov (\xi_i, \xi_i) = \sum_{i=1}^n \D \xi_i.$$
 	\end{proof}
 \end{lemma}
-\subsection*{Многомерный случай}
+\subsection{Многомерный случай}
 \begin{definition}
 	Пусть $\vec \xi  = (\xi_1, \ldots, \xi_n )$~--- случайный вектор, тогда его математическим ожиданием называется вектор из математических ожиданий его компонент, то есть $\E \vec \xi = (\E \xi_1, \ldots, \E \xi_n)$.
 \end{definition}
@@ -78,7 +78,7 @@
 		\end{multline*}
 	\end{proof}
 \end{lemma}
-\subsection*{Неравенства}
+\subsection{Неравенства}
 \begin{lemma}[Неравенство Маркова]
 	Пусть $\xi \geqslant 0$~--- случайная величина, $\E \xi < +\infty$ (существует). Тогда $\forall \varepsilon > 0: \P (\xi \geqslant \varepsilon ) \leqslant \dfrac{\E \xi}{\varepsilon}$.
 	\begin{proof}
@@ -109,7 +109,7 @@
 \begin{consequence}
 	Пусть $\{ \xi_n \}_{i=1}^{+\infty}$~--- независимые случайные величины такие, что $\forall n \in \N: \D \xi_n \leqslant C \wedge \E \xi_n = a$. Тогда $\dfrac{S_n}{n} \xrightarrow{\P} a$ при $n \rightarrow + \infty$.	
 \end{consequence}
-\subsection*{Условные математические ожидания (УМО)}
+\subsection{Условные математические ожидания (УМО)}
 Пусть $(\Omega, \F, \P)$~--- вероятностное пространство; $\xi: \Omega \rightarrow \R$~--- случайная величина; $\F_\xi = \{ \xi^{-1}(B), B \in \B(\R) \}$~--- $\sigma$-алгебра, порожденная $\xi$. Если $\G$~--- под $\sigma$-алгебра $\sigma$-алгебры $\F$, то  $\xi$ называется $\G$-измеримой, если $\F_\xi \subset \G$.
 \begin{definition}
 	Пусть $\xi$~--- случайная случайная величина на $(\Omega, \F, \P)$, $\G$~--- под$\sigma$-алгебра $\F$. Условным математическим ожиданием случайной величины $\xi$ относительно $\G$ называется случайная величина $\E (\xi | \G)$, обладающая следующими свойствами:

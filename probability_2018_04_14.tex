@@ -84,7 +84,9 @@
 		по теореме Лебега о мажорируемой ходимости, поскольку
 		$$\Big| \xi_1 \cdot I \big( |\xi_1| \leqslant n \big) \Big| \leqslant \xi_1~~\text{и}~~\xi_1 \cdot I \big( |\xi_1| \leqslant n \big) \xrightarrow[n \rightarrow \infty]{\text{п.н.}} \xi_1.$$
 		По лемме Тёплица
-		$$ \frac{1}{n} \sum\limits_{i = 1}^{n} \E \tilde\xi_i \rightarrow \E \xi_1 = 0 \quad \Rightarrow \quad \dfrac{\sum\limits_{i = 1}^n \tilde\xi_i}{n} \xrightarrow[n \rightarrow \infty]{\text{п.н.}} 0 \quad \Leftrightarrow \quad \dfrac{\sum\limits_{i = 1}^n \left(\tilde\xi_i - \E \tilde\xi_i \right)}{n} \xrightarrow[n \rightarrow \infty]{\text{п.н.}} 0.$$ 
+		$$ \frac{1}{n} \sum\limits_{i = 1}^{n} \E \tilde\xi_i \rightarrow \E \xi_1 = 0 \quad \Rightarrow \quad 
+		\dfrac{1}{n}\sum\limits_{i = 1}^n \tilde\xi_i \xrightarrow[n \rightarrow \infty]{\text{п.н.}} 0 \quad \Leftrightarrow \quad
+		 \dfrac{1}{n}\sum\limits_{i = 1}^n \left(\tilde\xi_i - \E \tilde\xi_i \right) \xrightarrow[n \rightarrow \infty]{\text{п.н.}} 0.$$ 
 		Обозначим $\overline \xi_n = \tilde \xi_n - \E \tilde \xi_n$. По лемме Кронекера, если сходится $\sum\limits_{k = 1}^\infty \dfrac{\overline \xi_k}{k}$ на каком-то $\omega$, то $\dfrac{1}{n} \sum\limits_{k = 1}^n k \cdot \dfrac{\overline \xi_k}{k} \limn 0$ на том же $\omega$.  Проверим, что $\sum\limits_{k = 1}^\infty \dfrac{\overline \xi_k}{k}$ сходится почти наверное. По теормере Колмогорова-Хинчина доскаточно показать, что $\sum\limits_{k = 1}^\infty \dfrac{\E \left(\overline\xi_k\right)^2}{k^2} < + \infty$.
 		\begin{multline*}
 			\sum\limits_{k = 1}^\infty \dfrac{\E \left( \overline\xi_k \right)^2}{k^2} = 

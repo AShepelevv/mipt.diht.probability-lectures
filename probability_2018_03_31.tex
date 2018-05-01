@@ -1,5 +1,5 @@
 \section{Лекция от 31.03.2018}
- \subsection*{Условные распределения}
+ \subsection{Условные распределения}
  \begin{definition}
  	Пусть $A \in \F$, тогда по определению $\P(A | \G) = \E( I_A | \G)$, $\G \subset \F$. Если $\xi, \eta$~--- случайные величины на $(\Omega, \F, \P)$, то $\E(\xi | \eta) = \E(\xi | \F_\eta)$.
  \end{definition}
@@ -114,7 +114,7 @@
  		\end{multline*}
  	\end{proof}
  \end{theorem}
- \subsection*{Алгоритм подсчета УМО}
+ \subsection{Алгоритм подсчета УМО}
  \begin{enumerate}
  	\item {Найти совместную плотность $f_{(\xi, \eta)} (x, y)$, затем 
  		$f_\eta (y) = \int\limits_\R f_{(\xi, \eta)} (x, y) \, dx$, тогда условная
@@ -123,7 +123,7 @@
  		\int\limits_\R g(x) f_{ \xi | \eta } (x | y) \, dx $.}
  	\item {Тогда $\E  \big( g(x) | \eta) = \varphi(\eta)$.}
  \end{enumerate}
- \subsection*{Виды сходимости случайных величин}
+ \subsection{Виды сходимости случайных величин}
  \begin{definition}
  	Последовательность $\{\xi_n \}_{n \geqslant 1}$ сходится к случайной величине $\xi$
  	\begin{enumerate}
