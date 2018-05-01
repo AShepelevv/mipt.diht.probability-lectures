@@ -48,5 +48,63 @@
 	\end{proof}
 \end{theorem}
 \begin{lemma}
-	Пусть 
+	Пусть $\xi \geqslant 0$, $\E \xi < + \infty$, тогда 
+	$$ \sum\limits_{n=1}^\infty \P (\xi \geqslant n) \leqslant \E \xi \leqslant 1 + \sum\limits_{n = 1}^\infty \P ( \xi \geqslant n).$$
+	\begin{proof}
+		\begin{multline*}
+			\sum\limits_{n = 1}^\infty \P ( \xi \geqslant n) = 
+			\sum\limits_{n = 1}^\infty \sum\limits_{k = n}^\infty \P (k \leqslant \xi \leqslant k + 1) = 
+			\sum\limits_{k =1}^\infty \sum\limits_{n = 1}^{k} \P( k \leqslant \xi \leqslant k + 1) = \\ = 
+			\sum\limits_{k = 0}^{\infty} k \cdot \P ( k \leqslant \xi \leqslant k + 1) = 
+			\sum\limits_{k = 0}^\infty \E \big( k \cdot I (k \leqslant \xi  \leqslant k + 1) \big) = \\ = 
+			\sum\limits_{k = 0}^\infty \E \big( \lfloor \xi \rfloor \big) \cdot I (k \leqslant \xi \leqslant k + 1 ) \leqslant
+			\sum\limits_{k = 0}^\infty \E \big( \xi \cdot I ( k \leqslant \xi \leqslant k+ 1) \big) = \\ =
+			\E \left( \xi \cdot \sum\limits_{k = 0}^\infty I (k \leqslant \xi \leqslant k + 1) \right) = \E \xi.
+		\end{multline*}
+		Верхнее неравенство доказывается аналогично.
+	\end{proof}
 \end{lemma}
+\begin{definition}
+	Случаные величины $\xi $ и $\eta$ одинаково распределены, если  $\forall x: F_\xi (x) = F_\eta(x)$. Обозначают $\xi \overset{d}{=} \eta$.
+\end{definition}
+\begin{statement}
+Если $\xi \overset{d}{=} \eta$, то $\forall g(x): \E g(\xi) = \E g(\eta)$.
+\begin{proof}
+	$\E g(\xi) = \int g(x) \, d F_\xi(x) = \int g(x) \, d F_\eta(x) = \E g(\eta)$.
+\end{proof}	
+\end{statement}
+\begin{theorem}[Усиленный закон больших чисел в форме Колмогорова]
+	Пусть $\{\xi_n\}_{n \in \N}$~--- независимые одинаково распределенные случайные величины такие, что $\E | \xi_1| < + \infty$. Тогда
+	$$ \frac{\xi_1 + \ldots + \xi_n}{n} \xrightarrow[n \rightarrow  \infty]{\text{п.н.}} 0.$$
+	\begin{proof}
+		Поскольку $\E | \xi_1| < +\infty$, то по предыдущей лемме $\sum\limits_{n = 1}^\infty \P \big( |\xi_1| \geqslant n \big) < +\infty$. Так как $\xi_1 \overset{d}{=} \xi_n$, то $\sum\limits_{n = 1}^\infty \P \big( |\xi_n| \geqslant n \big) < + \infty$, следоватально, по лемме Бореля-Кантелли $\P \Big( \big\{ |\xi_n| \geqslant n \big\}~\text{б.ч.} \Big) = 0$. То есть c вероятностью 1 случается конечное число $\big\{ |\xi_n| \geqslant n \big\}$. Обозначим $\tilde \xi_n \equiv \xi_n \cdot I \big\{ | \xi_n | \leqslant n \big\}$. Тогда с вероятность 1 $\xi_n = \tilde \xi_n$ кроме конечного числа $\xi_n$. Пусть $\E \xi_i = 0$, если это не так, то $\eta_i = \xi_i - \E \xi_i$. Получаем, что 
+		$$ \P \left( \frac{\xi_n + \ldots + \xi_n}{n} \rightarrow 0 \right) = \P \left( \frac{\tilde \xi_1 + \ldots + \tilde \xi_n}{n} \rightarrow 0 \right).$$
+		Рассмотрим
+		$$ \E \tilde\xi_n = \E \Big( \xi_n \cdot I \big\{ | \xi_n | \leqslant n \big\} \Big) = \E \Big( \xi_1 \cdot I \big( | \xi_1| \leqslant n \big\} \Big) \rightarrow \E \xi_1 = 0$$
+		по теореме Лебега о мажорируемой ходимости, поскольку
+		$$\Big| \xi_1 \cdot I \big( |\xi_1| \leqslant n \big) \Big| \leqslant \xi_1~~\text{и}~~\xi_1 \cdot I \big( |\xi_1| \leqslant n \big) \xrightarrow[n \rightarrow \infty]{\text{п.н.}} \xi_1.$$
+		По лемме Тёплица
+		$$ \frac{1}{n} \sum\limits_{i = 1}^{n} \E \tilde\xi_i \rightarrow \E \xi_1 = 0 \quad \Rightarrow \quad \dfrac{\sum\limits_{i = 1}^n \tilde\xi_i}{n} \xrightarrow[n \rightarrow \infty]{\text{п.н.}} 0 \quad \Leftrightarrow \quad \dfrac{\sum\limits_{i = 1}^n \left(\tilde\xi_i - \E \tilde\xi_i \right)}{n} \xrightarrow[n \rightarrow \infty]{\text{п.н.}} 0.$$ 
+		Обозначим $\overline \xi_n = \tilde \xi_n - \E \tilde \xi_n$. По лемме Кронекера, если сходится $\sum\limits_{k = 1}^\infty \dfrac{\overline \xi_k}{k}$ на каком-то $\omega$, то $\dfrac{1}{n} \sum\limits_{k = 1}^n k \cdot \dfrac{\overline \xi_k}{k} \limn 0$ на том же $\omega$.  Проверим, что $\sum\limits_{k = 1}^\infty \dfrac{\overline \xi_k}{k}$ сходится почти наверное. По теормере Колмогорова-Хинчина доскаточно показать, что $\sum\limits_{k = 1}^\infty \dfrac{\E \left(\overline\xi_k\right)^2}{k^2} < + \infty$.
+		\begin{multline*}
+			\sum\limits_{k = 1}^\infty \dfrac{\E \left( \overline\xi_k \right)^2}{k^2} = 
+			\sum\limits_{k = 1}^\infty \dfrac{\E \left( \tilde\xi_k - \E \tilde\xi_k \right)^2}{k^2} \leqslant
+			\sum\limits_{k = 1}^{\infty} \dfrac{\E \left( \tilde\xi_k\right)^2}{k^2} = 
+			\sum\limits_{k= 1}^\infty \dfrac{1}{k^2} \cdot \E\Big( \xi_k^2 \cdot I \big( | \xi_k| \leqslant k \big) \Big) = \\ = 
+			\sum\limits_{k= 1}^\infty \dfrac{1}{k^2} \cdot \E\Big( \xi_1^2 \cdot I \big( | \xi_1| \leqslant k \big) \Big) = 
+			\sum\limits_{k= 1}^\infty \dfrac{1}{k^2} \cdot \E\left( \xi_1^2 \cdot \sum\limits_{n = 1}^k I \big( n -1 < | \xi_1| \leqslant n \big) \right) = \\ = 
+			\sum\limits_{n = 1}^\infty \E \Big( \xi^2 \cdot I \big( n - 1 < |\xi_1| \leqslant n \big) \Big) \cdot \underbracket[0.5pt]{\sum\limits_{k = n}^\infty \dfrac{1}{k^2}}_{\leqslant 2/n} \leqslant
+			\sum\limits_{n = 1}^\infty \dfrac{2}{n} \cdot \E \Big( \xi_1^2 \cdot I \big( n - 1 < | \xi_1| \leqslant n \big) \Big) \leqslant \\ \leqslant 
+			2 \sum\limits_{n =1}^\infty \E | \xi_1| \cdot I \big( n - 1 < |\xi_1| \leqslant n \big) \overset{\text{по т. Беппо-Леви}}{=} 
+			2 \E | \xi_1| \sum\limits_{n = 1}^\infty I \big( n - 1 < |\xi_1|  \leqslant n \big) = \\ =
+			 2 \E|\xi_1| < + \infty.
+		\end{multline*}
+	\end{proof}
+\end{theorem}
+\begin{theorem}[Беппо-Леви]
+	Пусть $\{ \xi_n \}_{n \geqslant 1}$~--- случайные величины, $\forall n: \xi_n \geqslant 0 $. Тогда $\E \sum\limits_{n = 1}^\infty \xi_n = \sum\limits_{n = 1}^\infty \E \xi_n$.
+	\begin{proof}
+		Пусть $S_n = \sum\limits_{k = 1}^n \xi_k$, тогда $S_n \uparrow S = \sum\limits_{k = 1}^\infty \xi_k$. По теореме о монотонной сходимости $\E \sum\limits_{k = 1}^n \xi_k \limn \E \sum\limits_{k = 1}^\infty \xi_k$, следовательно,
+		$$ \E \sum\limits_{k = 1}^n \xi_k = \sum\limits_{k = 1}^n \E \xi_k \uparrow \E \sum\limits_{k = 1}^\infty \E \xi_k.$$
+	\end{proof}	
+\end{theorem}
