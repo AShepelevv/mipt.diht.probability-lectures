@@ -1,5 +1,103 @@
 \section{Лекция от 17.02.2018}
-\subsection{Вероятностная мера в $\big( \R, \B(\R) \big)$}
+\subsection{Вероятностная мера в $\big( \R^n, \B(\R^n) \big)$}
 \begin{definition}
-	
+	Пусть $\P$~--- вероятностная мера в $\big( \R^n, \B(\R^n) \big)$, тогда функция $F(\vec x) = \P\big((-\infty; x_1] \times \ldots \times (-\infty, x_n]\big)$ называется функцией распределения вероятностной меры $\P$ в $\R^n$.
+\end{definition}
+\begin{note}
+	Пусть $\vec x^{(k)} = \left(x_1^{(k)}, \ldots, x_n^{(k)}\right) \in \R^n$. Будем писать $\vec x^{(k)} \downarrow \vec x$, если $\forall i, k : x_i^{(k)} \geqslant x_i{(k + 1)}$ и $x_i^{(k)} \underset{k \rightarrow +\infty}{\longrightarrow} x_i$.
+\end{note}
+\begin{lemma}[Свойства многомерной функции распределения]
+	Пусть $F(\vec x)$~--- функция распределения вероятностной меры в $\R^n$, тогда
+	\begin{enumerate}
+		\item Если $\vec x^{(k)} \downarrow \vec x$, то $F\big(\vec x^{(k)}\big) \rightarrow F\big(\vec x\big), k \rightarrow +\infty$;
+		\item $\lim\limits_{\forall i : x_i \rightarrow +\infty} F(\vec x) = 1;\; \lim\limits_{\exists x_i \rightarrow -\infty} F(\vec x) = 0$;
+		\item $\forall a_1 < b_1, a_2 < b_2, \ldots, \Delta_{a_1b_1}^1, \ldots \Delta_{a_nb_n}^n, \; F(x) > 0 :$ \\
+		$\Delta_{a_ib_i}^i F(\vec x) = F(x_1, \ldots, x_{i - 1}, b_i, x_{i + 1}, \ldots x_n) - F(x_1, \ldots, x_{i - 1}, a_i, x_{i + 1}, \ldots, x_n)$.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}
+			\item Следует из непрерывности вероятностной меры, так как $\bigtimes\limits_{i = 1}^n\big(-\infty, x_i^{(k)}\big] \downarrow \bigtimes\limits_{i = 1}^n \big(-\infty, x_i\big]$;
+			\item $B_n \rightarrow C_n = \bigtimes\limits_{i = 1}^n\left(-\infty, \inf\limits_{k \geqslant n} x_i^{(k)}\right], \P(B_n) \rightarrow \P(\R^n) = 1$ \\
+			Если $\exists i : x_i^{(k)} \rightarrow - \infty$, то $B_n \rightarrow \varnothing, \P(B_n) \rightarrow 0$;
+			\item $\ldots = \P\big((a_1, b_1] \times \ldots \times (a_n, b_n]\big)$ \\
+			$\Delta_{a_1b_1}^1\Delta_{a_2,b_2}^2F(x) = F(b_1,b_2) - F(a_1,b_2) - (F(b_1,a_2) - F(a_1,a_2))$
+		\end{enumerate}
+	\end{proof}
+\end{lemma}
+\begin{theorem}[О взаимооднозначном соответствии вероятностной меры и функции распределения в $\R^n$][б/д]
+	Если функция $F(\vec x),\; \vec x \in \R^n$ удовлетворяет свойствам из леммы, то существует единственная $\P$ в $\R^n$, для которой $F(\vec x)$ является функцией распределения.
+\end{theorem}
+\begin{note}
+	Почему нельзя заменить свойство 3) на монотонность на любом компакте? Пусть $F(x_1, x_2) = \max(x_1, x_2)$ на $[0, 1]^2$, но тогда $-1 = \Delta_{0; 1}^1 \Delta_{0; 1}^2 F(x_1, x_2) =^? \P([0, 1]^2) = 1$.
+\end{note}
+\begin{definition}
+	Функция $F(\vec x)$, удовлетворяющая условиями из леммы называется функцией распределения в $\R^n$.
+\end{definition}
+\subsection{Многомерная плотность вероятности}
+\begin{definition}
+	Если 
+	$$ F(x_1, \ldots, x_n) = \int\limits_{-\infty}^{x_1}\ldots\int\limits_{-\infty}^{x^n} p(y_1, \ldots, y_n)dy_1\ldots dy_n,\; p(x_1, \ldots, x_n) \geqslant 0, $$ 
+	то $p(x_1, \ldots, x_n)$ называется $n$-мерной плотностью вероятности. Тогда
+	$$ p(x_1, \ldots, x_n) = \frac{\partial^n}{\partial x_1\ldots\partial x_n}F(x_1, \ldots, x_n). $$
+\end{definition}
+\subsection{Случайные величины}
+\begin{definition}
+	Пусть $\big(\Omega, \F \big)$ и $\big( E, \mathcal{E} \big)$~--- два измеримых пространства. Отображение $X: \Omega \rightarrow E$~--- случайный элемент, если $\forall B \in \mathcal{E}: X^{-1} \in \F$ $\F$-измеримо или $\F|\mathcal{E}$-измеримо. \\
+	Если $(E, \mathcal{E}) = \big(\R, \B(\R)\big)$, то это случайная величина. \\
+	Если $(E, \mathcal{E}) = \big(\R^n, \B(\R^n)\big)$, то это случайный вектор.
+\end{definition}
+\subsection{Действия над случайными величинами и векторами}
+\begin{definition}
+	Функция $\varphi: \R^n \rightarrow \R^m$~--- борелевская, если $\forall B \in \B(\R^n): \varphi^{-1}(B) \in \B(\R^n)$. 
+\end{definition}
+\begin{statement}
+	Любая непрерывная и кусочно-непрерывная функция~--- борелевская.
+\end{statement}
+\begin{theorem}[критерий измеримости][б/д]
+	Пусть $\big(\Omega, \F\big), \big(E, \mathcal{E}\big)$~--- два измеримых пространства, $X: \Omega \rightarrow E$~--- случайный элемент тогда, и только тогда, когда существует система событий $\M \subseteq \mathcal{E}$, такая что $\sigma(\M) = \mathcal{E}$ и $\forall B \in \M: X^{-1}(B) \in \F$.
+\end{theorem}
+\begin{lemma}
+	Пусть $\vec\xi = (\xi_1, \ldots, \xi_n)$~--- случайный вектор, $\varphi: \R^n \rightarrow \R^m$~--- борелевская функция, тогда $\varphi(\vec\xi)$~--- случайный вектор.
+	\begin{proof}
+		Пусть $B \in \B(\R^n)$. Тогда 
+		$$ (\varphi(\vec\xi))^{-1}(B) = \big\{\omega : \varphi(\vec\xi(\omega)) \in B\big\} = \big\{\omega : \vec\xi(\omega) \in \varphi^{-1}(B) \subseteq \B(\R^m) \big\} \in \F. $$
+	\end{proof}
+\end{lemma}
+\begin{lemma}
+	$\vec \xi = (\xi_1, \ldots, \xi_n)$~--- случайный вектор тогда, и только тогда, когда $\forall i : \xi_i$~--- случайная величина.
+	\begin{proof}
+		\emph{Необходимость.} $\varphi(x_1, \ldots, x_n) = x_i$~--- непрерывная функция, значит борелевская, следовательно, по предыдущей лемме $\xi_i$ --- случайная величина. \\
+		\emph{Достаточность.} $\B(\R^n) = \sigma\big(B_1 \times \ldots \times B_n, B_i \in \B(\R)\big)$, поэтому $\vec\xi^{-1}(B_1 \times \ldots \times B_n) = \big\{\omega : \vec\xi(\omega) \in B_1 \times \ldots \times B_n\big\} = \big\{\omega : \xi_1(\omega) \in B_1, \ldots, \xi_n(\omega) \in B_n\big\} = \bigcap\limits_{i = 1}^n\big\{\omega: \xi(\omega) \in B_i \big\} = \bigcap\limits_{i = 1}^n \xi_i^{-1}(B_i) \in \F$, значит, по критерию измеримости, $\vec \xi$~--- случайный вектор.
+	\end{proof}
+\end{lemma}
+\begin{consequence}
+	Пусть $\xi$, $\eta$~--- случайные величины, $c \in \R$,тогда $\xi + \eta$, $\xi - \eta$, $c\xi$, $\xi \cdot \eta$ и $\xi / \eta$, если $\forall \omega \in \Omega : \eta \neq 0$ тоже случайные величины.
+\end{consequence}
+\begin{lemma}[О пределах случайной величины]
+	Пусть $\big\{ \xi_n, n \in \N \big\}$ последовательность случайных величин, тогда, если пределы $\overline{\lim}~\xi_n$, $\underline{\lim}~\xi_n$, $\inf\xi_n$, $\sup\xi_n$ существуют, они являются случайными величинами.
+	\begin{proof}
+		$\big\{\omega : \sup \xi_n \leqslant x \big\} = \bigcap\limits_{n = 1}^{+\infty}\big\{\omega : \xi_n(\omega) \leqslant x \big\} \in \F$. По критерию измеримости, так как $\sigma\big(x : (-\infty, x]\big) = \B(\R)$, мы доказали, что $\sup\xi_n$~--- случайная величина. Аналогично, $\big\{\omega : \inf \xi_n > x \big\} = \bigcup\limits_{k = 1}^{+\infty}\big\{\omega : \xi_n(\omega) \geqslant x \big\} \in \F$, так как $\sigma\big((x, +\infty)\big) = \B(\R)$, по критерию измеримости $\inf\xi_n$~--- случайная величина. Отсюда $\overline{\lim}~\xi_n = \inf\limits_n\sup\limits_{m \geqslant n}~xi_m$ и $\underline{\lim}~\xi_n = \sup\limits_n\inf\limits_{m \geqslant n}~\xi_m$ тоже случайные величины.
+	\end{proof}
+\end{lemma}
+\begin{consequence}
+	Пусть $\xi = \lim \xi_n$ и предел существует $\forall \omega \in \Omega$, тогда $\xi$~--- случайная величина.
+	\begin{proof}
+	$\xi = \lim \xi_n = \overline{\lim}\xi_n = \underline{\lim} \xi_n$
+	\end{proof}
+\end{consequence}
+\subsection{Характеристики случайных величин и векторов}
+\subsubsection*{\ovalbox{1} Распределение случайной величины}
+\begin{definition}
+	Пусть $\big(\Omega, \F, \P \big)$ --- вероятностное пространство, $\xi$~--- случайная величина (вектор) на нем. Распределением случайной величины называется вероятностная мера $\P_\xi$ на $\big(\R, \B(\R\big)$($\big(\R^n, \B(\R^n)\big)$), заданная по правилу $\P_\xi(B) = \P(\xi \in B)$, $B \in \B(\R)$ ($B \in \B(\R^n)$).
+\end{definition}
+\subsubsection*{\ovalbox{2} Функция распределения случайной величины}
+\begin{definition}
+	Пусть $\big(\Omega, \F, \P\big)$~--- вероятностное пространство, $\xi$~--- случайная величина (вектор) на нем. Функцией распределения $\xi$ называется $F_\xi(x) = \P(\xi \leqslant x)$ ($F_\xi(\vec x) = \P(\xi_1 \leqslant x_1, \ldots, \xi_n \leqslant x_n)$).
+\end{definition}
+\subsubsection*{\ovalbox{3} Дискретность и непрерывность}
+\begin{definition}
+	Случайная величина называется дискретной, если ее распределение дискретно.
+\end{definition}
+\begin{definition}
+	Случайная величина называется абсолютно непрерывной, если ее распределение абсолютно непрерывно, т.е $\ldots$.
 \end{definition}
