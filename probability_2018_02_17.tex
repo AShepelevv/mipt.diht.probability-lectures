@@ -66,13 +66,13 @@
 	Пусть $\vec\xi = (\xi_1, \ldots, \xi_n)$~--- случайный вектор, $\varphi: \R^n \rightarrow \R^m$~--- борелевская функция, тогда $\varphi(\vec\xi)$~--- случайный вектор.
 	\begin{proof}
 		Пусть $B \in \B(\R^n)$. Тогда 
-		$$ (\varphi(\vec\xi))^{-1}(B) = \big\{\omega : \varphi(\vec\xi(\omega)) \in B\big\} = \big\{\omega : \vec\xi(\omega) \in \varphi^{-1}(B) \subseteq \B(\R^m) \big\} \in \F. $$
+		$$ (\varphi(\vec\xi))^{-1}(B) = \big\{\omega : \varphi(\vec\xi(\omega)) \in B\big\} = \big\{\omega : \vec\xi(\omega) \in \varphi^{-1}(B) \subseteq \B(\R^n) \big\} \in \F. $$
 	\end{proof}
 \end{lemma}
 \begin{lemma}
 	$\vec \xi = (\xi_1, \ldots, \xi_n)$~--- случайный вектор тогда, и только тогда, когда $\forall i : \xi_i$~--- случайная величина.
 	\begin{proof}
-		\emph{Необходимость.} $\varphi(x_1, \ldots, x_n) = x_i$~--- непрерывная функция, значит борелевская, следовательно, по предыдущей лемме $\xi_i$ --- случайная величина. \\
+		\emph{Необходимость.} $\varphi(x_1, \ldots, x_n) = x_i$~--- непрерывная функция, значит борелевская, следовательно, по предыдущей лемме $\xi_i$~--- случайная величина. \\
 		\emph{Достаточность.} $\B(\R^n) = \sigma\big(B_1 \times \ldots \times B_n, B_i \in \B(\R)\big)$, поэтому $\vec\xi^{-1}(B_1 \times \ldots \times B_n) = \big\{\omega : \vec\xi(\omega) \in B_1 \times \ldots \times B_n\big\} = \big\{\omega : \xi_1(\omega) \in B_1, \ldots, \xi_n(\omega) \in B_n\big\} = \bigcap\limits_{i = 1}^n\big\{\omega: \xi(\omega) \in B_i \big\} = \bigcap\limits_{i = 1}^n \xi_i^{-1}(B_i) \in \F$, значит, по критерию измеримости, $\vec \xi$~--- случайный вектор.
 	\end{proof}
 \end{lemma}
@@ -94,7 +94,7 @@
 \subsection{Характеристики случайных величин и векторов}
 \subsubsection*{\ovalbox{1} Распределение случайной величины}
 \begin{definition}
-	Пусть $\big(\Omega, \F, \P \big)$ --- вероятностное пространство, $\xi$~--- случайная величина (вектор) на нем. Распределением случайной величины называется вероятностная мера $\P_\xi$ на $\big(\R, \B(\R\big)$($\big(\R^n, \B(\R^n)\big)$), заданная по правилу $\P_\xi(B) = \P(\xi \in B)$, $B \in \B(\R)$ ($B \in \B(\R^n)$).
+	Пусть $\big(\Omega, \F, \P \big)$~--- вероятностное пространство, $\xi$~--- случайная величина (вектор) на нем. Распределением случайной величины называется вероятностная мера $\P_\xi$ на $\big(\R, \B(\R\big)$ $\big((\R^n, \B(\R^n))\big)$, заданная по правилу $\P_\xi(B) = \P(\xi \in B)$, $B \in \B(\R)$ ($B \in \B(\R^n)$).
 \end{definition}
 \subsubsection*{\ovalbox{2} Функция распределения случайной величины}
 \begin{definition}
@@ -105,9 +105,9 @@
 	Случайная величина называется дискретной, если ее распределение дискретно.
 \end{definition}
 \begin{definition}
-	Случайная величина называется абсолютно непрерывной, если ее распределение абсолютно непрерывно, то есть $F_\xi(x) = \int\limits_{-\infty}^xp_\xi(y)dy,\; p_\xi(y) \geqslant 0$ --- плотность случайной величины $\xi$.
+	Случайная величина называется абсолютно непрерывной, если ее распределение абсолютно непрерывно, то есть $F_\xi(x) = \int\limits_{-\infty}^xp_\xi(y)dy,\; p_\xi(y) \geqslant 0$~--- плотность случайной величины $\xi$.
 \end{definition}
 \subsubsection*{\ovalbox{4} Сигма-алгебра, порожденная случайной величиной}
 \begin{definition}
-	Пусть $\xi$~--- случайная величина (вектор) на $\big(\Omega, \F, \P\big)$, тогда $\sigma$-алгеброй $\F_\xi$, порожденной случайной величиной $\xi$ называется $F_\xi = \big\{\{\xi \in B\}, B \in \B(\R) \big(\in \B(\R^n)\big) \big\}$.
+	Пусть $\xi$~--- случайная величина (вектор) на $\big(\Omega, \F, \P\big)$, тогда $\sigma$-алгеброй $\F_\xi$, порожденной случайной величиной $\xi$ называется $F_\xi = \big\{\{\xi \in B\}, B \in \B(\R)\; (\in \B(\R^n)) \big\}$.
 \end{definition}
