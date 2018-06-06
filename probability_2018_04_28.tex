@@ -1,1 +1,102 @@
-\section{Лекция от 28.04.2018}
+	\section{Лекция от 28.04.2018}
+
+	\begin{property}
+		Пусть \(\varphi(t)\)~---характеристическая функция случайной величины \(\xi\), а \(\eta = a\xi + b\), где \(a, b \in \mathbb{R}\), тогда \(\varphi_\eta(t) = e^{itb}\cdot \varphi_\xi(at).\)
+		\begin{proof}
+			\(\varphi_\eta(t) = Ee^{it\eta} = Ee^{it(a\xi + b)} = e^{itb}Ee^{ita\xi} = e^{itb}\cdot \varphi_\xi(at).\)
+		\end{proof}
+	\end{property}
+
+	\begin{property}
+		Пусть \(\xi_1, \ldots, \xi_n\)~---независимые случайные величины, \(S_n = \sum\limits_{i = 1}^{n}\xi_i \Rightarrow \varphi_{S_n}(t) = \prod\limits_{i = 1}^n\varphi_{\xi_k}(t).\)  
+		\begin{proof}
+			\(\varphi_{S_n}(t) = Ee^{it \sum\limits_{k = 1}^{n}\xi_k} = E\prod\limits_{k = 1}^n e^{it\xi_k} = \prod\limits_{k = 1}^{n}Ee^{it\xi_k} = \prod\limits_{k = 1}^{n}\varphi_{\xi_k}(t).\)
+		\end{proof}
+	\end{property}
+	\begin{property}
+		Пусть \(\varphi(t)\)~--- характеристическая функция, тогда \(\varphi(t) = \overline{\varphi(-t)}\)
+		\begin{proof}
+			\(\varphi(t) = Ee^{it\xi} = E\overline{e^{-it\xi}} = \overline{Ee^{-it\xi}} = \overline{\varphi(-t)}.\)
+		\end{proof}
+	\end{property}
+	\begin{property}
+		Пусть \(\varphi(t)\)~--- характеристическая функция случайной величины \(\xi\), тогда \(\varphi(t)\) равномерно непрерывна на \(\mathbb{R}.\)
+		\begin{proof}
+			Рассмотрим \(|\varphi(t + h) - \varphi(t)| = |Ee^{i(t+h)\xi} - Ee^{it\xi}| = |Ee^{it\xi}(e^{ih\xi} - 1)| \leqslant E|e^{it\xi}|\cdot |e^{ih\xi} - 1| = E|\xi^{ih\xi} - 1|.\)
+			При \(h \to 0\) выполнено \(e^{ih\xi} - 1 \overset{\text{п.н.}} \longrightarrow 0 \) по теореме о наследовании сходимости. \(\forall h |e^{ih\xi} - 1| \leqslant |e^{ih\xi}| + 1 = 2, ~ E2 < +\infty \Rightarrow\) по теореме Лебега о мажорируемой сходимости, \(E|e^{ih\xi} - 1| \to E0 = 0.\) Следовательно, \(\varphi(t)\) равномерно непрерывна.
+		\end{proof}
+	\end{property}
+		\begin{theorem}[единственности (д-во позже)]
+		Пусть \(F\) и \(G\)~--- функции распределения, такие что \(\varphi_{F(x)} = \varphi_{G(x)} \Rightarrow F(x) = G(x)~\forall x.\)
+	\end{theorem}
+	\begin{property}
+		Пусть \(\varphi_\xi(t)\)~---характеристическая функция случайной величины \(\xi\), \(\varphi(t)\) принимает действительные значения \(\Leftrightarrow \xi\) имеет симметричное распределение.
+		\begin{proof}
+			\(~(\Leftarrow)\) Пусть распределение \(\xi\)~---симметрично, тогда \(E(\sin(t\xi)) = E(\sin(t(-\xi))) = -E(\sin(t\xi)) = 0.\) Значит \(\varphi_\xi(t) = E\cos t\xi + iE\sin t\xi = E\cos t\xi \in \mathbb{R}.\)
+
+			\((\Rightarrow)\) Пусть \(\varphi_\xi(t) \in \mathbb{R} ~\forall t.\) Тогда по свойствам \(2\) и \(3\) \(\varphi_\xi(t) = \overline{\varphi_\xi(-t)} = \varphi_\xi(-t) = \varphi_{-\xi}(t) ~\Rightarrow \)~\(\xi\) и \(-\xi\) имеют одиаковую характеристическую функцию \(~\Rightarrow\)~ \(\xi \overset{d}{=} -\xi\) по теореме единственности.
+		\end{proof}
+	\end{property}
+
+	\begin{property}
+	\begin{theorem}[о производящих х.ф.]
+		Пусть \(E|\xi|^n < + \infty, ~n \in \mathbb{N}.\) Тогда \(\forall k \leqslant n~ \exists \varphi_\xi^{(k)}(t),\) причём
+		\begin{enumerate}
+			\item \(\varphi_\xi^{(k)}(t) = \int\limits_\mathbb{R}(ix)^ke^{itx}dF(x)\)
+			\item \(E\xi^k = \frac{\varphi_\xi^{(k)}(0)}{i^k}\)
+			\item \(\varphi_\xi(t) = \sum\limits_{k = 0}^{n} \frac{(it)^k}{k!}E\xi^k + \frac{(it)^n}{n!}\varepsilon_n(t)\)
+		\end{enumerate}
+		\(|\varepsilon_n(t)| \leqslant 3E|\xi|^n, ~\varepsilon_n(t) \to 0, ~ t \to 0.\)
+	\end{theorem}
+	\begin{proof}
+		\begin{enumerate}
+			\item Рассмотрим \(\frac{\varphi_\xi(t + h) - \varphi_\xi(t)}{h} = \frac{Ee^{i(t + h)\xi} - Ee^{it\xi}}{h} = \frac{Ee^{it\xi}(e^{ih\xi} - 1)}{h}.\) при \(h \to 0\) \(\frac{e^{ih\xi} - 1}{h} \overset{\text{п.н.}}{\longrightarrow}i\xi,\) кроме того, \(\left|\frac{e^{ih\xi} - 1}{h}\right| \leqslant |\xi|\) почти наверное, так как хорда меньше дуги. По теореме о мажорируемой сходимости
+			\(\lim\limits_{n \to 0}E \frac{e^{ih\xi} - 1}{h}e^{it\xi} = \varphi'_\xi(t) = E(i\xi\cdot e^{it\xi}) = \int\limits_\mathbb{R} ixe^{itx}dF_\xi(x).\) Доказательство формулы для \(\varphi^{(k)}\) аналогично.
+			\item Из пункта 1, \(E\xi^n = \int\limits_\mathbb{R}x^k dF_\xi(x) = \frac{1}{i^k} \int\limits_\mathbb{R}(ix)^ke^{i0x}dF(x) = \frac{\varphi^{(k)}(0)}{i^k}.\)
+			\item Ряд Тейлора \(e^{i\eta} = \sum\limits_{k = 0}^{n - 1} \frac{(i\eta)^k}{k!} + \frac{(i\eta)^n}{n!}(\cos\theta_1y + i\sin\theta_2 y), ~|\theta_1| \leqslant 1, ~ |\theta_2| \leqslant 1,\) тогда
+			\(\varphi_\xi(t) = Ee^{it\xi} = E\left[\sum\limits_{k = 0}^{n - 1} \frac{(it\xi)^k}{k!} + \frac{(it\xi)^n}{n!}(\cos\theta_1 t\xi + i\sin \theta_2 t\xi)\right] = \sum\limits_{k = 0}^{n}\frac{(it)^k}{k!}E\xi^k + \frac{(it)^n}{n!}\varepsilon_n(t), \) где \(\varepsilon_n(t) = E(\xi^n\cdot [\cos\theta_1t\xi + i\sin(\theta_2 t\xi) - 1]) \Rightarrow \varepsilon_n(t) \leqslant 3E|\xi|^n;\)
+
+			\(|\xi^n[\cos(\theta_1t\xi) + i\sin(\theta_2t\xi) - 1]| \leqslant3|\xi|^n\) и \(\xi^n(\cos(\theta_1t\xi) - 1 + \underbrace{\sin(\theta_2 t\xi)}_{\to 0}) \overset{\text{п.н.}}{\longrightarrow} 0\) при \(t \to 0 \Rightarrow\) по теореме Лебега о мажорируемой сходимости, \(\varepsilon_n(t) \underset{t \to 0}{\longrightarrow} 0.\)
+		\end{enumerate}
+	\end{proof}
+	\end{property}
+	\begin{property}[б/д]
+		Если существует и конечна \(\varphi^{(2n)}(0),\) то \(E|\xi|^{2n} < +\infty.\)
+	\end{property}
+	\begin{theorem}[о разложении х.ф. в ряд]
+		Пусть \(\xi\) случайная величина, такая что \(E|\xi|^n < +\infty~ \forall n.\) Если для некоторого \(T > 0\) выполнено \(\overline{\lim\limits_{n}}\left(E \frac{|\xi|^n}{n!}\right) < \frac{1}{T},\) то \(\forall t: |t| < T\) выполнено \(\varphi_\xi(t) = \sum\limits_{n = 0}^{+\infty} \frac{(it)^n}{n!}E\xi^n.\)
+		\begin{proof}
+			Пусть \(t_0\) такое, что \(|t_0| < T, \) тогда \(\overline{\lim\limits_{n \to +\infty}}E\left(\frac{|\xi|^n \cdot |t_0|^n}{n!}\right)^{\frac{1}{n}} = \frac{|t_0|}{T} < 1, \) следовательно, по признаку Коши-Адамара сходимости рядов, ряд \(\sum\limits_{n = 0}^{+\infty} \frac{E|\xi|^n\cdot|t_0|^n}{n!}\) сходится.
+			Рассмотрим \(|t| \leqslant |t_0|: \varphi_\xi(t) = \sum\limits_{k = 0}^{n} \frac{(it)^k}{k!}E\xi^k + \underbrace{\frac{(it)^n}{n!}\varepsilon_n(t)}_{R_n(t)}~~~(*).\) 
+
+			\noindent\(R_n(t) \leqslant 3\cdot \frac{|t|^n}{n!}\cdot E|\xi|^n \underset{n \to +\infty}{\longrightarrow} 0\) по условию теоремы. Устремляя \(n\to + \infty\) в \((*)\), получаем \(\varphi_\xi(t) = \sum\limits_{k = 0}^{+\infty} \frac{(it)^k}{k!}E\xi^k.\) В силу произвольности \(|t_0| < T,\) разложение верно \(\forall t \in (-T, T).\)
+		\end{proof}
+	\end{theorem}
+
+	\begin{example}
+		Пусть \(\xi \sin N(0;1) \Rightarrow \varphi_\xi(t) = e^{- \frac{t^2}{2}}.\) Мы знаем, что \(E\xi^m = \left\{
+			\begin{array}{l}
+			(m-1)!!, ~m \vdots 2\\
+			0, ~m\not \vdots 2
+			\end{array}
+		\right.\)
+		\(E|\xi|^m = \left\{
+			\begin{array}{l}
+			(m - 1)!!, ~m \vdots 2\\
+			(m - 1)!!\sqrt{\frac{2}{n}}, m \not \vdots 2
+			\end{array}
+		\right. \Rightarrow\) по предыдущей теореме, 
+		\(\varphi_\xi(t) = \sum\limits_{n = 0}^{\infty} \frac{(it)^{2n}}{(2n)!}(2n - 1)!! = \sum\limits_{n = 0}^{+\infty} \frac{(it)^{2n}}{(2n)!!} = \sum\limits_{n = 0}^{+\infty} \left(- \frac{t^2}{2}\right)^n \frac{1}{n!} = e^{\frac{t^2}{2}}.\)
+
+		\underline{\text{Условие теоремы}}: \(\left(\frac{E|\xi|^m}{m!}\right)^{\frac{1}{m}} \leqslant \left(\frac{(m - 1)!!}{m!}\right)^{\frac{1}{m}} = \left(\frac{1}{m!!}\right)^{\frac{1}{m}} \approx \frac{1}{\sqrt{2}}\left(\left(\frac{m}{2e}\right)^{\frac{m}{2}}\right)^{\frac{1}{m}} \sim \frac{C}{\sqrt{m}} \to 0 \Rightarrow T = + \infty.\)
+	\end{example}
+
+	\begin{theorem}[формула обращения (б/д)]b
+		Пусть \(\varphi(t)\) характеристическая функция функции распределения \(F\). Тогда
+		\begin{enumerate}
+			\item Для \(\forall a < b\) (точки непрерывности) \(F\) выполнено
+			\(F(b) - F(a) = \frac{1}{2\pi} \lim\limits_{c \to +\infty} \int\limits_{-c}^{c} \frac{e^{-itb} - e^{-ita}}{-it}\varphi(t)dt\)
+			\item Если \(\int\limits_\mathbb{R}|\varphi(t)|dt < +\infty,\) то у функции распределения \(F(x)\) существует плотность \(f(x)\) и \(f(x) = \frac{1}{2\pi}\int\limits_\mathbb{R} e^{-tx}\varphi(t)dt.\)
+		\end{enumerate}
+	\end{theorem}
+	
