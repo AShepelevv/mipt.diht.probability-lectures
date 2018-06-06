@@ -1,0 +1,28 @@
+\section{Лекция от 19.05.2018}
+\begin{statement}[6-ое свойство]
+	Если $\vec \xi \sim N(\vec m, \Sigma)$ и $\rg(\Sigma) = n$, то $\vec \xi$ имеет плотность в $\R^n$.
+	\begin{proof}
+		Так как $\rg \Sigma = n \Rightarrow \exists A = \Sigma^{-1}$. Обозначим $f(x) = \frac{|A|^{1/2}}{(2n)^{n / 2}} e^{-\frac{1}{2}(A(x - m), (x - m)), \vec x \in \R^n}$. Достаточно показать, что $\int\limits_{\R^n}e^{i(\vec t, \vec x)}f(x)dx = e^{i(\vec t, \vec m) - \frac{1}{2}(\Sigma \vec t, \vec t)}$, тогда $f$ --- плотность $\vec \xi$. Обозначим $I_n = \int\limits_{\R^n}e^{i(\vec f, \vec x - \vec m)} \frac{|A|^{1/2}}{(2\pi)^{n/2}}e^{-\frac{1}{2}A(\vec x - \vec m, \vec x - \vec m)}dx$. Хотим доказать, что $I_n = e^{-\frac{1}{2}(\Sigma\vec t, \vec t)}$. Мы знаем, что $\exists S$ --- ортогональная, такая что 
+		$$ S^T\Sigma S = D = \left(\begin{matrix}
+		d_1 & \ldots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \ldots & d_n \\
+		\end{matrix}\right), d_i > 0, $$ 
+		так как $\Sigma$ не вырожденная, тогда $|A| = |\Sigma^{-1}| = \frac{1}{d_1\cdot\ldots\cdot d_n}$. Сделаем замену: $\vec x - \vec m = S\vec u; \vec t = S\vec v$. Тогда $i(\vec t, \vec x - \vec m) - \frac{1}{2}(A(\vec x - \vec m), \vec x - \vec m) = i(S\vec v, S\vec u) - \frac{1}{2}(AS\vec u, S\vec u) = i\vec v^T\underbrace{S^TS_n}_{E_n} - \frac{1}{2}\vec u^T\underbrace{S^TAS}_{D^{-1}}u = i\vec v^T \vec u - \frac{1}{2}\vec u^TD^{-1}\vec u$. В итоге, 
+		\begin{multline*}
+		I_n = \frac{1}{(2\pi)^{n/2}(d_1 \cdot\ldots\cdot d_n)^{1/2}}\int\limits_{\R^n} e^{i(\vec v, \vec u)- \frac{1}{2}\vec u^TD^{-1}\vec u} \cdot J  \cdot du = \\
+		= \prod\limits_{k = 1}^n\frac{1}{(2\pi d_k)^{1/2}} \int\limits_\R e^{i v_ku_k - \frac{1}{2}\frac{u_k^2}{d_k}}du_k = \prod\limits_{k = 1}^n e^{\frac{-v_k^2d_k}{2}} =  \\
+		= e^{-\frac{1}{2}\vec v^TD\vec v} = e^{-\frac{1}{2}\vec v^TS^T\Sigma S\vec v} = e^{-\frac{1}{2}\vec t^T \Sigma t},
+		\end{multline*} где $J = |S| = 1$ --- якобиан.  $e^{-\frac{1}{2}\vec t^T \Sigma t}$ --- характеристическая функция $\vec \xi \Rightarrow$ $f(x)$ --- плотность $\vec \xi$.
+	\end{proof}
+\end{statement}
+\subsection{Многомерная ЦПТ}
+\begin{theorem}[Многомерная ЦПТ]
+	Пусть $|\vec x_i|_{i \geqslant 1}$ --- независимые одинаково распределенные случайные вектора, $\E\vec x_i = \vec a$, $\var \vec x_i = \Sigma$, тогда $\sqrt n \left( \frac{\vec x_1 + \ldots + \vec x_n}{n} \rightarrow \vec a \right) \xrightarrow{d} N(\vec 0, \Sigma),\; n \rightarrow +\infty$.
+\end{theorem}
+\begin{note}
+	Сходимость векторов по распределению вводится аналогично обычной сходимости случайной величины по распределению, то есть $\forall f: \R^n \rightarrow \R$ непрерывно ограниченных $\E f(\vec x_n) \rightarrow \E f(\vec x)$.
+	\begin{proof}
+		Рассмотрим характеристическую функцию $\varphi_{k, n}(t) = \E \exp\left(i\left(t, \frac{x_k - a}{\sqrt n}\right)\right)$ и $\varphi_n(t) = \E \exp\left(i\left( \frac{S_n - na}{\sqrt n}, t \right)\right) = \prod\limits_{k = 1}^n\varphi_{k,n}(t)$, где $S_n = \sum\limits_{k = 1}^n \vec x_k$. Для доказательства достаточно убедиться, что $\varphi_n(t) \rightarrow e^{-\frac{1}{2}}\vec t^T\Sigma \vec t$. Заметим, что $\varphi_{k, n}(t) = \varphi_\xi\left( \frac{1}{\sqrt n} \right)$, где $\xi = (\vec x_k - \vec a, \vec t)$. Для $\varphi_\xi(S)$ верно представление (по теореме о производной характеристической функции) $\varphi_\xi(S) = 1 + S\varphi_\xi'(0) + \frac{S^2}{2}\varphi_\xi''(0) + o(S^2), S \rightarrow 0. \E \xi = 0, \D \xi = \E \xi \cdot \xi = \vec t^T \E(\vec x_k - \vec a)(\vec x_k - \vec a)^T\vec t = \vec t^T \Sigma \vec t \Rightarrow \varphi_\xi(S) = 1 - \frac{S^2}{2}\vec t^T\Sigma t + o(S^2), S \rightarrow 0 \Rightarrow \varphi_{k, n}(t) = \varphi_\xi\left(\frac{1}{\sqrt n}\right) = 1 - \frac{\vec t^T\Sigma \vec t}{2n} + o(\frac{1}{n}), n \rightarrow \infty$. Тогда $\varphi_n(t) = \prod\limits_{k = 1}^n\varphi_{k, n}(t) = \left( 1 - \frac{1}{2n}\vec t^T\Sigma\vec t + o\left( \frac{1}{n} \right) \right)^n \limn \exp\left( -\frac{1}{2}\vec t^T \Sigma t \right)$.
+	\end{proof}
+\end{note}
