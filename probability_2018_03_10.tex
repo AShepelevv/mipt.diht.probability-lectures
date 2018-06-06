@@ -1,6 +1,6 @@
 \section{Лекция от 10.03.2018}
 \begin{property}
-	Если $\xi = \eta$ почти наверное и $\E | \eta| < = +\infty$, то $\E | \xi| < +\infty$ и $\E \xi = \E \eta$.
+	Если $\xi = \eta$ почти наверное и $\E | \eta| < +\infty$, то $\E | \xi| < +\infty$ и $\E \xi = \E \eta$.
 	\begin{proof}
 		Пусть $A = \{ \xi \neq \eta \}$, тогда $I_A = 0$ почти наверное, следовательно $\xi \cdot I_a = 0$ почти наверное и $\eta \cdot I_A = 0$ почти наверное. Так как $\xi = \xi \cdot I_A + \xi \cdot I_{\overline A}$, то $\xi = \xi \cdot I_A + \eta \cdot I_A$, потому что на $\overline A$ выполняется $\xi = \eta$. Из свойства 6 имеем $\E \xi = \E ( \xi \cdot I_A ) + \E (\eta \cdot I_{\overline A} ) = \E ( \eta \cdot I_A) + E ( \eta \cdot I_{\overline A} ) = \E \eta$. 
 	\end{proof}
@@ -34,7 +34,7 @@
 Пусть $\xi = \sum\limits_{i = 1}^n x_i \cdot I (\xi = x_i)$~--- простая случайная величина. Тогда $\E g(\xi) = \sum\limits_{i=1}^{n} g(x_i) \cdot \P(\xi = x_i) = \sum\limits_{i = 1}^n g(x_i) \Delta F_\xi (x_i)$, где $\Delta F_\xi(x_i) = F_\xi(x_i) - F_\xi (x_i - 0)$.
 
 \begin{theorem}[о замене переменной в интеграле Лебега][б/д]
-	Пусть $(\Omega, \F)$ и $(E, \mathcal{E})$~--- два измеримых пространства и $X = X(\omega)$~--- $\F | \mathcal{E}$-измеримая функция со значениями в $E$, то есть $\forall B \in \mathcal{E}: X^{-1}(B) \in \F$. Пусть $\P$~--- вероятностная мера на $(\Omega, \F)$ и $\P_X$~--- вероятностная мера на $(E, \mathcal{E})$, заданная по правилу $\P_X(A) = \P (\omega: X(\omega) = A)$ для $A \in \mathcal{E}$. Тогда для любой $\mathcal{E}$-измеримой функции $g(x), x \in E$, то есть $\forall B \in \mathcal{E}: g^{-1}(B) \in E$, верно, $\int\limits_A g(x) \P_X(dx) = \int\limits_{X^{-1}(A)} g\big( X(\omega) \big) \P(d \omega)$.
+	Пусть $(\Omega, \F)$ и $(E, \mathcal{E})$~--- два измеримых пространства и $X = X(\omega)$~--- $\F | \mathcal{E}$-измеримая функция со значениями в $E$, то есть $\forall B \in \mathcal{E}: X^{-1}(B) \in \F$. Пусть $\P$~--- вероятностная мера на $(\Omega, \F)$ и $\P_X$~--- вероятностная мера на $(E, \mathcal{E})$, заданная по правилу $\P_X(A) = \P (\omega: X(\omega) \in A)$ для $A \in \mathcal{E}$. Тогда для любой $\mathcal{E}$-измеримой функции $g(x), x \in E$, то есть $\forall B \in \mathcal{E}: g^{-1}(B) \in \F$, верно, $\int\limits_A g(x) \P_X(dx) = \int\limits_{X^{-1}(A)} g\big( X(\omega) \big) \P(d \omega)$.
 \end{theorem}
 
 Пусть $\xi : \Omega \rightarrow \R (\R^n)$, в таком случае вероятностная мера $\P_\xi$ однозначно восстанавливается по $F_\xi$, следовательно, по теореме $\E g(\xi) = \int g(\xi) \, d\P = \int g(x) \P_\xi(dx) = \int g(x) \, d \F_\xi (x)$.
