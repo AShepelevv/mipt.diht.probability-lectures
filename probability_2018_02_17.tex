@@ -82,7 +82,7 @@
 \begin{lemma}[О пределах случайной величины]
 	Пусть $\big\{ \xi_n, n \in \N \big\}$ последовательность случайных величин, тогда, если пределы $\overline{\lim}~\xi_n$, $\underline{\lim}~\xi_n$, $\inf\xi_n$, $\sup\xi_n$ существуют, они являются случайными величинами.
 	\begin{proof}
-		$\big\{\omega : \sup \xi_n \leqslant x \big\} = \bigcap\limits_{n = 1}^{+\infty}\big\{\omega : \xi_n(\omega) \leqslant x \big\} \in \F$. По критерию измеримости, так как $\sigma\big(x : (-\infty, x]\big) = \B(\R)$, мы доказали, что $\sup\xi_n$~--- случайная величина. Аналогично, $\big\{\omega : \inf \xi_n > x \big\} = \bigcup\limits_{k = 1}^{+\infty}\big\{\omega : \xi_n(\omega) \geqslant x \big\} \in \F$, так как $\sigma\big((x, +\infty)\big) = \B(\R)$, по критерию измеримости $\inf\xi_n$~--- случайная величина. Отсюда $\overline{\lim}~\xi_n = \inf\limits_n\sup\limits_{m \geqslant n}~xi_m$ и $\underline{\lim}~\xi_n = \sup\limits_n\inf\limits_{m \geqslant n}~\xi_m$ тоже случайные величины.
+		$\big\{\omega : \sup \xi_n \leqslant x \big\} = \bigcap\limits_{n = 1}^{+\infty}\big\{\omega : \xi_n(\omega) \leqslant x \big\} \in \F$. По критерию измеримости, так как $\sigma\big(x : (-\infty, x]\big) = \B(\R)$, мы доказали, что $\sup\xi_n$~--- случайная величина. Аналогично, $\big\{\omega : \inf \xi_n > x \big\} = \bigcup\limits_{k = 1}^{+\infty}\big\{\omega : \xi_n(\omega) \geqslant x \big\} \in \F$, так как $\sigma\big((x, +\infty)\big) = \B(\R)$, по критерию измеримости $\inf\xi_n$~--- случайная величина. Отсюда $\overline{\lim}~\xi_n = \inf\limits_n\sup\limits_{m \geqslant n}~\xi_m$ и $\underline{\lim}~\xi_n = \sup\limits_n\inf\limits_{m \geqslant n}~\xi_m$ тоже случайные величины.
 	\end{proof}
 \end{lemma}
 \begin{consequence}
