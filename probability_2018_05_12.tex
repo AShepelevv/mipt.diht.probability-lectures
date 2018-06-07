@@ -1,1 +1,159 @@
-\section{Лекция от 12.05.2018}
+
+	\section{Лекция от 12.05.2018}
+	\begin{theorem}[Линдберга(б/д)]
+		Пусть \(\{\xi_k\}_{k \geqslant 1}\)~--- независимые случайные величины, \(E\xi_k^ < +\infty ~ \forall k,\) обозначим \(m_k = E\xi_k, ~\sigma^2_k = D\xi_k > 0: S_n = \sum\limits_{i = 1}^{n}\xi_i; ~ D_n^2 = \sum\limits_{k = 1}^{n}\sigma^2_k\) и \(F_k(x)\)~--- функция распределения \(\xi_k\). Пусть выполнено условие Линдберга, то есть:
+		\[
+			\forall \varepsilon > 0 ~ \frac{1}{D^2_n} \sum\limits_{k = 1}^{n} \int\limits_{\{x:|x - m_k| > \varepsilon D_n\}}(x-m_k)^2 dF_k(x) \underset{n \to \infty}{\longrightarrow} 0.
+		\]
+		Тогда \( \frac{S_n - ES_n}{\sqrt{DS_n}} \overset{d}{\longrightarrow} N(0,1), n\to \infty\).
+	\end{theorem}
+
+	\subsection{Когда выполнены условия Линдберга?}
+
+	\begin{enumerate}
+		\item Пусть выполнено условие Ляпунова, то есть 
+		\[
+			\frac{1}{D_n^{2 + \delta}} \sum\limits_{i = 1}^{n} E|\xi_k - m_k|^{2 + \delta} \underset{n \to \infty}{\longrightarrow} 0
+		\]
+		для некоторого \(\delta > 0,\) тогда выполнено условие Линдберга.
+		\begin{proof}
+			\begin{gather*}
+				E|\xi_k - m_k|^{2 + \delta} = \int\limits_\R |x - m_k|^{2 + \delta} dF_k(x) \geqslant \\
+				\geqslant \int\limits_{|x - m_k| \geqslant \varepsilon D_n} |x - m_k|^{2 + \delta} dF_k(x) \geqslant \varepsilon^\delta D_n^\delta \int\limits_{|x - m_k| > \varepsilon D_n} |x -m_k|^2 dF_k(x)\\
+				\Rightarrow \frac{1}{D^{2 + \delta}} \sum\limits_{k = 1}^{n} E|\xi_k - m_k|^{2 + \delta} \geqslant \frac{\varepsilon^\delta}{D^2_n} \sum\limits_{k = 1}^{n} \int\limits_{\{x:|x - m_k| > \varepsilon D_n\}}|x - m_k|^2 dF_k(x).
+			\end{gather*}
+		\end{proof}
+		\item Из условий теоремы Леви вытекает условие Линдберга.
+		\begin{proof}
+			Пусть \(\{\xi_k\}_{k \geqslant 1}\)~--- независимые одинаково распределённые случайные величины, \(+\infty > D\xi_1 = \sigma^2 > 0, ~E\xi_1 = a \Rightarrow \)
+			\begin{gather*}
+				\frac{1}{D_n} \sum\limits_{k = 1}^{n} \int\limits_{\{x:|x-a|>\varepsilon D_n\}} |x - a|^2 dF_k(x)=\\
+				= \frac{1}{n\sigma^2} \sum\limits_{k = 1}^{n} \int\limits_{\{x:|x-a| > \varepsilon D_n\}} |x-a|^2dF_1(x) = \\
+				\frac{1}{\sigma^2} \int\limits_{|x-a| > \varepsilon \sqrt{n}\sigma} |x-a|^2 dF_1(x) \to 0, \text{ т.к. }\{x:|x-a| > \varepsilon\sqrt{n}\sigma\} \to \varnothing;\\
+				\int\limits_\R |x-a|^2 dF_1(x) < +\infty.
+			\end{gather*}
+		\end{proof}
+		\item Пусть \(\{\xi_k\}_{k \geqslant 1}\)~---независимые случайные величины, \(|\xi_k| \leqslant K; ~D_n \to +\infty\). Тогда 
+		\begin{gather*}
+			\int\limits_{|x-m_k| > \varepsilon D_n}(x - m_k)^2 dF_k(x) = \\
+			= E((\xi_k - m_k)^2\cdot T(|\xi_k - m_k| > \varepsilon D_n)) \leqslant (2k)^2 EI(|\xi_k - m_k| > \varepsilon D_n) =\\
+			=  (2k)^2P(|\xi_k - m_k| > \varepsilon D_n),
+		\end{gather*}
+		то по неравенству Чебышева это не превосходит \[(2k)^2 \frac{\sigma_k^2}{\varepsilon^2 D_n^2}.\] Рассмотрим сумму \[\frac{1}{D_n^2} \sum\limits_{k = 1}^{n} \int\limits_{x: |x- m_k| > \varepsilon D_n} |x-m_k|^2 dF_k(x) \leqslant \frac{(2k)^2}{D_n^2} \sum\limits_{k = 1}^{n} \frac{\sigma^2_k}{\varepsilon^2 D_n^2} = \frac{(2k)^2}{\varepsilon^2D_n^2} \to 0 \text{ при } n \to \infty.\]
+	\end{enumerate}
+
+	\begin{note}
+		Условие Линдберга является необходимым и достаточным условием для справедливости ЦПТ. При выполнении условия бесконечной малости слагаемых:
+		\[
+			\max\limits_{a < x \leqslant n}P\left(\frac{|\xi_k - m_k}{D_n} \geqslant \varepsilon\right) \to 0 \text{ при } n \to \infty.
+		\]
+	\end{note}
+	\begin{theorem}[Берри-Эссена(б/д)]
+		Пусть \(\{\xi_k\}_{k \geqslant 1}\)~--- независимые одинаково распределённые случайные величины, \(E|\xi_i|^3 < +\infty, ~ E\xi_i = a, ~ D\xi_i = \sigma^2, ~S_n = \sum\limits_{i = 1}^{n}\xi_i; ~ T_n = \frac{S_n - ES_n}{\sqrt{DS_n}}.\) Тогда 
+		\[
+			\sup\limits_{x\in \R}|F_{T_n}(x) - \Phi(x)| \leqslant C\cdot \frac{E|\xi_Ta|^3}{\sigma^3\sqrt{n}}, \text{ где } \frac{1}{\sqrt{2\pi}} < C < 0,48,
+		\]
+		где \(\Phi(x) = \int\limits_{-\infty}^{x} \frac{1}{\sqrt{2\pi}}e^{- \frac{x^2}{2}}dx.\)
+	\end{theorem}
+	\subsection{Гауссовские случайные векторы}
+	\begin{definition}
+		Случайные вектор \(\vec{\xi} \sim N(m, \Sigma)\)~--- гауссовский, если его характеристическая функция \(\varphi_{\vec{\xi}}(\vec{t}) = \exp\left(i(\vec{m}, \vec{t}) - \frac{1}{2}(\Sigma \vec{t}, \vec{t})\right), ~ \vec{m} \in \R^n, ~\Sigma\)~--- симметричная неотрицательно определённая матрица.
+	\end{definition}
+
+	\begin{definition}
+		Случайный вектор \(\vec{\xi}\)~--- гауссовский, если он представляется в следующем виде: \(\vec{\xi} = A\vec{\eta} + \vec{B}, \)где \(\vec{B} \in \R^n, ~A\in \operatorname{Mat}(n\times m)\) и \(\vec{\eta} = (\eta_1, \ldots, \eta_m)\)~--- независимые и \(\sim N(0, 1).\)
+	\end{definition}
+
+	\begin{definition}
+		Случайный вектор \(\vec{\xi}\)~--- гауссовский, если \(\forall \lambda \in \R^n\) случайная величина \((\lambda, \xi)\) имеет нормальное распределение.
+	\end{definition}
+
+	\begin{theorem}[об эквивалентности определений гауссовских векторов]
+		Предыдущие определения эквивалентны.
+	\end{theorem}
+	\begin{proof}
+		\begin{enumerate}
+			\item Опр 1 \(\Rightarrow\) Опр 2. Пусть \(\varphi_\xi(t) = e^{i(t, \vec{m} - (Rt, t))}\). Так как матрица \(R\)~--- симметричная и неотрицательно определённая, то \(\exists S\)~---  ортогональная, такая что \(S^T RS = D = \left(
+    \begin{array}{ccccc}
+         d_1                              \\
+                   &\ddots &  & \text{\huge0}\\
+      &               & d_k               \\
+      & \text{\huge0} &   & 0            \\
+      &               &   &   & 0
+    \end{array}
+    \right), d_i > 0.\)
+
+    Определим \(\tilde{D} = \left(
+    \begin{array}{ccccc}
+         \frac{1}{\sqrt{d_1}}                              \\
+                   &\ddots &  & \text{\huge0}\\
+      &               & \frac{1}{\sqrt{d_k}}               \\
+      & \text{\huge0} &   & 0            \\
+      &               &   &   & 0
+    \end{array}
+    \right),\) в таком случае 
+
+    \(\tilde{D}^TS^TRS\tilde{D} = \left(
+    \begin{array}{ccccc}
+         1                              \\
+                   &\ddots &  & \text{\huge0}\\
+      &               & 1               \\
+      & \text{\huge0} &   & 0            \\
+      &               &   &   & 0
+    \end{array}
+    \right)\). Рассмотрим \((S\tilde{D})^T\vec{\xi}\) и его характеристическую функцию. \(\varphi_{(S\tilde{D})^T\vec{\xi}}(\vec{t}) = \varphi_{\vec{\xi}}((S\tilde{D})\vec{t}),\) так как
+    \[
+    	\varphi_{(S\tilde{D})^T\vec{\xi}}(\vec{t}) = Ee^{i(\vec{t}, (S\tilde{D})^T\vec{\xi})} = \exp(i((S\tilde{D})\vec{t}, \vec{m}) - \frac{1}{2}(R(S\vec{D})\vec{t}, (S\vec{D})\vec{t})) = 
+    \]
+    \[
+    	=\exp[i(\vec{t}, (S\tilde{D})^T\vec{m}) - \frac{1}{2}\underbracket{(\tilde{D}^TS^TRS\tilde{D}\vec{t}, \vec{t})}_{=\sum\limits_{i = 1}^{k}t_i^2}] = 
+    \]
+    \[
+    	= \exp[i(\vec{t}, (S\tilde{D})^T\vec{m})\prod\limits_{i = 1}^k \varphi_{\eta_i}(t_i)], 
+    \]
+    \(\eta_i \sim N(0;1)\) и независимы по теореме единственности и теореме независимости в терминах характеристической функции \(\Rightarrow\) вектор \(\vec{\eta} = (S\tilde{D})^T(\vec{\xi} - \vec{m})\)~--- искомый, так как \(\vec{\xi} = ((S\tilde{D})^T)^{-1}\vec{\eta}+\vec{m}.\)
+
+    \item Опр 2 \(\Rightarrow\) Опр 3. Если \(\vec{\xi} = A\vec{\eta} + \vec{b},\) то \(\vec{\lambda}, \vec{\xi} = (\vec{\lambda}, A \vec{\eta}) + (\vec{\lambda}, \vec{b}) = \underbrace{\lambda^T A_\eta}_{\text{сл. вел.}} + \underbrace{\lambda^T b}_{\text{число}}\)~--- линейная комбинация независимых нормально распределённых случайных величин. \(\Rightarrow\) то есть имеем нормальное распределение.
+    \item Опр 3 \(\Rightarrow\) Опр 1. Пусть \((\xi; \lambda)\)~--- нормально распределённая случайная величина, тогда её характеристическая функция \(Ee^{i(\xi, \lambda)t} = e^{iE(\xi, \lambda)t - \frac{D(\xi, \lambda)t^2}{2}}.\) Подставим \(t = 1 ~ \Rightarrow Ee^{i(\xi, \lambda)} = e^{i \sum\limits_{k = 1}^{n}\lambda_k E\xi_k - \frac{1}{2}\sum\limits_{k, l = 1}^{n}\lambda_k\lambda_l\operatorname{cov}(\xi_k, \xi_l)} = \exp(i(\vec{\lambda}, E\vec{\xi}) - \frac{1}{2}(R\vec{t}, \vec{t})), ~ R = \operatorname{Var}\vec{\xi}.\) 
+		\end{enumerate}
+	\end{proof}
+
+	\subsection{Свойства гауссовских векторов}
+	\setcounter{property}{0}
+	\begin{property}
+		Если \(\xi \sim N(a, \Sigma),\) то \(\vec{a} = \left(
+		\begin{matrix}
+		E\xi_1 \\ \vdots \\ E\xi_n
+		\end{matrix}
+		\right)\)~--- вектор средних, \(\Sigma\)~--- матрица ковариаций.
+		\begin{proof}
+			Аналогично пункту \(3\) предыдущей теоремы.
+		\end{proof}
+	\end{property}
+
+	\begin{property}
+		Пусть \(\vec{\xi}\sim N(a, \Sigma), \)тогда \(\xi_i\) независимы \(\Leftrightarrow~\Sigma\) ~--- диагональна.
+		\begin{proof}
+			Заметим, что характеристическая функция \(\xi_j\) равна \(\varphi_{\xi_j}(t_j) = e^{et_ja_j - \frac{1}{2}\sigma^2_{jj}t_j^2},\) нужно подставить \(\vec{t} = (0\ldots0, t, 0\ldots0).\) Тогда \((\xi_1, \ldots, \xi_n)\) независимы в совокупности \(\Leftrightarrow ~ \varphi_{\vec{\xi}}(\vec{t}) = \prod\limits_{i =1 }^n \varphi_{\xi_j}(t_j) = e^{i(\vec{a}, \vec{t}) - \frac{1}{2}\sum\limits_{j = 1}^{n}\sigma_{jj}^2t_j^2} \Leftrightarrow \Sigma\) ~--- диагональна.
+		\end{proof}
+	\end{property}
+
+	\begin{property}[Коши]
+		Гауссовские вектора --- нормальные случайные величины.
+		\begin{proof}
+			Следует из определения \(3\) для \(\lambda_j = (0, \ldots, 0, 1, 0, \ldots, 0).\)
+		\end{proof}
+	\end{property}
+
+	\begin{property}
+		\(\vec{\xi}\)~--- гауссаоский \(\Rightarrow\) любое его линейное преобразование --- гауссовский вектор.
+		\begin{proof}
+			Пусть \(\vec{\chi} = B\vec{\xi} + \vec{c}.\) По второму определению гауссовского вектора, \(\vec{\chi} = B(A\vec{\eta} + \vec{b}) + \vec{c} = BA\vec{\eta} + B\vec{b} + \vec{c},\) отсюда \(\vec{\chi}\)~--- гауссовский по определению \(2.\)
+		\end{proof}
+	\end{property}
+	\begin{property}
+		Пусть \(\vec{\xi}\)~--- гауссовский. Тогда его коспоненты независимые \(\Leftrightarrow\) они некоррелированны.
+		\begin{proof}
+			\((\xi_1, \ldots, \xi_n)\)~--- попарно некоррелированны \(\Leftrightarrow \operatorname{cov}(\xi_i, \xi_j) = 0, ~i \neq j \Leftrightarrow \Sigma\)~--- диагонально \(\Leftrightarrow\) по свойству \(2\) компоненты \(\vec{\xi}\) независимы в совокупности.
+		\end{proof}
+	\end{property}
