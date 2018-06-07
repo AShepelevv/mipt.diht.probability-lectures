@@ -6,7 +6,7 @@
 	\end{proof}
 \end{property}
 \begin{property}
-	Пусть $\xi \geqslant 0$ и $\E \xi \geqslant 0$, тогда $\xi = 0$ почти наверное.
+	Пусть $\xi \geqslant 0$ и $\E \xi = 0$, тогда $\xi = 0$ почти наверное.
 	\begin{proof}
 		Рассмотрим события $A = \{ \xi > 0 \}$ и $A_n = \left\{ \xi > \frac{1}{n} \right\} $, следовательно, $A_n \uparrow A$. Имеем $\P (A_n) = \E I_{A_n}$, так как $n\xi > 1$ на $A_n$, то  $\E I_{A_n} \leqslant \E (n\xi \cdot I_A) \leqslant n \E \xi = 0$, значит, $\P(A) = \lim\limits_{n \rightarrow +\infty} \P (A_n)$.
 	\end{proof}
@@ -36,7 +36,7 @@
 Пусть $\xi = \sum\limits_{i = 1}^n x_i \cdot I (\xi = x_i)$~--- простая случайная величина. Тогда $\E g(\xi) = \sum\limits_{i=1}^{n} g(x_i) \cdot \P(\xi = x_i) = \sum\limits_{i = 1}^n g(x_i) \Delta F_\xi (x_i)$, где $\Delta F_\xi(x_i) = F_\xi(x_i) - F_\xi (x_i - 0)$.
 
 \begin{theorem}[о замене переменной в интеграле Лебега][б/д]
-	Пусть $(\Omega, \F)$ и $(E, \mathcal{E})$~--- два измеримых пространства и $X = X(\omega)$~--- $\F | \mathcal{E}$-измеримая функция со значениями в $E$, то есть $\forall B \in \mathcal{E}: X^{-1}(B) \in \F$. Пусть $\P$~--- вероятностная мера на $(\Omega, \F)$ и $\P_X$~--- вероятностная мера на $(E, \mathcal{E})$, заданная по правилу $\P_X(A) = \P (\omega: X(\omega) \in A)$ для $A \in \mathcal{E}$. Тогда для любой $\mathcal{E}$-измеримой функции $g(x), x \in E$, то есть $\forall B \in \mathcal{E}: g^{-1}(B) \in \F$, верно, 
+	Пусть $(\Omega, \F)$ и $(E, \mathcal{E})$~--- два измеримых пространства и $X = X(\omega)$~--- $\F | \mathcal{E}$-измеримая функция со значениями в $E$, то есть $\forall B \in \mathcal{E}: X^{-1}(B) \in \F$. Пусть $\P$~--- вероятностная мера на $(\Omega, \F)$ и $\P_X$~--- вероятностная мера на $(E, \mathcal{E})$, заданная по правилу $\P_X(A) = \P (\omega: X(\omega) \in A)$ для $A \in \mathcal{E}$. Тогда для любой $\mathcal{E}$-измеримой функции $g(x):E \rightarrow \R$, то есть $\forall B \in \B(\R): g^{-1}(B) \in \mathcal{E}$, верно, 
 	$$\int\limits_A g(x) \P_X(dx) = \int\limits_{X^{-1}(A)} g\big( X(\omega) \big) \P(d \omega).$$
 \end{theorem}
 
