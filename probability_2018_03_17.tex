@@ -64,15 +64,15 @@
 \begin{definition}
 	Матрицей ковариаций случайного вектора $\vec \xi$ называется 
 	$$ \var \vec \xi = \begin{pmatrix}
-		\cov ( \xi_1, \eta_1) & \cdots & \cov (\xi_1, \eta_n)\\
+		\cov ( \xi_1, \xi_1) & \cdots & \cov (\xi_1, \xi_n)\\
 		\vdots  & \ddots & \vdots\\
-		\cov ( \xi_n, \eta_1) & \cdots & \cov (\xi_n, \eta_n)
-	\end{pmatrix} = \left\| \cov (\xi_i, \eta_j ) \right\|_{i, j = 1}^n.$$
+		\cov ( \xi_n, \xi_1) & \cdots & \cov (\xi_n, \xi_n)
+	\end{pmatrix} = \left\| \cov (\xi_i, \xi_j ) \right\|_{i, j = 1}^n.$$
 \end{definition}
 \begin{lemma}
 	Матрица ковариаций случайного вектора~--- симметрическая и неотрицательно определенная\footnote{Матрица $A$ неотрицательно определена, если $\forall \vec x \in \R^n: {\vec x}^T A \vec x \geqslant 0$}.
 	\begin{proof}
-		Матрица $\var \vec \xi = \left\| \cov (\xi_i, \eta_j ) \right\|_{i, j = 1}^n$~--- симметрическая, так как $r_{ij} \equiv \cov ( \xi_i, \xi_j ) = \cov (\xi_j, \xi_i) \equiv r_{ji}$. Пусть $\vec x \in \R^n$, тогда 
+		Матрица $\var \vec \xi = \left\| \cov (\xi_i, \xi_j ) \right\|_{i, j = 1}^n$~--- симметрическая, так как $r_{ij} \equiv \cov ( \xi_i, \xi_j ) = \cov (\xi_j, \xi_i) \equiv r_{ji}$. Пусть $\vec x \in \R^n$, тогда 
 		\begin{multline*}
 			{\vec x}^T \var \vec \xi \vec x = ( \vec x, \var \vec \xi \vec x ) = \sum_{i,j=1}^n \cov (\xi_i, \xi_j ) x_i x_j = \sum_{i,j=1}^n \cov (x_i \xi_i, x_j \xi_j) =\\ = \cov \left( \sum_{i=1}^n  x_i \xi_i, \sum_{j=1}^n x_j \xi_j \right) = \cov \left( \sum_{i=1}^n  x_i \xi_i, \sum_{i=1}^n x_i \xi_i \right) =\D \left( \sum_{i=1}^n x_i \xi_i \right) \geqslant 0.
 		\end{multline*}
@@ -112,7 +112,7 @@
 \subsection{Условные математические ожидания (УМО)}
 Пусть $(\Omega, \F, \P)$~--- вероятностное пространство; $\xi: \Omega \rightarrow \R$~--- случайная величина; $\F_\xi = \{ \xi^{-1}(B), B \in \B(\R) \}$~--- $\sigma$-алгебра, порожденная $\xi$. Если $\G$~--- под $\sigma$-алгебра $\sigma$-алгебры $\F$, то  $\xi$ называется $\G$-измеримой, если $\F_\xi \subset \G$.
 \begin{definition}
-	Пусть $\xi$~--- случайная случайная величина на $(\Omega, \F, \P)$, $\G$~--- под$\sigma$-алгебра $\F$. Условным математическим ожиданием случайной величины $\xi$ относительно $\G$ называется случайная величина $\E (\xi | \G)$, обладающая следующими свойствами:
+	Пусть $\xi$~--- случайная величина на $(\Omega, \F, \P)$, $\G$~--- под$\sigma$-алгебра $\F$. Условным математическим ожиданием случайной величины $\xi$ относительно $\G$ называется случайная величина $\E (\xi | \G)$, обладающая следующими свойствами:
 	\begin{enumerate}
 		\item $\E(\xi | \G )$ является $\sigma$-измеримой случайной величиной;
 		\item $\forall A \in \G: \E ( \xi \cdot I_A) = \E \big( \E (\xi | \G )\cdot I_A \big)$ или, что тоже самое, $\int\limits_A \xi \, d \P = \int\limits_A \E (\xi | \G )\,d \P$.
