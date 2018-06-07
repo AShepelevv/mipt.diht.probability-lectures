@@ -25,21 +25,24 @@
 			\E \xi \eta = \sum\limits_{k,j=1}^{n} x_k y_j \P (\xi = x_k, \eta = y_j) = \sum\limits_{k,j=1}^n x_k y_j \P(\xi = x_k) \cdot \P(\eta = y_j) = \\ = \sum\limits_{k = 1}^n x_k \P (\xi = x_k) \sum\limits_{j = 1}^{n} y_j \P (\eta = y_j) = \E \xi \cdot \E \eta.
 		\end{multline*}
 			
-		Рассмотрим $\xi_n \uparrow \xi$, $\xi_n = \sum\limits_{k=0}^{n \cdot 2^n - 1} \dfrac{k}{2^n} I \left(\dfrac{k}{2^n} \leqslant \xi \leqslant \dfrac{k+1}{2^n} \right) + n I(\xi > n)$, следовательно, $\xi_n = \varphi_n(\xi)$, значит, $\xi_n$~--- $\F_\xi$-измеримая. Пусть $\xi, \eta \geqslant 0$. Существует последовательность $\F_\xi$-измеримых ($\F_\eta$-измеримых) простых неотрицательных простых функций $\xi_n \uparrow \xi$ ($\eta_n \uparrow \eta$). Так как $\xi \indep \eta$, то $\xi_n = \varphi_n (\xi) \indep \varphi_n(\eta) = \eta_n$. Следовательно, $\xi_n \cdot \eta_n \uparrow \xi \cdot \eta$, а по определению математического ожидания $\E \xi\eta = \lim\limits_{n \rightarrow +\infty} \E (\xi_n \eta_n) =  \lim\limits_{n \rightarrow +\infty} \E \xi_n \cdot \E \eta_n = \E \xi \cdot \E \eta$.
+		Рассмотрим $\xi_n \uparrow \xi$, 
+		$$\xi_n = \sum\limits_{k=0}^{n \cdot 2^n - 1} \dfrac{k}{2^n} I \left(\dfrac{k}{2^n} \leqslant \xi \leqslant \dfrac{k+1}{2^n} \right) + n I(\xi > n),$$
+		 следовательно, $\xi_n = \varphi_n(\xi)$, значит, $\xi_n$~--- $\F_\xi$-измеримая. Пусть $\xi, \eta \geqslant 0$. Существует последовательность $\F_\xi$-измеримых ($\F_\eta$-измеримых) простых неотрицательных простых функций $\xi_n \uparrow \xi$ ($\eta_n \uparrow \eta$). Так как $\xi \indep \eta$, то $\xi_n = \varphi_n (\xi) \indep \varphi_n(\eta) = \eta_n$. Следовательно, $\xi_n \cdot \eta_n \uparrow \xi \cdot \eta$, а по определению математического ожидания $\E \xi\eta = \lim\limits_{n \rightarrow +\infty} \E (\xi_n \eta_n) =  \lim\limits_{n \rightarrow +\infty} \E \xi_n \cdot \E \eta_n = \E \xi \cdot \E \eta$.
 			
-		Пусть теперь $\xi$ и $\eta$~--- произвольные случайные величины. $\xi^+$ и $\xi^-$~--- функции от $\xi$, $\eta^+$ и $\eta^-$~--- функции от $\eta$, следовательно, $\xi^+ \indep \eta^+$ и $\xi^- \indep \eta^-$, отсюда $(\xi \eta)^+ = \xi^+ \eta^+ + \xi^- \eta^-$ значит, $\E (\xi \eta)^+ = \E \xi^+ \eta^+ + \E \xi^- \eta^- = \E \xi^+ \E \eta^+ + \E \xi^- \E \eta^-$, аналогично $\E (\xi \eta)^- = \E \xi^+ \eta^- + \E \xi^- \eta^+ = \E \xi^+ \E \eta^- + \E \xi^- \E \eta^+$. Осталось заметить, что $\E \xi \eta = \E (\xi \eta)^+ - \E ( \xi \eta)^- = \E \xi^+ \E \eta^+ + E \xi^- \E \eta^- - \E \xi^+ \E \eta^- - \E \xi^- \E \eta^+ =  (\E \xi^+ - \E \xi^-) (\E \eta^+ - \E \eta-) = \E \xi + \E \eta$.
+		Пусть теперь $\xi$ и $\eta$~--- произвольные случайные величины. $\xi^+$ и $\xi^-$~--- функции от $\xi$, $\eta^+$ и $\eta^-$~--- функции от $\eta$, следовательно, $\xi^+ \indep \eta^+$ и $\xi^- \indep \eta^-$, отсюда $(\xi \eta)^+ = \xi^+ \eta^+ + \xi^- \eta^-$ значит, $\E (\xi \eta)^+ = \E \xi^+ \eta^+ + \E \xi^- \eta^- = \E \xi^+ \E \eta^+ + \E \xi^- \E \eta^-$, аналогично $\E (\xi \eta)^- = \E \xi^+ \eta^- + \E \xi^- \eta^+ = \E \xi^+ \E \eta^- + \E \xi^- \E \eta^+$. Осталось заметить, что $\E \xi \eta = \E (\xi \eta)^+ - \E ( \xi \eta)^- = \E \xi^+ \E \eta^+ + \E \xi^- \E \eta^- - \E \xi^+ \E \eta^- - \E \xi^- \E \eta^+ =  (\E \xi^+ - \E \xi^-) (\E \eta^+ - \E \eta^-) = \E \xi \cdot \E \eta$.
 	\end{proof}
 \end{theorem}
 	
 Пусть $\xi = \sum\limits_{i = 1}^n x_i \cdot I (\xi = x_i)$~--- простая случайная величина. Тогда $\E g(\xi) = \sum\limits_{i=1}^{n} g(x_i) \cdot \P(\xi = x_i) = \sum\limits_{i = 1}^n g(x_i) \Delta F_\xi (x_i)$, где $\Delta F_\xi(x_i) = F_\xi(x_i) - F_\xi (x_i - 0)$.
 
 \begin{theorem}[о замене переменной в интеграле Лебега][б/д]
-	Пусть $(\Omega, \F)$ и $(E, \mathcal{E})$~--- два измеримых пространства и $X = X(\omega)$~--- $\F | \mathcal{E}$-измеримая функция со значениями в $E$, то есть $\forall B \in \mathcal{E}: X^{-1}(B) \in \F$. Пусть $\P$~--- вероятностная мера на $(\Omega, \F)$ и $\P_X$~--- вероятностная мера на $(E, \mathcal{E})$, заданная по правилу $\P_X(A) = \P (\omega: X(\omega) \in A)$ для $A \in \mathcal{E}$. Тогда для любой $\mathcal{E}$-измеримой функции $g(x), x \in E$, то есть $\forall B \in \mathcal{E}: g^{-1}(B) \in \F$, верно, $\int\limits_A g(x) \P_X(dx) = \int\limits_{X^{-1}(A)} g\big( X(\omega) \big) \P(d \omega)$.
+	Пусть $(\Omega, \F)$ и $(E, \mathcal{E})$~--- два измеримых пространства и $X = X(\omega)$~--- $\F | \mathcal{E}$-измеримая функция со значениями в $E$, то есть $\forall B \in \mathcal{E}: X^{-1}(B) \in \F$. Пусть $\P$~--- вероятностная мера на $(\Omega, \F)$ и $\P_X$~--- вероятностная мера на $(E, \mathcal{E})$, заданная по правилу $\P_X(A) = \P (\omega: X(\omega) \in A)$ для $A \in \mathcal{E}$. Тогда для любой $\mathcal{E}$-измеримой функции $g(x), x \in E$, то есть $\forall B \in \mathcal{E}: g^{-1}(B) \in \F$, верно, 
+	$$\int\limits_A g(x) \P_X(dx) = \int\limits_{X^{-1}(A)} g\big( X(\omega) \big) \P(d \omega).$$
 \end{theorem}
 
-Пусть $\xi : \Omega \rightarrow \R (\R^n)$, в таком случае вероятностная мера $\P_\xi$ однозначно восстанавливается по $F_\xi$, следовательно, по теореме $\E g(\xi) = \int g(\xi) \, d\P = \int g(x) \P_\xi(dx) = \int g(x) \, d \F_\xi (x)$.
+Пусть $\xi : \Omega \rightarrow \R (\R^n)$, в таком случае вероятностная мера $\P_\xi$ однозначно восстанавливается по $F_\xi$, следовательно, по теореме $\E g(\xi) = \int g(\xi) \, d\P = \int g(x) \P_\xi(dx) = \int g(x) \, d F_\xi (x)$.
 
-Пусть  $\xi$~--- абсолютно непрерывная случайная величина с плотностью $p_\xi(x)$, тогда $d \F_\xi (x) = p_\xi (x)$, следовательно $\E g(x) = \int\limits_{\R} g(x) p_\xi(x) \, d x$.
+Пусть  $\xi$~--- абсолютно непрерывная случайная величина с плотностью $p_\xi(x)$, тогда $d F_\xi (x) = p_\xi (x)$, следовательно $\E g(x) = \int\limits_{\R} g(x) p_\xi(x) \, d x$.
 
 \subsection{Прямое произведение вероятностных пространств и формула свертки}
 
@@ -48,12 +51,12 @@
 	\begin{enumerate}
 		\item $\Omega = \Omega_1 \times \Omega_2$;
 		\item $\F = \F_1 \otimes \F_2$, то есть $\F = \sigma\big\{ \{ B_1 \times B_2 \} | B_1 \in \F_1, B_2 \in \F_2 \big\}$;
-		\item $\P = \P_1 \otimes \P_2$, то есть  $\P$~--- продолжение вероятностной меры $\P_1 \times \P_2$, заданное на прямоугольнике $B_1 \times B_2, B_1 \in \F_2, B_2 \in \F_2$ по правилу $\P(B_1 \times B_2) = \P_1 (B_1) \cdot \P_2 (B_2)$. Так как $\{B_1 \times B_2 \}$~--- полукольцо, то $\P$ существует и единственна по теореме Каратеодори.
+		\item $\P = \P_1 \otimes \P_2$, то есть  $\P$~--- продолжение вероятностной меры $\P_1 \times \P_2$, заданное на прямоугольнике $B_1 \times B_2, B_1 \in \F_1, B_2 \in \F_2$ по правилу $\P(B_1 \times B_2) = \P_1 (B_1) \cdot \P_2 (B_2)$. Так как $\{B_1 \times B_2 \}$~--- полукольцо, то $\P$ существует и единственна по теореме Каратеодори.
 	\end{enumerate}
 \end{definition}
 \begin{theorem}[Фубини][б/д]
 	Пусть $(\Omega, \F, \P)$~--- прямое произведение вероятносных пространств $(\Omega_1, \F_1, \P_1)$ и $(\Omega_2, \F_2, \P_2)$. Пусть $\xi : \Omega \rightarrow \R$ такая, что $\int\limits_\Omega \big| \xi (\omega_1, \omega_2) \big| \, d \P < + \infty$. Тогда интегралы $\int\limits_{\Omega_1} \xi (\omega_1, \omega_2) \P_1 (d \omega_1)$ и $\int\limits_{\Omega_2} \xi(\omega_1, \omega_2) \P_2 (d \omega_2)$ определены почти наверное относительно $\P_2$ и $\P_1$ соответственно, являются измеримыми случайными величинами относительно $\F_2$ и $\F_1$, следовательно, 
-	$$\int\limits_\Omega \xi (\omega_1, \omega_2) \, d \P = \int\limits_{\Omega_2} \int\limits_{\Omega_1} \xi (\omega_1, \omega_2) \P_1 (d \omega_1) \P_2 (d \omega_2) + \int\limits_{\Omega_1} \int\limits_{\Omega_2} \xi(\omega_1, \omega_2) \P_2 (d \omega_2) \P_1 (d \omega_1).$$
+	$$\int\limits_\Omega \xi (\omega_1, \omega_2) \, d \P = \int\limits_{\Omega_2} \int\limits_{\Omega_1} \xi (\omega_1, \omega_2) \P_1 (d \omega_1) \P_2 (d \omega_2) = \int\limits_{\Omega_1} \int\limits_{\Omega_2} \xi(\omega_1, \omega_2) \P_2 (d \omega_2) \P_1 (d \omega_1).$$
 	 Из всего этого следует, что двойной интеграл равен повторному.
 \end{theorem}
 \begin{statement}
