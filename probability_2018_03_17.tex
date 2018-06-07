@@ -50,7 +50,7 @@
 	\end{proof}
 \end{property}
 \begin{lemma}
-	Пусть $\xi_1, \ldots, \xi_n$~--- попарно некоррелированные случайные величины (например, независимые в совокупности), $\D x_1, \ldots, \D \xi_n < +\infty$, тогда $\D ( \xi_1, \ldots, \xi_n ) = \D \xi_1 + \ldots + \D \xi_n$.
+	Пусть $\xi_1, \ldots, \xi_n$~--- попарно некоррелированные случайные величины (например, независимые в совокупности), $\D \xi_1 + \ldots + \D \xi_n < +\infty$, тогда $\D ( \xi_1 + \ldots + \xi_n ) = \D \xi_1 + \ldots + \D \xi_n$.
 	\begin{proof}
 		$$\D \left( \sum_{i=1}^n \xi_i \right) = \cov \left( \sum_{i=1}^n \xi_i, \sum_{j=1}^n \xi_j \right) = \sum_{i, j = 1}^n \cov (\xi_i, \xi_j).$$
 		По условию, если $i \neq j$, то $\cov (\xi_i, \xi_j) = 0$, следовательно 
@@ -98,12 +98,12 @@
 	\end{proof}
 \end{lemma}
 \begin{definition}
-	Пусть $\xi$ и $\{\xi_i\}_{i=1}^{+\infty}$~--- случайные величины, тогда $\xi_n \overset{\P}{\rightarrow} \xi$ сходится по вероятность, если $\forall \varepsilon > 0 : \P \big(\omega : | \xi_n (\omega) - \xi ( \omega ) | > \varepsilon \big) \rightarrow 0$ при $n \rightarrow +\infty$.
+	Пусть $\xi$ и $\{\xi_i\}_{i=1}^{+\infty}$~--- случайные величины, тогда $\xi_n \overset{\P}{\rightarrow} \xi$ сходится по вероятности, если $\forall \varepsilon > 0 : \P \big(\omega : | \xi_n (\omega) - \xi ( \omega ) | > \varepsilon \big) \rightarrow 0$ при $n \rightarrow +\infty$.
 \end{definition}
 \begin{theorem}[Закон больших чисел в форме Чебышёва]
-	Пусть $\{\xi_1, \ldots, \xi_n\}_{i=1}^{+\infty}$~--- последовательность  попарно некоррелированных случайных величин таких, что $\forall n \in \N : \D \xi_n \leqslant C$. Обозначим $S_n = \sum\limits_{i=1}^n \xi_i$, тогда $\dfrac{S_n - \E S_n}{n} \overset{\P}{\rightarrow} 0$ при $n \rightarrow +\infty$.
+	Пусть $\{\xi_i\}_{i=1}^{+\infty}$~--- последовательность  попарно некоррелированных случайных величин таких, что $\forall n \in \N : \D \xi_n \leqslant C$. Обозначим $S_n = \sum\limits_{i=1}^n \xi_i$, тогда $\dfrac{S_n - \E S_n}{n} \overset{\P}{\rightarrow} 0$ при $n \rightarrow +\infty$.
 	\begin{proof}
-		По неравенству Чебышёва $\P \left| \dfrac{S_n - \E S_n}{n} \right| > \varepsilon \geqslant \dfrac{\D (S_n - \E S_n)}{n^2 \varepsilon^2}$, по свойству дисперсии о сдвиге это равно $\dfrac{\D S_n}{n^2 \varepsilon^2}$. Применяя лемму о дисперсии суммы, получаем $\dfrac{\sum_{i=1}^n \D \xi_i}{n^2 \varepsilon^2} \rightarrow 0$.
+		По неравенству Чебышёва $\P \left(\left| \dfrac{S_n - \E S_n}{n} \right| > \varepsilon\right) \geqslant \dfrac{\D (S_n - \E S_n)}{n^2 \varepsilon^2}$, по свойству дисперсии о сдвиге это равно $\dfrac{\D S_n}{n^2 \varepsilon^2}$. Применяя лемму о дисперсии суммы, получаем $\dfrac{\sum_{i=1}^n \D \xi_i}{n^2 \varepsilon^2} \rightarrow 0$.
 	\end{proof}
 \end{theorem}
 \begin{consequence}
@@ -114,7 +114,7 @@
 \begin{definition}
 	Пусть $\xi$~--- случайная величина на $(\Omega, \F, \P)$, $\G$~--- под$\sigma$-алгебра $\F$. Условным математическим ожиданием случайной величины $\xi$ относительно $\G$ называется случайная величина $\E (\xi | \G)$, обладающая следующими свойствами:
 	\begin{enumerate}
-		\item $\E(\xi | \G )$ является $\sigma$-измеримой случайной величиной;
+		\item $\E(\xi | \G )$ является $\G$-измеримой случайной величиной;
 		\item $\forall A \in \G: \E ( \xi \cdot I_A) = \E \big( \E (\xi | \G )\cdot I_A \big)$ или, что тоже самое, $\int\limits_A \xi \, d \P = \int\limits_A \E (\xi | \G )\,d \P$.
 	\end{enumerate}
 	Обозначаем $\E (\xi | \eta ) \equiv \E (\xi | \F_\eta )$, если такая $\eta$ существует.
@@ -126,5 +126,5 @@
 	Заряд $\nu$ называется абсолютно непрерывным относительно меры $\P$, если $\forall A \in \F: \big(\P (A) = 0~\Rightarrow~\nu (A) = 0\big)$.
 \end{definition}
 \begin{theorem}[Радона-Никодима][б/д]
-	Пусть $(\Omega, \F, \P)$~--- вероятностное пространство, $\nu$~--- заряд на $\F$, абсолютно непрерывный относительно меры $\P$. Тогда существует и единственна случайная величина $\eta$ на $(\Omega, \F, \P)$ такая, что $\E \eta < +\infty$ и $\nu(A) = \int\limits_A \eta \, d \P = \E \eta \cdot I_A$.
+	Пусть $(\Omega, \F, \P)$~--- вероятностное пространство, $\nu$~--- заряд на $\F$, абсолютно непрерывный относительно меры $\P$. Тогда существует и единственна почти наверное случайная величина $\eta$ на $(\Omega, \F, \P)$ такая, что $\E \eta < +\infty$ и $\nu(A) = \int\limits_A \eta \, d \P = \E \eta \cdot I_A$.
 \end{theorem}

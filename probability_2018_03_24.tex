@@ -1,12 +1,12 @@
 \section{Лекция от 24.03.2018}
 \begin{lemma}[о существовании УМО]
-	Пусть $\xi$~--- случайная величина с $\E | \xi| < +\infty$. Тгда $\forall \G \subset \F~\text{(под}\sigma\text{-алгебра)}: \E( \xi | \G )$ существует и единственно почти наверное.
+	Пусть $\xi$~--- случайная величина с $\E | \xi| < +\infty$. Тогда $\forall \G \subset \F~\text{(под}\sigma\text{-алгебра)}: \E( \xi | \G )$ существует и единственно почти наверное.
 	\begin{proof}
 		Рассмотрим вероятностное пространство $(\Omega, \G, \P)$. Положим, что $\forall A \in \G: Q(A) = \int\limits_A \xi \, d\P  = \E(\xi \cdot I_A)$, следовательно, $Q(A)$~--- заряд на $(\Omega, \G, \P)$, абсолютно непрерывный относительно меры $\P$. Тогда по теореме Радона-Никодима существует и единственна почти наверное случайная величина $\eta$ на $(\Omega, \G, \P)$ с $\E \eta < + \infty$ такая, что $Q(A) = \int\limits_A \eta  \, d\P$. Значит, $\eta$~--- УМО. Действительно, $\eta$ $\G$-измерима и $\forall A \in \G: \int\limits_A \eta  \, d\P = \int\limits_A \xi  \, d\P$.
 	\end{proof}
 \end{lemma}
 \begin{theorem}
-	Пусть $\sigma$-алгебра $\G$ порождена разбиением $\Omega$ $\{ D_n \}_{n = 1}^{+\infty}$, причем, $\P(D_n) > 0$. Тогда, если $\E \xi < +\infty$, то $\E(\xi | \G ) = \sum\limits_{n+1}^{+\infty} \dfrac{\E ( \xi \cdot I (D_n) )}{\P(D_n)} \cdot I(D_n)$.
+	Пусть $\sigma$-алгебра $\G$ порождена разбиением $\Omega$ $\{ D_n \}_{n = 1}^{+\infty}$, причем, $\P(D_n) > 0$. Тогда, если $\E \xi < +\infty$, то $\E(\xi | \G ) = \sum\limits_{n=1}^{+\infty} \dfrac{\E ( \xi \cdot I (D_n) )}{\P(D_n)} \cdot I(D_n)$.
 	\begin{proof}
 		Пусть $\eta$ $\G$-измерима. Покажем, что $\eta = \sum\limits_{n=1}^{+\infty} c_n I_{D_n}(\omega)$. Пусть $\eta \not=\const$ на $D_n$, тогда $\exists a \not= b: \{\omega: \eta(\omega) = a \} \cap D_n \not= \varnothing$ и $\{\omega: \eta(\omega) = b \} \cap D_n \not= \varnothing$, следовательно, $\{\omega: \eta(\omega) = a \} \cap D_n = D_n$ и $\{\omega: \eta(\omega) = b \} \cap D_n \not= D_n$, иначе $\{\omega: \eta(\omega) = a \} \not\in \G$, то есть $\eta$ не $\G$-измерима. Получили противоречие.
 		
@@ -23,7 +23,7 @@
 \begin{property}
 	Если $\xi$ $\G$-измерима, то $\E(\xi | \G) = \xi$ почти наверное. 
 	\begin{proof}
-		$\xi$ удовлетворяет свойствам УМО: первому по условия, а второму, поскольку $\int\limits_A \xi \, d\P = \int\limits_A \xi \, d\P$. Следовательно, $\E(\xi | \G) = \xi$ почти наверное.  
+		$\xi$ удовлетворяет свойствам УМО: первому по условиям, а второму, поскольку $\int\limits_A \E(\xi|\G) \, d\P = \int\limits_A \xi \, d\P$. Следовательно, $\E(\xi | \G) = \xi$ почти наверное.  
 	\end{proof}
 \end{property}
 \begin{property}[формула полной вероятности]
@@ -38,7 +38,7 @@
 		$\alpha \E(\xi | \G) + \beta \E(\eta | \G)$ $\G$-измерима. Осталось проверить интегральное свойство:
 		\begin{multline*}
 			\forall A \in G: \int\limits_A \big( \alpha \E( \xi | \G) + \beta \E( \eta | \G) \big) \, d \P = \alpha \int\limits_A \E( \xi | \G) \, d \P + \beta \int\limits_A \E( \eta | \G ) \, d \P = \\ 
-			= \alpha \int\limits_A \xi \, d \P + \beta \int\limits_A \eta \, d \P = \int\limits_A (\alpha \xi + \beta \eta ) \, d\P = \int\limits_A \E( \alpha\xi + \beta\eta) \, d \P
+			= \alpha \int\limits_A \xi \, d \P + \beta \int\limits_A \eta \, d \P = \int\limits_A (\alpha \xi + \beta \eta ) \, d\P = \int\limits_A \E( \alpha\xi + \beta\eta|\G) \, d \P
 		\end{multline*}
 	\end{proof}
 \end{property}
@@ -51,7 +51,7 @@
 \begin{property}
 	Пусть $\xi \leqslant \eta$ почти наверное, тогда $\E(\xi | \G) \leqslant \E( \eta | \G)$ почти наверное.
 	\begin{proof}
-		$\xi \leqslant \eta$ почти наверное, следовательно, $\forall A \in \G  \int\limits_A \xi \, d \P \leqslant \int\limits_A \eta \, d\P$, что равносильно $\int \E (\xi | \G ) \, d\P \leqslant \int\limits_A \E( \eta | \G) \, d \P$, а из свойств математического ожидания вытекает, что $\E(\xi | \G) \leqslant \E( \eta | \G)$ почти наверное.
+		$\xi \leqslant \eta$ почти наверное, следовательно, $\forall A \in \G  \int\limits_A \xi \, d \P \leqslant \int\limits_A \eta \, d\P$, что равносильно $\int\limits_A \E (\xi | \G ) \, d\P \leqslant \int\limits_A \E( \eta | \G) \, d \P$, а из свойств математического ожидания вытекает, что $\E(\xi | \G) \leqslant \E( \eta | \G)$ почти наверное.
 	\end{proof}
 \end{property}
 \begin{property}
@@ -81,7 +81,7 @@
 	Пусть $\forall n > 1: | \xi_n | \leqslant \eta$, $\E \eta < +\infty$ и $\xi_n \xrightarrow{\text{п.н.}} \xi$. Тогда $ \forall \G \subset \F: \E(\xi_n | \G) \xrightarrow{\text{п.н.}} \E(\xi | \G)$.
 \end{property}
 \begin{property}
-	Пусть $\eta$ $\G$-измерима, $\E |\xi \eta | < +\infty$, $\E |\xi | < +\infty$, $\E |\eta| < +\infty$. Тогда $\E(\xi \eta | \G) = \eta \E(\xi | \G)$ почти наверное.
+	Пусть $\eta$ $\G$-измерима, $\E |\xi \eta | < +\infty$, $\E |\xi | < +\infty$. Тогда $\E(\xi \eta | \G) = \eta \E(\xi | \G)$ почти наверное.
 	\begin{proof}
 		Пусть $\eta = I_B$, где $B \in \G$. Тогда 
 		\begin{multline*}
@@ -100,28 +100,14 @@
 		\begin{multline*}
 			\E ( \xi - \eta )^2 = 
 			\E \big( \xi - \E(\xi | \G) + \E( \xi | \G) - \eta \big)^2 = \\ =
-			 \E \big( \xi - \E( \xi - \E(\xi | \G) \big)^2 + \E \big( \E(\xi | \G) - \eta \big)^2 
+			 \E\big( \xi - \E(\xi | \G) \big)^2 + \E \big( \E(\xi | \G) - \eta \big)^2 
 			+ 2 \E \Big( \big( \xi - \E( \xi | \G) \big) \big( \E(\xi | \G ) - \eta \big) \Big).
 		\end{multline*}
 		Пусть $\varkappa \equiv \xi - \E( \xi | \G )$, $\psi \equiv \E(\xi | \G ) - \eta$. Рассмотрим $\E( \varkappa \psi )$, по свойству 2 это равно 
 		$ \E \big( \E ( \varkappa \psi | \G ) \big)$, 
-		а по свойству 3, это можно переписать, как 
+		а по свойству 9, это можно переписать, как 
 		$\E ( \psi \E( \varkappa | \G ) \big)$. 
 		Но $\E (\varkappa | \G) = \E \big( (\xi - \E ( \xi | \G) ) \big| \G \big) = 0$, следовательно, $\E ( \varkappa \psi) = 0$. Значит $\E ( \xi - \eta )^2 =\\=
-			 \E \big( \xi - \E( \xi - \E(\xi | \G) \big)^2 + \E \big( \E(\xi | \G) - \eta \big)^2  \geqslant \E \big( \xi - \E ( \xi | \G) \big)^2$.
+			 \E \big( \xi - \E(\xi | \G) \big)^2 + \E \big( \E(\xi | \G) - \eta \big)^2  \geqslant \E \big( \xi - \E ( \xi | \G) \big)^2$.
 	\end{proof}
 \end{theorem}
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -39,7 +39,7 @@
 	\end{property}
 
 	\begin{property}
-	\begin{theorem}[о производящих х.ф.]
+	\begin{theorem}[о производных х.ф.]
 		Пусть \(E|\xi|^n < + \infty, ~n \in \mathbb{N}.\) Тогда \(\forall k \leqslant n~ \exists \varphi_\xi^{(k)}(t),\) причём
 		\begin{enumerate}
 			\item \(\varphi_\xi^{(k)}(t) = \int\limits_\mathbb{R}(ix)^ke^{itx}dF(x)\)
@@ -74,7 +74,7 @@
 	\end{theorem}
 
 	\begin{example}
-		Пусть \(\xi \sin N(0;1) \Rightarrow \varphi_\xi(t) = e^{- \frac{t^2}{2}}.\) Мы знаем, что \(E\xi^m = \left\{
+		Пусть \(\xi \sim N(0;1) \Rightarrow \varphi_\xi(t) = e^{- \frac{t^2}{2}}.\) Мы знаем, что \(E\xi^m = \left\{
 			\begin{array}{l}
 			(m-1)!!, ~m \vdots 2\\
 			0, ~m\not \vdots 2
@@ -86,12 +86,12 @@
 			(m - 1)!!\sqrt{\frac{2}{n}}, m \not \vdots 2
 			\end{array}
 		\right. \Rightarrow\) по предыдущей теореме, 
-		\(\varphi_\xi(t) = \sum\limits_{n = 0}^{\infty} \frac{(it)^{2n}}{(2n)!}(2n - 1)!! = \sum\limits_{n = 0}^{+\infty} \frac{(it)^{2n}}{(2n)!!} = \sum\limits_{n = 0}^{+\infty} \left(- \frac{t^2}{2}\right)^n \frac{1}{n!} = e^{\frac{t^2}{2}}.\)
+		\(\varphi_\xi(t) = \sum\limits_{n = 0}^{\infty} \frac{(it)^{2n}}{(2n)!}(2n - 1)!! = \sum\limits_{n = 0}^{+\infty} \frac{(it)^{2n}}{(2n)!!} = \sum\limits_{n = 0}^{+\infty} \left(- \frac{t^2}{2}\right)^n \frac{1}{n!} = e^{-\frac{t^2}{2}}.\)
 
 		\underline{\text{Условие теоремы}}: \(\left(\frac{E|\xi|^m}{m!}\right)^{\frac{1}{m}} \leqslant \left(\frac{(m - 1)!!}{m!}\right)^{\frac{1}{m}} = \left(\frac{1}{m!!}\right)^{\frac{1}{m}} \approx \frac{1}{\sqrt{2}}\left(\left(\frac{m}{2e}\right)^{\frac{m}{2}}\right)^{\frac{1}{m}} \sim \frac{C}{\sqrt{m}} \to 0 \Rightarrow T = + \infty.\)
 	\end{example}
 
-	\begin{theorem}[формула обращения (б/д)]b
+	\begin{theorem}[формула обращения (б/д)]
 		Пусть \(\varphi(t)\) характеристическая функция функции распределения \(F\). Тогда
 		\begin{enumerate}
 			\item Для \(\forall a < b\) (точки непрерывности) \(F\) выполнено

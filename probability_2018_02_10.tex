@@ -17,9 +17,9 @@
 	Пусть $(\Omega, \F )$~--- измеримое пространство и на нем определена функция $\P : \F \rightarrow [0,1]$, удовлетворяющая следующим свойствам: $\P (\Omega) = 1$ и $\P$~--- конечно аддитивная. Тогда следующие утверждения эквивалентны:
 	\begin{enumerate}
 		\item $\P$~--- вероятностная мера;
-		\item $\forall A \downarrow A: \P (A_n) \rightarrow \P(A)$ (непрерывность снизу);
-		\item $\forall A \uparrow A: \P (A_n) \rightarrow \P(A)$ (непрерывность сверху);
-		\item  $\forall A \downarrow \varnothing: \P (A_n) \rightarrow 0$ (непрерывность в нуле).
+		\item $\forall A_n \downarrow A: \P (A_n) \rightarrow \P(A)$ (непрерывность снизу);
+		\item $\forall A_n \uparrow A: \P (A_n) \rightarrow \P(A)$ (непрерывность сверху);
+		\item  $\forall A_n \downarrow \varnothing: \P (A_n) \rightarrow 0$ (непрерывность в нуле).
 	\end{enumerate}
 \end{theorem}
 \begin{theorem}[Каратеодори][б/д]
@@ -56,7 +56,7 @@
 	\end{proof}
 \end{property}
 \begin{definition}
-	Функция $F(x)$, котороя удовлетворяет свойствам 1) -- 3) из леммы, называется функцией распределения на $\R$.
+	Функция $F(x)$, которая удовлетворяет свойствам 1) -- 3) из леммы, называется функцией распределения на $\R$.
 \end{definition}
 \begin{theorem}[о взаимно однозначном соответствии между вероятностной мерой и функцией распределения на $\R$]
 	Пусть $F(X)$~--- функция распределения на $\R$, тогда существует единственная вероятностная мера $\P$ на $\big(\R, \B(\R) \big)$ такая, что $F(x)$ является ее функцией распределения, то есть $F(x) = \P \big( ( -\infty, x] \big)$.
