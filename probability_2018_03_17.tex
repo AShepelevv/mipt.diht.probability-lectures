@@ -4,7 +4,7 @@
 	Дисперсией случайной величины $\xi$ называется $\D \xi = \E (\xi - \E \xi)^2 $, если $\E{\xi} < + \infty$. Очевидно, $\D{\xi} \geqslant 0$.
 \end{definition}
 \begin{definition}
-	Ковариация двух случайных величин называется $\cov (\xi, \eta) = \E \big( ( \xi - \E \xi)(\eta - \E \eta ) \big)$. Легко заметить, что $\cov (\xi, \xi ) = \D \xi$. Если $\cov ( \xi, \eta) = 0$, то случайные величины $\xi$ и $\eta$ называются некоррелированными.
+	Ковариацией двух случайных величин называется $\cov (\xi, \eta) = \E \big( ( \xi - \E \xi)(\eta - \E \eta ) \big)$. Легко заметить, что $\cov (\xi, \xi ) = \D \xi$. Если $\cov ( \xi, \eta) = 0$, то случайные величины $\xi$ и $\eta$ называются некоррелированными.
 \end{definition}
 \begin{definition}
 	Величина $\rho ( \xi, \eta ) = \dfrac{\cov ( \xi, \eta )}{\sqrt{\D \xi \cdot \D \eta}}$ называется коэффициентом корреляции случайных величин $\xi$ и $\eta$ при условии, что $\D \xi$ и $\D \eta$ не равны нулю и конечны.
@@ -40,7 +40,7 @@
 \begin{property}
 	$| \rho (\xi , \eta ) | \leqslant 1$, причем $\rho ( \xi , \eta ) = \pm 1 ~\Leftrightarrow~ \xi = a \eta + b$ почти наверное.
 	\begin{proof}
-		Рассмотрим случайные величины $\xi_1 = \xi - \E \xi$ и $\eta_1 = \eta - \E \eta$, следовательно $\rho ( \xi , \eta ) = \dfrac{\E \xi_1 \eta_1}{\sqrt{\E \xi_1^2 \cdot \E \eta_1^2}} \leqslant 1$ по неравенству Коши-Буняковского. Пусть $| \rho (\xi, \eta)| = 1$, тогда дискриминант $D = 0$, следовательно, $\exists !\lambda_0: f(\lambda_0) = 0$,  то есть $\E ( \xi_1 + \lambda_0 \eta_1 )^2 = 0$, отсюда $(\xi_1 + \lambda_0 \eta )^2 = 0$ почти наверное, а, значит, и $\xi_1 + \lambda_0 \eta  = 0$ почти наверное. Теперь можно заключить, что $\xi = \E \xi - \lambda_0 (\eta - \E \eta )$.
+		Рассмотрим случайные величины $\xi_1 = \xi - \E \xi$ и $\eta_1 = \eta - \E \eta$, следовательно $\rho ( \xi_1 , \eta_1 ) = \dfrac{\E \xi_1 \eta_1}{\sqrt{\E \xi_1^2 \cdot \E \eta_1^2}} \leqslant 1$ по неравенству Коши-Буняковского. Пусть $| \rho (\xi_1, \eta_1)| = 1$, тогда дискриминант $D = 0$, следовательно, $\exists !\lambda_0: f(\lambda_0) = 0$,  то есть $\E ( \xi_1 + \lambda_0 \eta_1 )^2 = 0$, отсюда $(\xi_1 + \lambda_0 \eta )^2 = 0$ почти наверное, а, значит, и $\xi_1 + \lambda_0 \eta  = 0$ почти наверное. Теперь можно заключить, что $\xi = \E \xi - \lambda_0 (\eta - \E \eta )$.
 	\end{proof}
 \end{property}
 \begin{property} 
