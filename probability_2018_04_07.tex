@@ -70,7 +70,7 @@
 	\end{proof}
 \end{theorem}
 \begin{theorem}[Неравенство Колмогорова]
-	Пусть $\xi_1,  \ldots, \xi_n$~--- независимые случайные величины такие, что $\E \xi_i = 0$, $\D \xi_i < +\infty$. Обозначим $S_n = \sum\limits_{i = 1}^n \xi_i$. Тогда $\forall \varepsilon > 0: \P \left( \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \right) \geqslant \dfrac{\E S_n^2}{\varepsilon^2}$.
+	Пусть $\xi_1,  \ldots, \xi_n$~--- независимые случайные величины такие, что $\E \xi_i = 0$, $\D \xi_i < +\infty$. Обозначим $S_n = \sum\limits_{i = 1}^n \xi_i$. Тогда $\forall \varepsilon > 0: \P \left( \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \right) \leqslant \dfrac{\E S_n^2}{\varepsilon^2}$.
 	\begin{proof}
 		Обозначим $A = \{ \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \}$. Разобьем $A$ на несколько непересекающихся событий, то есть $A_k = \big\{ |S_k| \geqslant \varepsilon\big\}$ и $\forall i \leqslant k - 1: |S_k| \leqslant \varepsilon$, следовательно, $A = \bigsqcup\limits_{k=1}^{n} A_k$. Тогда
 		\begin{multline*}
