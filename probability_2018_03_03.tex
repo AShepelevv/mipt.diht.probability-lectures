@@ -13,7 +13,7 @@
 	\end{proof}
 \end{example}
 \begin{theorem}[][Пока б/д]
-	Пусть  $\eta$~--- $\F_\xi$-измеримо, тогда существует борелевская $\varphi$, такая что $\eta = \varphi(\xi)$ почти наверное, то есть $\P\big(\eta = \varphi(\xi)\big) = 1$.
+	Пусть  $\eta$~--- $\F_\xi$-измерима, тогда существует борелевская $\varphi$, такая что $\eta = \varphi(\xi)$ почти наверное, то есть $\P\big(\eta = \varphi(\xi)\big) = 1$.
 \end{theorem}
 \subsection{Независимость случайных величин}
 \begin{statement}
@@ -112,6 +112,6 @@
 \begin{property}
 	Если $\xi = 0$ почти наверное, то $\E\xi = 0$.
 	\begin{proof}
-		Пусть $\xi$~--- простая случайная величина, то есть $\xi = \sum\limits_{k = 1}^nx_kI_{A_k}$, где $\{x_k\}$ различные, $\{A_k\}$~--- разбиение $\Omega$, $A_k = \{\xi = x_k\}$. Тогда если $x_k \neq 0$, то $A_k = \{\xi = x_k\} \subseteq \{\xi \neq 0\} \Rightarrow \P(A_k) \leqslant \P(\xi \neq 0) = 0 \Rightarrow \E\xi = \sum_{k = 1}^n x_k\P(A_k) = 0$. Если $\xi \geqslant 0$, то $\E\xi = \sup\limits{\xi \geqslant \eta} \E_\eta$, где $\eta$~--- простые $\Rightarrow \E\xi \geqslant 0$. Но $0 \leqslant \eta \leqslant \xi = 0$ почти наверное $\Rightarrow \E\eta = 0 \Rightarrow \E\xi = 0$. Пусть $\xi$~--- произвольные $\Rightarrow \xi_+ = 0$ почти наверное, $\xi_- = 0$ почти наверное и $\E\xi = \E\xi_+ - \E\xi_- = 0.$
+		Пусть $\xi$~--- простая случайная величина, то есть $\xi = \sum\limits_{k = 1}^nx_kI_{A_k}$, где $\{x_k\}$ различные, $\{A_k\}$~--- разбиение $\Omega$, $A_k = \{\xi = x_k\}$. Тогда если $x_k \neq 0$, то $A_k = \{\xi = x_k\} \subseteq \{\xi \neq 0\} \Rightarrow \P(A_k) \leqslant \P(\xi \neq 0) = 0 \Rightarrow \E\xi = \sum\limits_{k = 1}^n x_k\P(A_k) = 0$. Если $\xi \geqslant 0$, то $\E\xi = \sup\limits_{\xi \geqslant \eta} \E\eta$, где $\eta$~--- простые $\Rightarrow \E\xi \geqslant 0$. Но $0 \leqslant \eta \leqslant \xi = 0$ почти наверное $\Rightarrow \E\eta = 0 \Rightarrow \E\xi = 0$. Пусть $\xi$~--- произвольные $\Rightarrow \xi_+ = 0$ почти наверное, $\xi_- = 0$ почти наверное и $\E\xi = \E\xi_+ - \E\xi_- = 0.$
 	\end{proof} 
 \end{property}

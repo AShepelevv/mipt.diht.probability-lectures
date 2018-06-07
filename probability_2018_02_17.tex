@@ -42,7 +42,7 @@
 \subsection{Многомерная плотность вероятности}
 \begin{definition}
 	Если 
-	$$ F(x_1, \ldots, x_n) = \int\limits_{-\infty}^{x_1}\ldots\int\limits_{-\infty}^{x^n} p(y_1, \ldots, y_n)dy_1\ldots dy_n,\; p(x_1, \ldots, x_n) \geqslant 0, $$ 
+	$$ F(x_1, \ldots, x_n) = \int\limits_{-\infty}^{x_1}\ldots\int\limits_{-\infty}^{x_n} p(y_1, \ldots, y_n)dy_1\ldots dy_n,\; p(x_1, \ldots, x_n) \geqslant 0, $$ 
 	то $p(x_1, \ldots, x_n)$ называется $n$-мерной плотностью вероятности. Тогда
 	$$ p(x_1, \ldots, x_n) = \frac{\partial^n}{\partial x_1\ldots\partial x_n}F(x_1, \ldots, x_n). $$
 \end{definition}
@@ -54,7 +54,7 @@
 \end{definition}
 \subsection{Действия над случайными величинами и векторами}
 \begin{definition}
-	Функция $\varphi: \R^n \rightarrow \R^m$~--- борелевская, если $\forall B \in \B(\R^n): \varphi^{-1}(B) \in \B(\R^n)$. 
+	Функция $\varphi: \R^n \rightarrow \R^m$~--- борелевская, если $\forall B \in \B(\R^m): \varphi^{-1}(B) \in \B(\R^n)$. 
 \end{definition}
 \begin{statement}
 	Любая непрерывная и кусочно-непрерывная функция~--- борелевская.
@@ -94,7 +94,7 @@
 \subsection{Характеристики случайных величин и векторов}
 \subsubsection*{\ovalbox{1} Распределение случайной величины}
 \begin{definition}
-	Пусть $\big(\Omega, \F, \P \big)$~--- вероятностное пространство, $\xi$~--- случайная величина (вектор) на нем. Распределением случайной величины называется вероятностная мера $\P_\xi$ на $\big(\R, \B(\R\big)$ $\big((\R^n, \B(\R^n))\big)$, заданная по правилу $\P_\xi(B) = \P(\xi \in B)$, $B \in \B(\R)$ ($B \in \B(\R^n)$).
+	Пусть $\big(\Omega, \F, \P \big)$~--- вероятностное пространство, $\xi$~--- случайная величина (вектор) на нем. Распределением случайной величины называется вероятностная мера $\P_\xi$ на $\big(\R, \B(\R)\big)$ $\big((\R^n, \B(\R^n))\big)$, заданная по правилу $\P_\xi(B) = \P(\xi \in B)$, $B \in \B(\R)$ ($B \in \B(\R^n)$).
 \end{definition}
 \subsubsection*{\ovalbox{2} Функция распределения случайной величины}
 \begin{definition}
@@ -109,5 +109,5 @@
 \end{definition}
 \subsubsection*{\ovalbox{4} Сигма-алгебра, порожденная случайной величиной}
 \begin{definition}
-	Пусть $\xi$~--- случайная величина (вектор) на $\big(\Omega, \F, \P\big)$, тогда $\sigma$-алгеброй $\F_\xi$, порожденной случайной величиной $\xi$ называется $F_\xi = \big\{\{\xi \in B\}, B \in \B(\R)\; (\in \B(\R^n)) \big\}$.
+	Пусть $\xi$~--- случайная величина (вектор) на $\big(\Omega, \F, \P\big)$, тогда $\sigma$-алгеброй $\F_\xi$, порожденной случайной величиной $\xi$ называется $\F_\xi = \big\{\{\xi \in B\}, B \in \B(\R)\; (\in \B(\R^n)) \big\}$.
 \end{definition}

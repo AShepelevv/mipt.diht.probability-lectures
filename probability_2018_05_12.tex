@@ -1,6 +1,6 @@
 
 	\section{Лекция от 12.05.2018}
-	\begin{theorem}[Линдберга(б/д)]
+	\begin{theorem}[Линдберга][б/д]
 		Пусть \(\{\xi_k\}_{k \geqslant 1}\)~--- независимые случайные величины, \(E\xi_k^ < +\infty ~ \forall k,\) обозначим \(m_k = E\xi_k, ~\sigma^2_k = D\xi_k > 0: S_n = \sum\limits_{i = 1}^{n}\xi_i; ~ D_n^2 = \sum\limits_{k = 1}^{n}\sigma^2_k\) и \(F_k(x)\)~--- функция распределения \(\xi_k\). Пусть выполнено условие Линдберга, то есть:
 		\[
 			\forall \varepsilon > 0 ~ \frac{1}{D^2_n} \sum\limits_{k = 1}^{n} \int\limits_{\{x:|x - m_k| > \varepsilon D_n\}}(x-m_k)^2 dF_k(x) \underset{n \to \infty}{\longrightarrow} 0.
@@ -146,7 +146,7 @@
 	\end{property}
 
 	\begin{property}
-		\(\vec{\xi}\)~--- гауссаоский \(\Rightarrow\) любое его линейное преобразование --- гауссовский вектор.
+		\(\vec{\xi}\)~--- гауссовский \(\Rightarrow\) любое его линейное преобразование --- гауссовский вектор.
 		\begin{proof}
 			Пусть \(\vec{\chi} = B\vec{\xi} + \vec{c}.\) По второму определению гауссовского вектора, \(\vec{\chi} = B(A\vec{\eta} + \vec{b}) + \vec{c} = BA\vec{\eta} + B\vec{b} + \vec{c},\) отсюда \(\vec{\chi}\)~--- гауссовский по определению \(2.\)
 		\end{proof}
