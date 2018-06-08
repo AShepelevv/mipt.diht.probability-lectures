@@ -26,10 +26,10 @@
 	Пусть $\xi$ и $\eta$~--- случайные величины, тогда $\xi$ и $\eta$ независимы, если $\forall B_1, B_2 \in \B(\R) : \P(\xi \in B_1, \eta \in B_2) = \P(\xi \in B_1)\cdot\P(\eta \in B_2)$.
 \end{definition}
 \begin{definition}
-	Случайные величины $\{\xi_i\}_{i = 1}^\infty$ независимы (в совокупности), если для любого конечного набора индексов $\alpha_1, \ldots, \alpha_n : \P(\xi_{\alpha_1} \in B_1, \ldots, \xi_{\alpha_n} \in B_n) = \prod\limits_{i = 1}^\infty\P(\xi_{\alpha_i} \in B_i),\; B_i \in \B(\R), i = 1, \ldots, n$.
+	Случайные величины $\{\xi_i\}_{i = 1}^\infty$ независимы (в совокупности), если для любого конечного набора индексов $\alpha_1, \ldots, \alpha_n : \P(\xi_{\alpha_1} \in B_1, \ldots, \xi_{\alpha_n} \in B_n) = \prod\limits_{i = 1}^n\P(\xi_{\alpha_i} \in B_i),\; B_i \in \B(\R), i = 1, \ldots, n$.
 \end{definition}
 \begin{theorem}[Критерий независимости в терминах функции распределения]
-	Случайные величины $\{\xi_i\}_{i = 1}^\infty$ независимы в совокупности тогда, и только тогда, когда $\forall x_1, \ldots, x_n \in \R : \P(\xi_1 \leqslant x_1, \ldots, \xi_n \leqslant x_n) = \prod\limits_{i = 1}^n\P(\xi_i \leqslant x_i)$.
+	Случайные величины $\{\xi_i\}_{i = 1}^n$ независимы в совокупности тогда, и только тогда, когда $\forall x_1, \ldots, x_n \in \R : \P(\xi_1 \leqslant x_1, \ldots, \xi_n \leqslant x_n) = \prod\limits_{i = 1}^n\P(\xi_i \leqslant x_i)$.
 	\begin{proof}
 		Возьмем в качестве $B_i = (-\infty, x_i]$.
 	\end{proof}
@@ -48,7 +48,7 @@
 	Пусть $\xi$~--- простая случайная величина, то есть $\xi = \sum\limits_{i = 1}^k c_iI_{A_i}$, тогда матожидание $\E \xi = \sum\limits_{i = 1}^k c_i\P(A_i)$, где $\bigsqcup A_i = \Omega$.
 \end{definition}
 \begin{definition}
-	Пусть $\xi \geqslant 0$, тогда матожидание $\E \xi = \lim\limits_{n \rightarrow \infty} \E \xi_n$, где $\xi_n \uparrow \xi$, $\xi_n$~--- простые случайные величины или $\E \xi = \sup\limits_{\eta \leqslant \xi}\E\eta$, $\eta$~--- простые. 
+	Пусть $\xi \geqslant 0$, тогда матожидание $\E \xi = \lim\limits_{n \rightarrow \infty} \E \xi_n$, где $\xi_n \uparrow \xi$, $\xi_n$~--- простые неотрицательные случайные величины или $\E \xi = \sup\limits_{\eta \leqslant \xi}\E\eta$, $\eta$~--- простые неотрицательные. 
 \end{definition}
 \begin{definition}
 	Пусть $\xi$~--- произвольные случайные величины. Пусть $\xi_+ = \max(\xi, 0)$, $\xi_- = \max(-\xi, 0) \Rightarrow \xi = \xi_+ - \xi_-$, тогда матожидание 
