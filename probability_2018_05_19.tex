@@ -1,5 +1,5 @@
 \section{Лекция от 19.05.2018}
-\begin{statement}[6-ое свойство]
+\begin{property}[Явный вид плотности многомерного нормального распределения]
 	Если $\vec \xi \sim N(\vec m, \Sigma)$ и $\rg(\Sigma) = n$, то $\vec \xi$ имеет плотность в $\R^n$.
 	\begin{proof}
 		Так как $\rg \Sigma = n \Rightarrow \exists A = \Sigma^{-1}$. Обозначим $f(x) = \frac{|A|^{1/2}}{(2n)^{n / 2}} e^{-\frac{1}{2}(A(x - m), (x - m)), \vec x \in \R^n}$. Достаточно показать, что $\int\limits_{\R^n}e^{i(\vec t, \vec x)}f(x)dx = e^{i(\vec t, \vec m) - \frac{1}{2}(\Sigma \vec t, \vec t)}$, тогда $f$ --- плотность $\vec \xi$. Обозначим $I_n = \int\limits_{\R^n}e^{i(\vec f, \vec x - \vec m)} \frac{|A|^{1/2}}{(2\pi)^{n/2}}e^{-\frac{1}{2}A(\vec x - \vec m, \vec x - \vec m)}dx$. Хотим доказать, что $I_n = e^{-\frac{1}{2}(\Sigma\vec t, \vec t)}$. Мы знаем, что $\exists S$ --- ортогональная, такая что 
@@ -15,7 +15,7 @@
 		= e^{-\frac{1}{2}\vec v^TD\vec v} = e^{-\frac{1}{2}\vec v^TS^T\Sigma S\vec v} = e^{-\frac{1}{2}\vec t^T \Sigma t},
 		\end{multline*} где $J = |S| = 1$ --- якобиан.  $e^{-\frac{1}{2}\vec t^T \Sigma t}$ --- характеристическая функция $\vec \xi \Rightarrow$ $f(x)$ --- плотность $\vec \xi$.
 	\end{proof}
-\end{statement}
+\end{property}
 \subsection{Многомерная ЦПТ}
 \begin{theorem}[Многомерная ЦПТ]
 	Пусть $|\vec x_i|_{i \geqslant 1}$ --- независимые одинаково распределенные случайные вектора, $\E\vec x_i = \vec a$, $\var \vec x_i = \Sigma$, тогда $\sqrt n \left( \frac{\vec x_1 + \ldots + \vec x_n}{n} \rightarrow \vec a \right) \xrightarrow{d} N(\vec 0, \Sigma),\; n \rightarrow +\infty$.

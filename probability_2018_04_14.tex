@@ -1,6 +1,6 @@
 \section{Лекция от 14.04.2018}
 \begin{theorem}[Колмогорова-Хинчина о сходимости ряда]
-	Пусть $\{\xi_n \}_{n \geqslant 1}$~--- последовательность независимых случайных величин такая, что $\E \xi_n = 0$ и $\E \xi^2 < +\infty$. Тогда, если $\sum\limits_{n = 1}^{\infty} \E \xi_n^2 < +\infty$, то $ \sum\limits_{n = 1}^{\infty} \xi_n$ сходится почти наверное.
+	Пусть $\{\xi_n \}_{n \geqslant 1}$~--- последовательность независимых случайных величин такая, что $\E \xi_n = 0 $ и $\E \xi^2 < +\infty$. Тогда, если $\sum\limits_{n = 1}^{\infty} \E \xi_n^2 < +\infty$, то $ \sum\limits_{n = 1}^{\infty} \xi_n$ сходится почти наверное.
 	\begin{proof}
 		Обозначим $S_n = \sum\limits_{k=1}^n \xi_k$. По критерию Коши $\left\{ \sum\limits_{n = 1}^{\infty}~\text{сходится п.н.} \right\}$ равносильно тому, что $\{ S_n~\text{фундаментально п.н.}\}$, а это в свою по критерию фундаментальности равносильно тому, что 
 		$$\forall \varepsilon > 0: \P \left( \sup\limits_{k \geqslant n} | S_k - S_n | \geqslant \varepsilon \right) \limn 0.$$

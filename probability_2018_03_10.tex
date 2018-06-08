@@ -17,7 +17,7 @@
 		Рассмотрим событие $B = \{ \xi > \eta \}$. Из условия и построения $B$ получаем, что $\E (\eta \cdot I_B) \leqslant \E (\xi \cdot I_B) \leqslant \E (\eta \cdot I_B)$, следовательно, $\E( \xi \cdot I_B) = \E(\eta \cdot I_B)$, значит $\E \big( (\xi - \eta) \cdot I_B \big) = 0$. Так как $(\xi - \eta) \cdot I_B \geqslant 0$, то по свойству 8 $(\xi - \eta) \cdot I_B = 0$ почти наверное, следовательно $I_B = 0$ почти наверное, потому что $\xi- \eta > 0$ на $B$.
 	\end{proof}
 \end{property}
-\begin{theorem}[о математическом ожидании произвольной случайной величины]
+\begin{theorem}[о математическом ожидании произведения случайных величин]
 	Пусть $\xi \indep \eta$, причем $\E \xi$ и $\E \eta$ конечны, тогда $\E \xi \eta$ конечно и $\E \xi \eta = \E \xi \cdot \E \eta$.
 	\begin{proof}
 		Пусть $\xi$ и $\eta$~--- простые случайные величины, то есть $\xi$ принимает значения $\{ x_1, \ldots, x_n \}$, $\eta$ принимает значения $\{ y_1, \ldots, y_n \}$. Тогда по линейности
@@ -81,6 +81,6 @@
 		\begin{multline*}
 			F_{\xi + \eta} (z) = \int\limits_{\R^2} I(x + y \leqslant z) \P_\xi(dx) \P_\eta(dy) = \int\limits_{\R^2} I(x + y \leqslant z) f_\xi(x) f_\eta(y) \, dx\,dy \overset{t = x+y}{=} \\ \overset{t = x+y}{=} \int\limits_{\R^2} I(t \leqslant z) f_\xi(x) f_\eta(t - x) \, dx\,dt = \int\limits_{-\infty}^z \left( \int\limits_\R f_\xi(x) f_\eta(t-x) \, dx \right) \, dt.
 		\end{multline*}
-		Следовательно, по определению плотности, $f_{\xi+\eta} = \int\limits_\R f_\xi(x) f_\eta(t-x) \, dx$.
+		Следовательно, по определению плотности, $f_{\xi+\eta}(t) = \int\limits_\R f_\xi(x) f_\eta(t-x) \, dx$.
 	\end{proof}
 \end{lemma}

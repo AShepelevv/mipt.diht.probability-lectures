@@ -4,8 +4,8 @@
  	Пусть $A \in \F$, тогда по определению $\P(A | \G) = \E( I_A | \G)$, $\G \subset \F$. Если $\xi, \eta$~--- случайные величины на $(\Omega, \F, \P)$, то $\E(\xi | \eta) = \E(\xi | \F_\eta)$.
  \end{definition}
  \begin{definition}
- 	Величиной $\E (\xi | \eta = y)$ называется такая борелевска функция $\varphi(y)$, 
- 	что $\forall B \in \B(\R): \E(\xi \cdot I(\eta \in B) = 
+ 	Величиной $\E (\xi | \eta = y)$ называется такая борелевская функция $\varphi(y)$, 
+ 	что $\forall B \in \B(\R): \E(\xi \cdot I(\eta \in B)) = 
  	\int\limits_B \varphi(y) \P_\eta (d y)$.
  \end{definition}
  \begin{lemma}
@@ -25,7 +25,7 @@
  	\end{proof}
  \end{lemma}
  \begin{lemma}
- 	$\E ( \xi | \eta = y) = \varphi(y)$ тогда и только только тогда, когда 
+ 	$\E ( \xi | \eta = y) = \varphi(y)$ тогда и только тогда, когда 
  	$\E(\xi | \eta) = \varphi(\eta)$ почти наверное.
  	\begin{proof}
  		Пусть $B \in \B(\R)$, тогда 
@@ -50,19 +50,19 @@
  \end{consequence}
  \begin{definition}
  	Условным распределением случайной величины $\xi$ при условии $\eta = y$ называется
- 	 вероятностная мера $\P (\xi \in B| | \eta = y) = \E  \big( I(\xi \in B) | \eta = y)$. 
+ 	 вероятностная мера $\P (\xi \in B | \eta = y) = \E  \big( I(\xi \in B) | \eta = y)$. 
  	 Является мерой на $\B(R)$.
  \end{definition}
  \begin{definition}
  	Условной плотностью случайной величины $\xi$ относительно $\eta$ называется 
  	плотность условного распределения $\P(\xi \in B | \eta = y)$, то есть функция 
  	$f_{\xi | \eta} (x | y)$ такая, что 
- 	$\P (\xi \in B | \eta = y) = \int\limits_b f_{\xi | \eta} (x | y) \, dx$.
+ 	$\P (\xi \in B | \eta = y) = \int\limits_B f_{\xi | \eta} (x | y) \, dx$.
  \end{definition}
  \begin{theorem}[о свойстве условной плотности]
  	Пусть существует условная плотность случайной величины $\xi$ относительно случайной
  	 величины $\eta$ $f_{\xi|\eta} (x|y)$. Тогда  для любой борелевской функции $g(x)$
- 	  такой, что $\E \big| g(x)$ существует, выполнено $\E\big( g( \xi) | \eta = y \big) =
+ 	  такой, что $\E \big| g(x) \big|$ существует, выполнено $\E\big( g( \xi) | \eta = y \big) =
  	   \int\limits_\R g(x) f_{\xi|\eta} (x|y) \, dx$ относительно $\P_\eta$ 
  	   почти наверное.
  	\begin{proof}
@@ -70,14 +70,14 @@
  		\begin{multline*}
  			\int\limits_\R g(x) \cdot f_{\xi | \eta} (x | y) \, dx = 
  			\int\limits_\R I_A(x) \cdot f_{\xi | \eta} (x | y) \, dx = 
- 			\int\limits_A \cdot f_{\xi | \eta} (x | y) \, dx = \\ 
- 			=\P( \xi \in A | \eta = y) = \E \big( I(\xi \in A) | \eta \in y) = 
+ 			\int\limits_A f_{\xi | \eta} (x | y) \, dx = \\ 
+ 			=\P( \xi \in A | \eta = y) = \E \big( I(\xi \in A) | \eta = y) = 
  			\E \big( g(\xi) | \eta = y) \big).
  		\end{multline*}
  		Так как доказали для индикаторов, то доказали и для всех простых функций $g(x)$. 
  		Далее с помощью теоремы Лебега для условных математических ожиданий доказываем 
  		для всех $g(x)$. ($\E(\xi_n | \eta) \xrightarrow{\text{п.н.}} \E( \xi | \eta)$, 
- 		где $\xi_n \xrightarrow{\text{п.н.}}{\rightarrow} \xi$, $\xi_n$~--- простые)
+ 		где $\xi_n \xrightarrow{\text{п.н.}} \xi$, $\xi_n$~--- простые)
  	\end{proof}
  \end{theorem}
  \begin{theorem}[о виде условной плотности]
@@ -108,8 +108,8 @@
  		заменяя переменные, окончательно имеем следующее:
  		\begin{multline*}
  			\P( \xi \in B, \eta \in A) = 
- 			\int\limits_A \E \big( I (\xi \in B | \eta = y) \P_\eta(d y) =\\ 
- 			= \int\limits_A \P(\xi \in B | \eta = y) \P_\eta \, dy = 
+ 			\int\limits_A \E \big( I (\xi \in B | \eta = y) \big) \P_\eta(d y) =\\ 
+ 			= \int\limits_A \P(\xi \in B | \eta = y) \P_\eta(dy) = 
  			\int\limits_A \P( \xi \in B | \eta = y) f_\eta (y) \, dy.
  		\end{multline*}
  	\end{proof}
@@ -145,7 +145,7 @@
  \begin{lemma}[критерий сходимости почти наверное]
  	$\xi_n \xrightarrow{\text{п.н.}} \xi$ тогда и только тогда, когда $\forall \varepsilon > 0: \P \big(\omega: \sup\limits_{k \geqslant n} | \xi_k(\omega) - \xi(\omega) | \geqslant \varepsilon \big) \limn 0$.
  	\begin{proof}
- 		Пусть $A_k^\varepsilon = \big\{ \omega: | \xi_k - \xi | \geqslant \varepsilon \big\}$, $A^\varepsilon = \bigcap\limits_{n=1}^{+\infty} \bigcup\limits_{k \geqslant n} A_k^\varepsilon = \big\{\omega: \forall n~ \exists f \geqslant n: |\xi_n - \xi| \geqslant \varepsilon \big\}$. Тогда $\big\{ \omega: \xi_n (\omega) \not\rightarrow \xi(\omega) \big\} = \bigcup\limits_{m=1}^{+\infty} A^{\frac{1}{m}} = \big\{\omega: \exists m~ \forall n~ \exists k \geqslant n: | \xi_k(\omega) - \xi)\omega) | > \varepsilon \big\}$. Следовательно, 
+ 		Пусть $A_k^\varepsilon = \big\{ \omega: | \xi_k - \xi | \geqslant \varepsilon \big\}$, $A^\varepsilon = \bigcap\limits_{n=1}^{+\infty} \bigcup\limits_{k \geqslant n} A_k^\varepsilon = \big\{\omega: \forall n~ \exists f \geqslant n: |\xi_n - \xi| \geqslant \varepsilon \big\}$. Тогда $\big\{ \omega: \xi_n (\omega) \not\rightarrow \xi(\omega) \big\} = \bigcup\limits_{m=1}^{+\infty} A^{\frac{1}{m}} = \big\{\omega: \exists m~ \forall n~ \exists k \geqslant n: | \xi_k(\omega) - \xi(\omega) | > \varepsilon \big\}$. Следовательно, 
  		\begin{multline*}
  			\P \big( \omega: \xi_n(\omega) \not\rightarrow \xi(\omega) \big) = 0 \Leftrightarrow \P \left( \bigcup\limits_{m = 1}^{+\infty} A^{\frac{1}{m}} \right) = 0 \Leftrightarrow \\ \Leftrightarrow \forall m \in \N : \P \left( A^{\frac{1}{m}} \right) = 0  \Leftrightarrow \forall \varepsilon > 0 : \P  \left( A^\varepsilon \right) = 0,
  		\end{multline*}
@@ -174,9 +174,9 @@
 		$$\big\{\omega: |\xi_n(\omega) - \xi(\omega)| > \varepsilon \big\} \subset \big\{ \omega: \sup\limits_{k \geqslant n} |\xi_n(\omega) - \xi(\omega)| \geqslant \varepsilon \big\},$$
 		 следовательно, $\P \big( | \xi_n - \xi | \geqslant \varepsilon \big) \rightarrow 0$.\\
 		
-		($L_p \Rightarrow \P$)\qquad $\P \big( | \xi_n -\xi | \geqslant \varepsilon \big) = \P\big(\omega: | \xi_n(\omega) - \xi(\omega) |^p > \varepsilon^p$, а по неравенству Маркова это меньше или равно $\dfrac{\E |\xi_n(\omega) - \xi (\omega)|^p}{\varepsilon p} \limn 0$.\\
+		($L_p \Rightarrow \P$)\qquad $\P \big( | \xi_n -\xi | \geqslant \varepsilon \big) = \P\big(\omega: | \xi_n(\omega) - \xi(\omega) |^p > \varepsilon^p \big)$, а по неравенству Маркова это меньше или равно $\dfrac{\E |\xi_n(\omega) - \xi (\omega)|^p}{\varepsilon p} \limn 0$.\\
 		
-		($\P \Rightarrow d$)\qquad Пусть $f(x)$~--- ограниченная непрерывная функция, тогда $\exists C \in \R~\forall x \in \R: |f(x)| \geqslant C$. Зафиксируем $\varepsilon > 0$, возьмем $N \in \R : \P \big( |\xi | > N \big) \leqslant \dfrac{\varepsilon}{4C}$. На отрезке $[-N, N]$ $f(x)$ равномерно непрерывна, следовательно, 
+		($\P \Rightarrow d$)\qquad Пусть $f(x)$~--- ограниченная непрерывная функция, тогда $\exists C \in \R~\forall x \in \R: |f(x)| \leqslant C$. Зафиксируем $\varepsilon > 0$, возьмем $N \in \R : \P \big( |\xi | > N \big) \leqslant \dfrac{\varepsilon}{4C}$. На отрезке $[-N, N]$ $f(x)$ равномерно непрерывна, следовательно, 
 		$$\exists \delta > 0 \forall x, y \in \R: \left( |x-y| < \delta \Rightarrow |f(x) - f(y) | < \dfrac{\varepsilon}{2} \right).$$
 		Рассмотрим разбиение $\Omega$: 
 		\begin{align*}
@@ -191,8 +191,3 @@
 		Значит, $\boxed{\leqslant} \dfrac{\varepsilon}{2} + 2C \cdot \P(A_2) + 2C \cdot \P(A_3) \leqslant \dfrac{\varepsilon}{2} + 2C \cdot \P \big( |\xi| > N \big) + \cancelto{0,~ \text{т.\,к.}~\xi_n \xrightarrow{\P} \xi}{2C \cdot \P \big( |\xi_n - \xi| > \delta \big)} \leqslant~C_1 \varepsilon$. Следовательно, $\E f(\xi_n) \rightarrow \E f(\xi)$, то есть $\xi_n \xrightarrow{d} \xi$. 
 	\end{proof}
  \end{theorem}
-
-
-
-
- 

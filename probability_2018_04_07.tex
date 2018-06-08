@@ -16,11 +16,11 @@
 	Последовательность чисел $\{ x_n \}$ сходится тогда и только тогда, когда $\{ x_n \}$ фундаментальна.
 \end{theorem}
 \begin{theorem}[критерий Коши сходимость почти наверное]
-	Последовательно случайных величин $\{ \xi_n \}$ сходится почти наверное тогда и только тогда, когда $\{ \xi_n \}$ фундаментальна почти наверное, то есть $\P  \big( \omega : | \xi_n(\omega) - \xi(\omega) | \rightarrow 0 \big) = 1$ при $n, m \rightarrow + \infty$.
+	Последовательно случайных величин $\{ \xi_n \}$ сходится почти наверное тогда и только тогда, когда $\{ \xi_n \}$ фундаментальна почти наверное, то есть $\P  \big( \omega : | \xi_n(\omega) - \xi_m(\omega) | \rightarrow 0 \big) = 1$ при $n, m \rightarrow + \infty$.
 	\begin{proof}
-		($\Rightarrow$)\quad Пусть $\xi_n \xrightarrow{\text{п.н.}} \xi$, тогда, если $\omega \in \big\{ \omega: \xi_n(\omega) - \xi(\omega) \big\}$, то $\omega \in \big\{ \omega: \{\xi_n\}~\text{--- фундаментальная} \big\}$, следовательно, $\P \big( \omega: \{ \xi_n(\omega)\}~\text{--- фундаментальная} \big) \geqslant \P \big( \omega: \xi_n(\omega) \rightarrow \xi(\omega) \big) = 1$.\\
+		($\Rightarrow$)\quad Пусть $\xi_n \xrightarrow{\text{п.н.}} \xi$, тогда, если $\omega \in \big\{ \omega: \xi_n(\omega) \rightarrow \xi(\omega) \big\}$, то $\omega \in \big\{ \omega: \{\xi_n\}~\text{--- фундаментальная} \big\}$, следовательно, $\P \big( \omega: \{ \xi_n(\omega)\}~\text{--- фундаментальная} \big) \geqslant \P \big( \omega: \xi_n(\omega) \rightarrow \xi(\omega) \big) = 1$.\\
 		
-		($\Leftarrow$) \quad Обозначим $A = \{ \omega: \{\xi_n\}~\text{--- фундаментальная} \big\}$. Построим такую случайную величину $\xi$, что $\xi_n \xrightarrow{\text{п.н.}} \xi$. По критерию Коши для любого $\omega \in A$ у последовательности $\big\{ \xi_n(\omega) \big\}$ существует предел $\xi(\omega)$. Положим по определению $\xi(\omega) = \lim\limits_{n \rightarrow + \infty} \xi_n(\omega) \cdot I_A(\omega)$. Тогда $\xi_n \cdot I_A \rightarrow \xi$, то есть $\xi$~--- случайная величина, как предел случайных величин, и $\P \big( \omega: \xi_n (\omega) \rightarrow \xi(\omega) \rightarrow \xi(\omega) \big) = \P(A)=1$.
+		($\Leftarrow$) \quad Обозначим $A = \{ \omega: \{\xi_n\}~\text{--- фундаментальная} \big\}$. Построим такую случайную величину $\xi$, что $\xi_n \xrightarrow{\text{п.н.}} \xi$. По критерию Коши для любого $\omega \in A$ у последовательности $\big\{ \xi_n(\omega) \big\}$ существует предел $\xi(\omega)$. Положим по определению $\xi(\omega) = \lim\limits_{n \rightarrow + \infty} \xi_n(\omega) \cdot I_A(\omega)$. Тогда $\xi_n \cdot I_A \rightarrow \xi$, то есть $\xi$~--- случайная величина, как предел случайных величин, и $\P \big( \omega: \xi_n (\omega) \rightarrow \xi(\omega) \big) = \P(A)=1$.
 	\end{proof}
 \end{theorem}
 \begin{lemma}[критерий фундаментальности почти наверное][б/д]
@@ -46,31 +46,31 @@
 		\lim\limits_{N \rightarrow \infty} \P \left( \bigcap\limits_{k = n}^{N} \overline{A_k} \right) = 
 		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \P \left( \overline{A_k} \right) = 
 		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \left[ 1 - \P (A_k) \right] \leqslant \\ \leqslant 
-		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \P \left( \overline{A_k} \right) = 
+		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \exp\left(-\P \left( \overline{A_k} \right)\right) = 
 		\lim\limits_{N \rightarrow \infty} \exp \left( - \sum\limits_{k =n}^{N} \P \left( A_k \right) \right)= \exp \left( - \sum\limits_{k = n}^{\infty}  \P \left( A_k \right) \right).
 		\end{multline*} 
 	\end{proof}
 \end{lemma}
 \begin{theorem}[Рисса]
-	Есть последовательность случайных величин $\{ \xi_n \}$ фундаментальна (или сходится) по вероятности, то из нее можно выделить подпоследовательность $\{ \xi_{n_k} \}$ фундаментальную (сходящуюся) почти наверное.
+	Если последовательность случайных величин $\{ \xi_n \}$ фундаментальна (или сходится) по вероятности, то из нее можно выделить подпоследовательность $\{ \xi_{n_k} \}$ фундаментальную (сходящуюся) почти наверное.
 	\begin{proof}
 		Пусть $\{ \xi_n \}$ фундаментальна по вероятности, то есть $\forall \varepsilon: \P \big( | \xi_k - \xi_n | > \varepsilon \big) \xrightarrow[n, k \rightarrow \infty]{} 0$. Докажем, что можно выделить подпоследовательность $\{ \xi_{n_k} \}$, сходящуюся почти наверное. Пусть $n_1=1$. По индукции определим $n_k$, как наименьшее $n > n_{k-1}$ такое, что $\forall s \geqslant n, t \geqslant n: \P \big( | \xi_t - \xi_s | > 2^{-k} \big) < 2^{-k}$. Тогда $\sum\limits_{k = 1}^{\infty} \P \big( | \xi_{n_{k+1}} - \xi_{n_k} | > 2^{-k} \big) < \sum\limits_{k = 1}^{\infty} 2^{-k} < +\infty$, следовательно, по лемме Бореля-Кантелли $\P \big( | \xi_{n_{k+1}} - \xi_{n_k}| > 2^{-k}~\text{б.ч.} \big) = 0$, значит, почти наверное $\sum\limits_{k = 1}^{+\infty} | \xi_{n_{k+1}} - \xi_{n_k} | < + \infty$. Пусть $N = \left\{ \omega: \sum\limits_{n = 1}^{+\infty} \big| \xi_{n_{k+1}}(\omega) - \xi_{n_k}(\omega) \big| = +\infty \right\}$, тогда $\P(N) = 0$. Положим $\xi(\omega) =  \left( \xi_{n_1} (\omega) + \sum\limits_{k = 1}^{+\infty} \big(\xi_{n_{k+1}} (\omega) - \xi_{n_k}(\omega) \big) \right) \cdot I_{\overline{N}}(\omega)$. Получаем, $\sum\limits_{j = 1}^{k} ( \xi_{n_j + 1} - \xi_{n_j} ) + \xi_{n_1} = \xi_{n_{k+1}} \xrightarrow{\text{п.н.}} \xi$.
 		
 		Пусть теперь $\xi_n \xrightarrow{\P} \xi$, тогда 
 		$$\P \big( | \xi_m - \xi_n| \geqslant \varepsilon \big) \leqslant \P \left( |\xi_n - \xi | \geqslant \dfrac{\varepsilon}{2} \right) + \P \left( |\xi_m - \xi | \geqslant \dfrac{\varepsilon}{2} \right) \xrightarrow[n, m \rightarrow \infty ]{} 0.$$ 
-		Следовательно, из сходимости по вероятности следует фундпментальность по вероятности, а дальше все тоже самое.
+		Следовательно, из сходимости по вероятности следует фундаментальность по вероятности, а дальше все тоже самое.
 	\end{proof}
 \end{theorem}
-\begin{theorem}[критерий коши сходимости по вероятности]
-	$\xi_n \xrightarrow{\P} \xi$ тогда и только тогда, когда $\{\xi_n\}$ фундаментальна по веростности.
+\begin{theorem}[критерий Коши сходимости по вероятности]
+	$\xi_n \xrightarrow{\P} \xi$ тогда и только тогда, когда $\{\xi_n\}$ фундаментальна по вероятности.
 	\begin{proof}
 		($\Rightarrow$) \quad Следует из теоремы Рисса.
 		
-		($\Leftarrow$) \quad Если $\{ \xi_n \}$ фундаментально по вероятности, то по теореме Рисса существует подпоследовательность $\{\xi_{n_k} \}$ такая, что $\xi_{n_k} \xrightarrow{\text{п.н.}}$, то есть $\xi_{n_k} \xrightarrow{\P}$. Тогда $\P \big( | \xi_n - \xi | \geqslant \varepsilon \big) \leqslant \cancelto{0\text{, т.к. фунд.}}{\P \left( \xi_n - \xi_{n_k} | \geqslant \dfrac{\varepsilon}{2} \right)} + \cancelto{0\text{, т.к. сход.}}{\P \left( \xi_{n_k} - \xi_k | \geqslant \dfrac{\varepsilon}{2} \right)} \limn 0$.
+		($\Leftarrow$) \quad Если $\{ \xi_n \}$ фундаментально по вероятности, то по теореме Рисса существует подпоследовательность $\{\xi_{n_k} \}$ такая, что $\xi_{n_k} \xrightarrow{\text{п.н.}} \xi$, то есть $\xi_{n_k} \xrightarrow{\P} \xi$. Тогда $\P \big( | \xi_n - \xi | \geqslant \varepsilon \big) \leqslant \cancelto{0\text{, т.к. фунд.}}{\P \left( |\xi_n - \xi_{n_k} | \geqslant \dfrac{\varepsilon}{2} \right)} + \cancelto{0\text{, т.к. сход.}}{\P \left( |\xi_{n_k} - \xi | \geqslant \dfrac{\varepsilon}{2} \right)} \limn 0$.
 	\end{proof}
 \end{theorem}
 \begin{theorem}[Неравенство Колмогорова]
-	Пусть $\xi_1,  \ldots, \xi_n$~--- независимые случайные величины такие, что $\E \xi_i = 0$, $\D \xi_i < +\infty$. Обозначим $S_n = \sum\limits_{i = 1}^n \xi_i$. Тогда $\forall \varepsilon > 0: \P \left( \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \right) \geqslant \dfrac{\E S_n^2}{\varepsilon^2}$.
+	Пусть $\xi_1,  \ldots, \xi_n$~--- независимые случайные величины такие, что $\E \xi_i = 0$, $\D \xi_i < +\infty$. Обозначим $S_n = \sum\limits_{i = 1}^n \xi_i$. Тогда $\forall \varepsilon > 0: \P \left( \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \right) \leqslant \dfrac{\E S_n^2}{\varepsilon^2}$.
 	\begin{proof}
 		Обозначим $A = \{ \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \}$. Разобьем $A$ на несколько непересекающихся событий, то есть $A_k = \big\{ |S_k| \geqslant \varepsilon\big\}$ и $\forall i \leqslant k - 1: |S_k| \leqslant \varepsilon$, следовательно, $A = \bigsqcup\limits_{k=1}^{n} A_k$. Тогда
 		\begin{multline*}
