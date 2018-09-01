@@ -2,7 +2,7 @@
 \begin{theorem}[Колмогорова-Хинчина о сходимости ряда]
 	Пусть $\{\xi_n \}_{n \geqslant 1}$~--- последовательность независимых случайных величин такая, что $\E \xi_n = 0 $ и $\E \xi^2 < +\infty$. Тогда, если $\sum\limits_{n = 1}^{\infty} \E \xi_n^2 < +\infty$, то $ \sum\limits_{n = 1}^{\infty} \xi_n$ сходится почти наверное.
 	\begin{proof}
-		Обозначим $S_n = \sum\limits_{k=1}^n \xi_k$. По критерию Коши $\left\{ \sum\limits_{n = 1}^{\infty}~\text{сходится п.н.} \right\}$ равносильно тому, что $\{ S_n~\text{фундаментально п.н.}\}$, а это в свою по критерию фундаментальности равносильно тому, что 
+		Обозначим $S_n = \sum\limits_{k=1}^n \xi_k$. По критерию Коши $\left\{ \sum\limits_{n = 1}^{\infty}\xi_n~\text{сходится п.н.} \right\}$ равносильно тому, что $\{ S_n~\text{фундаментально п.н.}\}$, а это в свою по критерию фундаментальности равносильно тому, что 
 		$$\forall \varepsilon > 0: \P \left( \sup\limits_{k \geqslant n} | S_k - S_n | \geqslant \varepsilon \right) \limn 0.$$
 		 Очевидно,
 		 $$\P \left( \sup\limits_{k \geqslant n} | S_k - S_n | \geqslant \varepsilon \right) = \P \left( \bigcup\limits_{k \geqslant n} \big\{| S_k - S_n | \geqslant \varepsilon \big\} \right),$$
@@ -15,21 +15,21 @@
 \begin{lemma}[Тёплица]
 	Пусть $x_n \rightarrow x$~--- числовая последовательность, числа $\{a_n\}_{n \geqslant 1}$ таковы, что $ \forall n: a_n \geqslant 0$ и $ b_n = \sum\limits_{k = 1}^n a_k \uparrow +\infty$. Тогда $\dfrac{1}{b_n} \sum\limits_{i = 1}^n a_i x_i \limn x$.
 	\begin{proof}
-		Пусть $\varepsilon > 0$. Выберем $n_0$ так, что $\forall n > n_0: |x_n - x| \leqslant \dfrac{\varepsilon}{2}$. Выберем $n_1 > n_0$ такое, что $\dfrac{1}{b_n} \sum\limits_{k=1}^{n_0} a_k | x_k - x| \leqslant \frac{\varepsilon}{2}$, тогда
+		Пусть $\varepsilon > 0$. Выберем $n_0$ так, что $\forall n > n_0: |x_n - x| \leqslant \dfrac{\varepsilon}{2}$. Выберем $n_1 > n_0$ такое, что $\dfrac{1}{b_{n_1}} \sum\limits_{k=1}^{n_0} a_k | x_k - x| \leqslant \frac{\varepsilon}{2}$, тогда
 		\begin{multline*}
 			\forall n > n_1: \left| \dfrac{1}{b_n} \sum\limits_{k = 1}^n a_k x_k - x \right| = \left| \dfrac{1}{b_n} \sum\limits_{k = 1}^n a_k x_k - \dfrac{1}{b_n} \sum\limits_{k = 1}^n a_k x \right| \leqslant \dfrac{1}{b_n} \sum\limits_{k = 1}^n a_k |x_k - x| = \\= \dfrac{1}{b_n} \sum\limits_{k = 1}^{n_0} a_k |x_k - x| + \dfrac{1}{b_n} \sum\limits_{k = n_0 + 1}^n a_k |x_k - x| \leqslant \dfrac{\varepsilon}{2} + \dfrac{\varepsilon}{2} \cdot \dfrac{1}{b_n} \sum\limits_{k = n_0 + 1}^n a_k \leqslant \varepsilon.
 		\end{multline*}
 	\end{proof}
 \end{lemma}
 \begin{lemma}[Кронекера]
-	Пусть ряд $\sum\limits_{n = 1}^{\infty} x_n$ сходится, $\{a_n\}_{n \geqslant 1}$ такова, что $a_n \geqslant 0$, $b_n = \sum\limits_{k=1}^n a_k \uparrow + \infty$. Тогда $\dfrac{1}{b_n} \sum\limits_{k = 1}^n a_k x_k \limn 0$.
+	Пусть ряд $\sum\limits_{n = 1}^{\infty} x_n$ сходится, $\{a_n\}_{n \geqslant 1}$ такова, что $a_n \geqslant 0$, $b_n = \sum\limits_{k=1}^n a_k \uparrow + \infty$. Тогда $\dfrac{1}{b_n} \sum\limits_{k = 1}^n b_k x_k \limn 0$.
 	\begin{proof}
 		Пусть $S_n = \sum\limits_{k = 1}^n x_k$, тогда $S_n \limn S = \sum\limits_{k = 1}^\infty x_k$. Заметим,
 		\begin{multline*}
 			\sum\limits_{j = 1}^n b_j x_j = \sum\limits_{j = 1}^n b_j (S_j - S_{j - 1}) = b_n S_n - \sum\limits_{j = 1}^n S_{j-1}(b_j - b_{j-1}) = b_n S_n - \sum\limits_{j = 1}^n S_{j-1} a_j.
 		\end{multline*}
 		Следовательно,
-		$$\dfrac{1}{b_n} \sum\limits_{k = 1}^n a_k x_k = S - \cancelto{\scriptsize S~\text{по Тёплицу}}{\dfrac{1}{b_n}\sum\limits_{j = 1}^n S_{j-1} a_j} \limn 0.$$
+		$$\dfrac{1}{b_n} \sum\limits_{k = 1}^n b_k x_k = S_n - \cancelto{\scriptsize S~\text{по Тёплицу}}{\dfrac{1}{b_n}\sum\limits_{j = 1}^n S_{j-1} a_j} \limn 0.$$
 	\end{proof}
 \end{lemma}
 \begin{theorem}[усиленный закон больших чисел в форме Колмогорова-Хинчина]
@@ -39,11 +39,11 @@
 		$$ \frac{S_n - \E S_n}{b_n} = \frac{1}{b_n} \sum\limits_{i = 1}^{n} b_i \cdot \frac{\xi_i - \E \xi_i}{b_i}.$$
 		Обозначим $\eta_i = \dfrac{\xi_i - \E \xi_i}{b_i}$. Случайные величины $\eta_i$ независимы и  $\E \eta_i = 0$. Значит,  
 		$$ \sum\limits_{i =1}^\infty \E \eta_i^2 = \sum\limits_{i = 1}^\infty \dfrac{\E( \xi_i - \E \xi_i)^2}{b_i^2} = \sum\limits_{i = 1}^\infty \dfrac{\D \xi_i}{b_i^2} < +\infty.$$
-		Следовательно, по теореме Колмогорова-Хинчина о сходимости ряда $\sum \eta_i$ сходится почти наверное. По лемме Кронекера последовательность 
+		Следовательно, по теореме Колмогорова-Хинчина о сходимости ряда $\sum\limits_{i=1}^n \eta_i$ сходится почти наверное. По лемме Кронекера последовательность 
 		$$\dfrac{1}{b_n} \sum\limits_{i =1}^n b_i \cdot \dfrac{\xi_i - \E \xi_i}{b_i}$$ 
 		сходится к нулю для всех $\omega$, для которых сходится ряд 
-		$$\sum\limits_{i = 1}^\infty \dfrac{\xi_i - \E \xi_i}{b_i} = \sum\limits_{i = 1}^\infty \eta_i $$ 
-		сходится. Следовательно, 
+		$$\sum\limits_{i = 1}^\infty \dfrac{\xi_i - \E \xi_i}{b_i} = \sum\limits_{i = 1}^\infty \eta_i. $$ 
+		Следовательно, 
 		$$ \dfrac{1}{b_n} \sum\limits_{i =1}^n b_i \cdot \dfrac{\xi_i - \E \xi_i}{b_i} = \frac{S_n - \E S_n}{b_n} \xrightarrow[n \rightarrow \infty]{\text{п.н}} 0.$$
 	\end{proof}
 \end{theorem}
@@ -80,8 +80,8 @@
 		Поскольку $\E | \xi_1| < +\infty$, то по предыдущей лемме $\sum\limits_{n = 1}^\infty \P \big( |\xi_1| \geqslant n \big) < +\infty$. Так как $\xi_1 \overset{d}{=} \xi_n$, то $\sum\limits_{n = 1}^\infty \P \big( |\xi_n| \geqslant n \big) < + \infty$, следоватально, по лемме Бореля-Кантелли $\P \Big( \big\{ |\xi_n| \geqslant n \big\}~\text{б.ч.} \Big) = 0$. То есть c вероятностью 1 случается конечное число $\big\{ |\xi_n| \geqslant n \big\}$. Обозначим $\tilde \xi_n \equiv \xi_n \cdot I \big\{ | \xi_n | \leqslant n \big\}$. Тогда с вероятность 1 $\xi_n = \tilde \xi_n$ кроме конечного числа $\xi_n$. Пусть $\E \xi_i = 0$, если это не так, то $\eta_i = \xi_i - \E \xi_i$. Получаем, что 
 		$$ \P \left( \frac{\xi_n + \ldots + \xi_n}{n} \rightarrow 0 \right) = \P \left( \frac{\tilde \xi_1 + \ldots + \tilde \xi_n}{n} \rightarrow 0 \right).$$
 		Рассмотрим
-		$$ \E \tilde\xi_n = \E \Big( \xi_n \cdot I \big\{ | \xi_n | \leqslant n \big\} \Big) = \E \Big( \xi_1 \cdot I \big( | \xi_1| \leqslant n \big\} \Big) \rightarrow \E \xi_1 = 0$$
-		по теореме Лебега о мажорируемой ходимости, поскольку
+		$$ \E \tilde\xi_n = \E \Big( \xi_n \cdot I \big( | \xi_n | \leqslant n \big) \Big) = \E \Big( \xi_1 \cdot I \big( | \xi_1| \leqslant n \big) \Big) \rightarrow \E \xi_1 = 0$$
+		по теореме Лебега о мажорируемой сходимости, поскольку
 		$$\Big| \xi_1 \cdot I \big( |\xi_1| \leqslant n \big) \Big| \leqslant \xi_1~~\text{и}~~\xi_1 \cdot I \big( |\xi_1| \leqslant n \big) \xrightarrow[n \rightarrow \infty]{\text{п.н.}} \xi_1.$$
 		По лемме Тёплица
 		$$ \frac{1}{n} \sum\limits_{i = 1}^{n} \E \tilde\xi_i \rightarrow \E \xi_1 = 0 \quad \Rightarrow \quad 

@@ -15,16 +15,15 @@
 		$\Delta_{a_ib_i}^i F(\vec x) = F(x_1, \ldots, x_{i - 1}, b_i, x_{i + 1}, \ldots x_n) - F(x_1, \ldots, x_{i - 1}, a_i, x_{i + 1}, \ldots, x_n)$.
 	\end{enumerate}
 	\begin{proof}
-		Первое свойство следует из непрерывности вероятностной меры, так как $\bigtimes\limits_{i = 1}^n\big(-\infty, x_i^{(k)}\big] \downarrow \bigtimes\limits_{i = 1}^n \big(-\infty, x_i\big]$. \\
-		\medskip
+		Первое свойство следует из непрерывности вероятностной меры, так как $$\bigtimes\limits_{i = 1}^n\big(-\infty, x_i^{(k)}\big] \downarrow \bigtimes\limits_{i = 1}^n \big(-\infty, x_i\big].$$
+		Для доказательства второго пункта рассмотрим
+		$$B_m = \bigtimes\limits_{i = 1}^n\big(-\infty, \inf\limits_{k \geqslant m} x_i^{(k)}\big].$$
+		Если $\forall i : x_i \rightarrow +\infty$, то $\P(B_m) \rightarrow \P(\R^n) = 1$. А если $\exists i : x_i^{(k)} \rightarrow - \infty$, то $B_m \rightarrow \varnothing, \P(B_n) \rightarrow 0$.
 		
-		$B_n \curvearrowright C_n = \bigtimes\limits_{i = 1}^n\big(-\infty, \inf\limits_{k \geqslant n} x_i^{(k)}\big] \\
-		\P(B_n) \rightarrow \P(\R^n) = 1$ \\
-		Если $\exists i : x_i^{(k)} \rightarrow - \infty$, то $B_n \rightarrow \varnothing, \P(B_n) \rightarrow 0$;
-		\medskip
-		
-		$\Delta_{a_1b_1}^1 \ldots \Delta_{a_nb_n}^nF(x) = \P\big((a_1, b_1] \times \ldots \times (a_n, b_n]\big)$ \\
-		$\Delta_{a_1b_1}^1\Delta_{a_2,b_2}^2F(x) = F(b_1,b_2) - F(a_1,b_2) - (F(b_1,a_2) - F(a_1,a_2))$
+		Не трудно понять, что 
+		$$\Delta_{a_1b_1}^1 \ldots \Delta_{a_nb_n}^nF(x) = \P\big((a_1, b_1] \times \ldots \times (a_n, b_n]\big),$$
+		откуда следует утверждение третьего пункта леммы. Так, например,
+		$$\Delta_{a_1b_1}^1\Delta_{a_2,b_2}^2F(x) = F(b_1,b_2) - F(a_1,b_2) - (F(b_1,a_2) - F(a_1,a_2)).$$
 	\end{proof}
 \end{lemma}
 \begin{theorem}[О взаимооднозначном соответствии вероятностной меры и функции распределения в $\R^n$][б/д]
@@ -65,7 +64,7 @@
 \begin{lemma}
 	Пусть $\vec\xi = (\xi_1, \ldots, \xi_n)$~--- случайный вектор, $\varphi: \R^n \rightarrow \R^m$~--- борелевская функция, тогда $\varphi(\vec\xi)$~--- случайный вектор.
 	\begin{proof}
-		Пусть $B \in \B(\R^n)$. Тогда 
+		Пусть $B \in \B(\R^m)$. Тогда 
 		$$ (\varphi(\vec\xi))^{-1}(B) = \big\{\omega : \varphi(\vec\xi(\omega)) \in B\big\} = \big\{\omega : \vec\xi(\omega) \in \varphi^{-1}(B) \subseteq \B(\R^n) \big\} \in \F. $$
 	\end{proof}
 \end{lemma}
@@ -80,7 +79,7 @@
 	Пусть $\xi$, $\eta$~--- случайные величины, $c \in \R$,тогда $\xi + \eta$, $\xi - \eta$, $c\xi$, $\xi \cdot \eta$ и $\xi / \eta$, если $\forall \omega \in \Omega : \eta \neq 0$ тоже случайные величины.
 \end{consequence}
 \begin{lemma}[О пределах случайной величины]
-	Пусть $\big\{ \xi_n, n \in \N \big\}$ последовательность случайных величин, тогда, если пределы $\overline{\lim}~\xi_n$, $\underline{\lim}~\xi_n$, $\inf\xi_n$, $\sup\xi_n$ существуют, они являются случайными величинами.
+	Пусть $\{ \xi_n \}_{n \in \N}$ последовательность случайных величин, тогда, если пределы $\overline{\lim}~\xi_n$, $\underline{\lim}~\xi_n$, $\inf\xi_n$, $\sup\xi_n$ существуют, они являются случайными величинами.
 	\begin{proof}
 		$\big\{\omega : \sup \xi_n \leqslant x \big\} = \bigcap\limits_{n = 1}^{+\infty}\big\{\omega : \xi_n(\omega) \leqslant x \big\} \in \F$. По критерию измеримости, так как $\sigma\big(x : (-\infty, x]\big) = \B(\R)$, мы доказали, что $\sup\xi_n$~--- случайная величина. Аналогично, $\big\{\omega : \inf \xi_n > x \big\} = \bigcup\limits_{k = 1}^{+\infty}\big\{\omega : \xi_n(\omega) \geqslant x \big\} \in \F$, так как $\sigma\big((x, +\infty)\big) = \B(\R)$, по критерию измеримости $\inf\xi_n$~--- случайная величина. Отсюда $\overline{\lim}~\xi_n = \inf\limits_n\sup\limits_{m \geqslant n}~\xi_m$ и $\underline{\lim}~\xi_n = \sup\limits_n\inf\limits_{m \geqslant n}~\xi_m$ тоже случайные величины.
 	\end{proof}

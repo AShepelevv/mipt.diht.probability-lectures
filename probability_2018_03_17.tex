@@ -103,7 +103,10 @@
 \begin{theorem}[Закон больших чисел в форме Чебышёва]
 	Пусть $\{\xi_i\}_{i=1}^{+\infty}$~--- последовательность  попарно некоррелированных случайных величин таких, что $\forall n \in \N : \D \xi_n \leqslant C$. Обозначим $S_n = \sum\limits_{i=1}^n \xi_i$, тогда $\dfrac{S_n - \E S_n}{n} \overset{\P}{\rightarrow} 0$ при $n \rightarrow +\infty$.
 	\begin{proof}
-		По неравенству Чебышёва $\P \left(\left| \dfrac{S_n - \E S_n}{n} \right| > \varepsilon\right) \geqslant \dfrac{\D (S_n - \E S_n)}{n^2 \varepsilon^2}$, по свойству дисперсии о сдвиге это равно $\dfrac{\D S_n}{n^2 \varepsilon^2}$. Применяя лемму о дисперсии суммы, получаем $\dfrac{\sum_{i=1}^n \D \xi_i}{n^2 \varepsilon^2} \rightarrow 0$.
+		По неравенству Чебышёва 
+		$$\P \left(\left| \dfrac{S_n - \E S_n}{n} \right| > \varepsilon\right) \leqslant \dfrac{\D S_n}{n^2 \varepsilon^2}.$$ 
+		Применяя лемму о дисперсии суммы, получаем 
+		$$\dfrac{1}{n^2\varepsilon^2} \sum\limits_{i=1}^n \D \xi_i \rightarrow 0.$$
 	\end{proof}
 \end{theorem}
 \begin{consequence}

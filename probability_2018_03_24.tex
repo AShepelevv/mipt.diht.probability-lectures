@@ -29,7 +29,7 @@
 \begin{property}[формула полной вероятности]
 	 $\E \big( \E( \xi | \G) \big) = \E\xi$.
 	 \begin{proof}
-	 	Так как $\Omega \in \G$, то по интегральному свойству $\E \big( \E(\xi | \G) \big) = \E \big( \E(\xi | \G ) \cdot I_\Omega \big) = \E( \xi \cdot I_\Omega) = E\xi$.
+	 	Так как $\Omega \in \G$, то по интегральному свойству $\E \big( \E(\xi | \G) \big) = \E \big( \E(\xi | \G ) \cdot I_\Omega \big) = \E( \xi \cdot I_\Omega) = \E\xi$.
 	 \end{proof}
 \end{property}
 \begin{property}[линейность]
@@ -51,7 +51,7 @@
 \begin{property}
 	Пусть $\xi \leqslant \eta$ почти наверное, тогда $\E(\xi | \G) \leqslant \E( \eta | \G)$ почти наверное.
 	\begin{proof}
-		$\xi \leqslant \eta$ почти наверное, следовательно, $\forall A \in \G  \int\limits_A \xi \, d \P \leqslant \int\limits_A \eta \, d\P$, что равносильно $\int\limits_A \E (\xi | \G ) \, d\P \leqslant \int\limits_A \E( \eta | \G) \, d \P$, а из свойств математического ожидания вытекает, что $\E(\xi | \G) \leqslant \E( \eta | \G)$ почти наверное.
+		$\xi \leqslant \eta$ почти наверное, следовательно, $\forall A \in \G :  \int\limits_A \xi \, d \P \leqslant \int\limits_A \eta \, d\P$, что равносильно $\int\limits_A \E (\xi | \G ) \, d\P \leqslant \int\limits_A \E( \eta | \G) \, d \P$, а из свойств математического ожидания вытекает, что $\E(\xi | \G) \leqslant \E( \eta | \G)$ почти наверное.
 	\end{proof}
 \end{property}
 \begin{property}
@@ -67,10 +67,12 @@
 		\item $\E \big( \E( \xi | \G_2) \big| \G_1 \big) = \E( \xi | \G_1 )$ почти наверное.
 	\end{enumerate}
 	\begin{proof}
-		(1) \quad $\E ( \xi | \G_1)$ $\G_2$-измерима, следовательно, по первому свойству $\E \big( \E( \xi | \G_1) \big| \G_2 \big) = \E( \xi | \G_1)$.
-		(2) \quad Пусть $A \in \G_1$, следовательно, $A \in \G_2$.
+		$\E ( \xi | \G_1)$ $\G_2$-измерима, следовательно, по первому свойству 
+		$$\E \big( \E( \xi | \G_1) \big| \G_2 \big) = \E( \xi | \G_1).$$
+		
+		Пусть $A \in \G_1$, следовательно, $A \in \G_2$.
 		\begin{equation*}
-			\E \big( \E( \xi | G_1) \cdot I_A) = \E( \xi \cdot I_A) = \E \big( \E (\xi | \G_2) \cdot I_A \big) = \E \Big( \E \big( \E(\xi | \G_2) \big| G_1 \big) \cdot I_A \Big).
+			\E \big( \E( \xi | \G_1) \cdot I_A) = \E( \xi \cdot I_A) = \E \big( \E (\xi | \G_2) \cdot I_A \big) = \E \Big( \E \big( \E(\xi | \G_2) \big| \G_1 \big) \cdot I_A \Big).
 		\end{equation*}
 		По свойству математического ожидания $\E (\xi | \G_1 ) = \E \big( \E(\xi | \G_2)  \big| \G_1 \big)$.
 		

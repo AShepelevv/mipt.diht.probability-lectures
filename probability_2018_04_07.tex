@@ -40,9 +40,9 @@
 		
 		Заметим, что $\P ( A_n ~\text{б.ч.}) = 
 		\lim\limits_{ n \rightarrow \infty} \P \left( \bigcup\limits_{k \geqslant n} A_k \right) =  
-		\lim\limits_{ n \rightarrow \infty} \left( 1 - \P \left( \bigcup\limits_{k \geqslant n} \overline{A_k} \right) \right)$, но
+		\lim\limits_{ n \rightarrow \infty} \left( 1 - \P \left( \bigcap\limits_{k \geqslant n} \overline{A_k} \right) \right)$, но
 		\begin{multline*}
-			\P \left( \bigcup\limits_{k \geqslant n} \overline{A} \right) = 
+			\P \left( \bigcap\limits_{k \geqslant n} \overline{A} \right) = 
 		\lim\limits_{N \rightarrow \infty} \P \left( \bigcap\limits_{k = n}^{N} \overline{A_k} \right) = 
 		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \P \left( \overline{A_k} \right) = 
 		\lim\limits_{N \rightarrow \infty} \prod\limits_{k = n}^{N} \left[ 1 - \P (A_k) \right] \leqslant \\ \leqslant 
@@ -54,7 +54,8 @@
 \begin{theorem}[Рисса]
 	Если последовательность случайных величин $\{ \xi_n \}$ фундаментальна (или сходится) по вероятности, то из нее можно выделить подпоследовательность $\{ \xi_{n_k} \}$ фундаментальную (сходящуюся) почти наверное.
 	\begin{proof}
-		Пусть $\{ \xi_n \}$ фундаментальна по вероятности, то есть $\forall \varepsilon: \P \big( | \xi_k - \xi_n | > \varepsilon \big) \xrightarrow[n, k \rightarrow \infty]{} 0$. Докажем, что можно выделить подпоследовательность $\{ \xi_{n_k} \}$, сходящуюся почти наверное. Пусть $n_1=1$. По индукции определим $n_k$, как наименьшее $n > n_{k-1}$ такое, что $\forall s \geqslant n, t \geqslant n: \P \big( | \xi_t - \xi_s | > 2^{-k} \big) < 2^{-k}$. Тогда $\sum\limits_{k = 1}^{\infty} \P \big( | \xi_{n_{k+1}} - \xi_{n_k} | > 2^{-k} \big) < \sum\limits_{k = 1}^{\infty} 2^{-k} < +\infty$, следовательно, по лемме Бореля-Кантелли $\P \big( | \xi_{n_{k+1}} - \xi_{n_k}| > 2^{-k}~\text{б.ч.} \big) = 0$, значит, почти наверное $\sum\limits_{k = 1}^{+\infty} | \xi_{n_{k+1}} - \xi_{n_k} | < + \infty$. Пусть $N = \left\{ \omega: \sum\limits_{n = 1}^{+\infty} \big| \xi_{n_{k+1}}(\omega) - \xi_{n_k}(\omega) \big| = +\infty \right\}$, тогда $\P(N) = 0$. Положим $\xi(\omega) =  \left( \xi_{n_1} (\omega) + \sum\limits_{k = 1}^{+\infty} \big(\xi_{n_{k+1}} (\omega) - \xi_{n_k}(\omega) \big) \right) \cdot I_{\overline{N}}(\omega)$. Получаем, $\sum\limits_{j = 1}^{k} ( \xi_{n_j + 1} - \xi_{n_j} ) + \xi_{n_1} = \xi_{n_{k+1}} \xrightarrow{\text{п.н.}} \xi$.
+		Пусть $\{ \xi_n \}$ фундаментальна по вероятности, то есть 
+		$$\forall \varepsilon > 0: \P \big(\omega: | \xi_k - \xi_n | > \varepsilon \big) \xrightarrow[n, k \rightarrow \infty]{} 0.$$ Докажем, что можно выделить подпоследовательность $\{ \xi_{n_k} \}$, сходящуюся почти наверное. Пусть $n_1=1$. По индукции определим $n_k$, как наименьшее $n > n_{k-1}$ такое, что $\forall s \geqslant n, t \geqslant n: \P \big( | \xi_t - \xi_s | > 2^{-k} \big) < 2^{-k}$. Тогда $\sum\limits_{k = 1}^{\infty} \P \big( | \xi_{n_{k+1}} - \xi_{n_k} | > 2^{-k} \big) < \sum\limits_{k = 1}^{\infty} 2^{-k} < +\infty$, следовательно, по лемме Бореля-Кантелли $\P \big( | \xi_{n_{k+1}} - \xi_{n_k}| > 2^{-k}~\text{б.ч.} \big) = 0$, значит, почти наверное $\sum\limits_{k = 1}^{+\infty} | \xi_{n_{k+1}} - \xi_{n_k} | < + \infty$. Пусть $N = \left\{ \omega: \sum\limits_{n = 1}^{+\infty} \big| \xi_{n_{k+1}}(\omega) - \xi_{n_k}(\omega) \big| = +\infty \right\}$, тогда $\P(N) = 0$. Положим $\xi(\omega) =  \left( \xi_{n_1} (\omega) + \sum\limits_{k = 1}^{+\infty} \big(\xi_{n_{k+1}} (\omega) - \xi_{n_k}(\omega) \big) \right) \cdot I_{\overline{N}}(\omega)$. Получаем, $\sum\limits_{j = 1}^{k} ( \xi_{n_j + 1} - \xi_{n_j} ) + \xi_{n_1} = \xi_{n_{k+1}} \xrightarrow{\text{п.н.}} \xi$.
 		
 		Пусть теперь $\xi_n \xrightarrow{\P} \xi$, тогда 
 		$$\P \big( | \xi_m - \xi_n| \geqslant \varepsilon \big) \leqslant \P \left( |\xi_n - \xi | \geqslant \dfrac{\varepsilon}{2} \right) + \P \left( |\xi_m - \xi | \geqslant \dfrac{\varepsilon}{2} \right) \xrightarrow[n, m \rightarrow \infty ]{} 0.$$ 
@@ -74,13 +75,13 @@
 	\begin{proof}
 		Обозначим $A = \{ \max\limits_{1 \leqslant k \leqslant n} |S_k| \geqslant \varepsilon \}$. Разобьем $A$ на несколько непересекающихся событий, то есть $A_k = \big\{ |S_k| \geqslant \varepsilon\big\}$ и $\forall i \leqslant k - 1: |S_k| \leqslant \varepsilon$, следовательно, $A = \bigsqcup\limits_{k=1}^{n} A_k$. Тогда
 		\begin{multline*}
-			\E(S_n^2 \cdot I_{A_k}) = \E\big( (S_k + \underbracket[0.5pt]{\xi_{k+1} + \ldots + \xi_n}_{\overline{S_k}} )^2 \cdot I_{A_k} \big) =  \\= \E( S_k^2 \cdot I_{A_k} ) + \E\left( \overline{S_k}^2 \cdot I_{A_k} \right) + 2 \E\left( S_k \overline{S_k} \cdot I_{A_k} \right) \boxed{=}.
+			\E(S_n^2 \cdot I_{A_k}) = \E\big( (S_k + \underbracket[0.5pt]{\xi_{k+1} + \ldots + \xi_n}_{\overline{S_k}} )^2 \cdot I_{A_k} \big) =  \\= \E( S_k^2 \cdot I_{A_k} ) + \E\left( \overline{S_k}^2 \cdot I_{A_k} \right) + 2 \E\left( S_k \overline{S_k} \cdot I_{A_k} \right).
 		\end{multline*}
 		Рассмотрим 
 		\begin{equation*}
 			\E(\underbracket[0.5pt]{S_k \cdot I_{A_k}}_{\sigma\{\xi_1, \ldots, \xi_k \}~\text{--- измер.}} \cdot \underbracket[0.5pt]{\overline{S_k}}_{\sigma\{\xi_{k+1}, \ldots, \xi_n \}~\text{--- измер.}}).
 		\end{equation*}
-		Следовательно, $S_k \cdot I_{A_k} \indep \overline{S_k}$, так как $\{xi_1, \ldots, \xi_k \} \indep \{ \xi_{k+1}, \ldots,\xi_n \}$, а, значит, $\E( S_k \cdot I_{A_k} \cdot \overline{S_k} ) = \E(S_k \cdot I_{A_k}) \cdot \cancelto{0}{\E \overline{S_k}} = 0$. Отсюда
+		Следовательно, $S_k \cdot I_{A_k} \indep \overline{S_k}$, так как $\{\xi_1, \ldots, \xi_k \} \indep \{ \xi_{k+1}, \ldots,\xi_n \}$, а, значит, $\E( S_k \cdot I_{A_k} \cdot \overline{S_k} ) = \E(S_k \cdot I_{A_k}) \cdot \cancelto{0}{\E \overline{S_k}} = 0$. Отсюда
 		\begin{equation*}
 			\E( S_k^2 \cdot I_{A_k} ) + \E \left( \overline{S_k}^2 \cdot I_{A_k}  \right) \geqslant \E(S_k^2 \cdot I_{A_k} ) \geqslant \varepsilon^2 \cdot \E I_{A_k} = \varepsilon^2 \cdot \P(A_k).
 		\end{equation*}

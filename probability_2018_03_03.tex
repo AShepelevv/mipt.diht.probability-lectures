@@ -37,7 +37,7 @@
 \begin{theorem}
 	Пусть $(\xi_1, \ldots, \xi_n)$~--- независимые случайные векторы, $\xi_i$ имеет размерность $n_i$. Пусть $f_i: \R^{n_i} \rightarrow \R^{k_i}$~--- борелевские функции. Тогда величины $f_1(\xi_1), \ldots, f_n(\xi_n)$~--- независимые.
 	\begin{proof}
-		Обозначим $\eta_i = f_i(\xi_i) \Rightarrow \eta_i$~--- $\F_{\xi_i}$-измеримая. По условию $\{\F_{\xi_i}\}_{i = 1}^\infty$~--- независимые $\sigma$-алгебры, следовательно $\{\F_{\eta_i}\}$ независимы, т.к. $\forall i : \F_{\eta_i} \subset \F_{\xi_i}$, значит по определению $\{\eta_i\}$ независимы в совокупности.
+		Обозначим $\eta_i = f_i(\xi_i) \Rightarrow \eta_i$~--- $\F_{\xi_i}$-измеримая. По условию $\{\F_{\xi_i}\}_{i = 1}^n$~--- независимые $\sigma$-алгебры, следовательно $\{\F_{\eta_i}\}$ независимы, т.к. $\forall i : \F_{\eta_i} \subset \F_{\xi_i}$, значит по определению $\{\eta_i\}$ независимы в совокупности.
 	\end{proof}
 \end{theorem}
 \subsection{Интеграл Лебега}
@@ -45,7 +45,7 @@
 	$\forall \xi \geqslant 0$ существует набор простых случайных величин $\xi_n$: $\xi_n \uparrow \xi$ ($\xi_n$~--- простая, если $\xi_n = \sum\limits_{i = 1}^k c_iI_{A_i}$).
 \end{lemma}
 \begin{definition}
-	Пусть $\xi$~--- простая случайная величина, то есть $\xi = \sum\limits_{i = 1}^k c_iI_{A_i}$, тогда матожидание $\E \xi = \sum\limits_{i = 1}^k c_i\P(A_i)$, где $\bigsqcup A_i = \Omega$.
+	Пусть $\xi$~--- простая случайная величина, то есть $\xi = \sum\limits_{i = 1}^k c_iI_{A_i}$, тогда матожидание $\E \xi = \sum\limits_{i = 1}^k c_i\P(A_i)$, где $\bigsqcup\limits_{i=1}^k A_i = \Omega$.
 \end{definition}
 \begin{definition}
 	Пусть $\xi \geqslant 0$, тогда матожидание $\E \xi = \lim\limits_{n \rightarrow \infty} \E \xi_n$, где $\xi_n \uparrow \xi$, $\xi_n$~--- простые неотрицательные случайные величины или $\E \xi = \sup\limits_{\eta \leqslant \xi}\E\eta$, $\eta$~--- простые неотрицательные. 
@@ -82,13 +82,13 @@
 \begin{property}
 	Если $\E\xi$~--- конечно, то $|\E\xi| \leqslant \E|\xi|$.
 	\begin{proof}
-		$|\xi| = \xi_+ + \xi_- \Rightarrow E|\xi|$~--- конечно. $\underbrace{-\E\xi_+ - \E\xi_-}_{-\E|\xi|} \leqslant \underbrace{\E\xi_+ - \E\xi_-}_{\E_\xi} \leqslant \underbrace{\E\xi_+ + \E\xi_-}_{\E|\xi|}$.
+		$|\xi| = \xi_+ + \xi_- \Rightarrow \E|\xi|$~--- конечно. $\underbrace{-\E\xi_+ - \E\xi_-}_{-\E|\xi|} \leqslant \underbrace{\E\xi_+ - \E\xi_-}_{\E_\xi} \leqslant \underbrace{\E\xi_+ + \E\xi_-}_{\E|\xi|}$.
 	\end{proof}
 \end{property}
 \begin{property}[Аддитивность]
-	Пусть $\xi$ и $\eta$~--- случайные величины, $\E\xi$ и $\E\eta$~--- конечные, тогда $\E(\xi + \eta) = \E(\xi) + \E(\eta)$.
+	Пусть $\xi$ и $\eta$~--- случайные величины, $\E\xi$ и $\E\eta$~--- конечные, тогда $\E(\xi + \eta) = \E\xi + \E\eta$.
 	\begin{proof}
-		Для простых случайных величин~--- очевидно. Пусть $\xi, \eta \geqslant 0$, возьмем $\xi_n \uparrow \xi$, $\eta_n \uparrow \eta$~--- простые и положительные. Тогда $\xi_n + \eta_n \uparrow \xi + \eta \Rightarrow \E(\xi + \eta) = \lim\limits_{n \rightarrow \infty}\E(\xi_n + \eta_n) = \lim\limits_{n \rightarrow \infty}\E \xi_n + \lim\limits_{n \rightarrow \infty} \E\eta_n = \E\xi + \E\eta$. Пусть $\xi, \eta$~--- произвольные, тогда $(\xi + \eta)_+ \leqslant \xi_+ + \eta_+$. Пусть $\delta = (\xi_+ + \eta_+) - (\xi + \eta)_+ \Rightarrow \E\delta + \E(\xi + \eta)_+ = \E\xi_+ + \E\eta_+ \Rightarrow \E(\xi + \eta)_+ = \E\xi_+ + \E\xi_- - \E\delta$. Аналогично, $\E(\xi + \eta)_- = \E\xi_- + \E\eta_- - \E\delta$. Тогда $\E(\xi + \eta) = \E(\xi + \eta)_+ - \E(\xi + \eta)_- = \E\xi_+ + \E\eta_+ - \E\delta - \E\xi_- - \E\eta_- + \E \delta = \E\xi + \E\eta$. Рассмотрим $(\xi + \eta)_- = (\xi + \eta)_+ - (\xi + \eta) = \xi_+ + \eta_+ - \delta - (\xi + \eta) = \xi_- + \eta_- - \delta$.
+		Для простых случайных величин~--- очевидно. Пусть $\xi, \eta \geqslant 0$, возьмем $\xi_n \uparrow \xi$, $\eta_n \uparrow \eta$~--- простые и положительные. Тогда $\xi_n + \eta_n \uparrow \xi + \eta \Rightarrow \E(\xi + \eta) = \lim\limits_{n \rightarrow \infty}\E(\xi_n + \eta_n) = \lim\limits_{n \rightarrow \infty}\E \xi_n + \lim\limits_{n \rightarrow \infty} \E\eta_n = \E\xi + \E\eta$. Пусть $\xi, \eta$~--- произвольные, тогда $(\xi + \eta)_+ \leqslant \xi_+ + \eta_+$. Пусть $\delta = (\xi_+ + \eta_+) - (\xi + \eta)_+ \Rightarrow \E\delta + \E(\xi + \eta)_+ = \E\xi_+ + \E\eta_+ \Rightarrow \E(\xi + \eta)_+ = \E\xi_+ + \E\xi_+ - \E\delta$. Аналогично, $\E(\xi + \eta)_- = \E\xi_- + \E\eta_- - \E\delta$. Тогда $\E(\xi + \eta) = \E(\xi + \eta)_+ - \E(\xi + \eta)_- = \E\xi_+ + \E\eta_+ - \E\delta - \E\xi_- - \E\eta_- + \E \delta = \E\xi + \E\eta$. Рассмотрим $(\xi + \eta)_- = (\xi + \eta)_+ - (\xi + \eta) = \xi_+ + \eta_+ - \delta - (\xi + \eta) = \xi_- + \eta_- - \delta$.
 	\end{proof}
 \end{property}
 \begin{property}
@@ -100,7 +100,7 @@
 	\end{enumerate}
 	\begin{proof}
 		\begin{enumerate}
-			\item $\xi_-, \xi_+ \leqslant \eta \Rightarrow 0 \leqslant \E\xi_+ = \sup\limits_{0 \leqslant \mu \leqslant \xi_+}\E\mu = \E\eta < +\infty \Rightarrow \E\xi_+, \E\xi_- < +\infty \Rightarrow \E\xi$~--- конечное.
+			\item $\xi_-, \xi_+ \leqslant \eta \Rightarrow 0 \leqslant \E\xi_+ = \sup\limits_{0 \leqslant \mu \leqslant \xi_+}\E\mu \leqslant \E\eta < +\infty \Rightarrow \E\xi_+, \E\xi_- < +\infty \Rightarrow \E\xi$~--- конечное.
 			\item $\xi_+ \leqslant \eta_+ < +\infty \Rightarrow$ по первому пункту $\E\xi_+ < +\infty \Rightarrow \E\xi < +\infty$.
 			\item $(\xi\cdot I_A)_+ = I_A\cdot\xi_+ < \xi_+ \Rightarrow \E(\xi\cdot I_A)_+$~--- конечное. Аналогично $\E(\xi\cdot I_A)_-$~--- конечное $\Rightarrow \E(\xi\cdot I_A)$~--- конечное.
 		\end{enumerate}

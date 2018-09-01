@@ -2,13 +2,13 @@
 \begin{property}
 	Если $\xi = \eta$ почти наверное и $\E | \eta| < +\infty$, то $\E | \xi| < +\infty$ и $\E \xi = \E \eta$.
 	\begin{proof}
-		Пусть $A = \{ \xi \neq \eta \}$, тогда $I_A = 0$ почти наверное, следовательно $\xi \cdot I_a = 0$ почти наверное и $\eta \cdot I_A = 0$ почти наверное. Так как $\xi = \xi \cdot I_A + \xi \cdot I_{\overline A}$, то $\xi = \xi \cdot I_A + \eta \cdot I_A$, потому что на $\overline A$ выполняется $\xi = \eta$. Из свойства 6 имеем $\E \xi = \E ( \xi \cdot I_A ) + \E (\eta \cdot I_{\overline A} ) = \E ( \eta \cdot I_A) + E ( \eta \cdot I_{\overline A} ) = \E \eta$. 
+		Пусть $A = \{ \xi \neq \eta \}$, тогда $I_A = 0$ почти наверное, следовательно $\xi \cdot I_A = 0$ почти наверное и $\eta \cdot I_A = 0$ почти наверное. Так как $\xi = \xi \cdot I_A + \xi \cdot I_{\overline A}$, то $\xi = \xi \cdot I_A + \eta \cdot I_{\overline A}$, потому что на $\overline A$ выполняется $\xi = \eta$. Из свойства 6 имеем $\E \xi = \E ( \xi \cdot I_A ) + \E (\eta \cdot I_{\overline A} ) = \E ( \eta \cdot I_A) + E ( \eta \cdot I_{\overline A} ) = \E \eta$. 
 	\end{proof}
 \end{property}
 \begin{property}
 	Пусть $\xi \geqslant 0$ и $\E \xi = 0$, тогда $\xi = 0$ почти наверное.
 	\begin{proof}
-		Рассмотрим события $A = \{ \xi > 0 \}$ и $A_n = \left\{ \xi > \frac{1}{n} \right\} $, следовательно, $A_n \uparrow A$. Имеем $\P (A_n) = \E I_{A_n}$, так как $n\xi > 1$ на $A_n$, то  $\E I_{A_n} \leqslant \E (n\xi \cdot I_A) \leqslant n \E \xi = 0$, значит, $\P(A) = \lim\limits_{n \rightarrow +\infty} \P (A_n)$.
+		Рассмотрим события $A = \{ \xi > 0 \}$ и $A_n = \left\{ \xi > \frac{1}{n} \right\} $, следовательно, $A_n \uparrow A$. Имеем $\P (A_n) = \E I_{A_n}$, так как $n\xi > 1$ на $A_n$, то  $\E I_{A_n} \leqslant \E (n\xi \cdot I_A) \leqslant n \E \xi = 0$, значит, $\P(A) = \lim\limits_{n \rightarrow +\infty} \P (A_n) = 0$.
 	\end{proof}
 \end{property}
 \begin{property}
@@ -42,7 +42,7 @@
 
 Пусть $\xi : \Omega \rightarrow \R (\R^n)$, в таком случае вероятностная мера $\P_\xi$ однозначно восстанавливается по $F_\xi$, следовательно, по теореме $\E g(\xi) = \int g(\xi) \, d\P = \int g(x) \P_\xi(dx) = \int g(x) \, d F_\xi (x)$.
 
-Пусть  $\xi$~--- абсолютно непрерывная случайная величина с плотностью $p_\xi(x)$, тогда $d F_\xi (x) = p_\xi (x)$, следовательно $\E g(x) = \int\limits_{\R} g(x) p_\xi(x) \, d x$.
+Пусть  $\xi$~--- абсолютно непрерывная случайная величина с плотностью $p_\xi(x)$, тогда $d F_\xi (x) = p_\xi (x) \, dx$, следовательно $\E g(x) = \int\limits_{\R} g(x) p_\xi(x) \, d x$.
 
 \subsection{Прямое произведение вероятностных пространств и формула свертки}
 
